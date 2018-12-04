@@ -1,0 +1,36 @@
+﻿<Window x:Class="ArmyBase.View.AddBarrackView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ArmyBase.View"
+        mc:Ignorable="d"
+        Title="Add new barrack" MinHeight="300" MinWidth="450" Height="300" Width="405" x:Name="AddUserPage" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"  />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" Padding="2"  FontSize="12" Margin="5">ID</Label>
+        <Label Grid.Column="0" Grid.Row="1" Padding="2"  FontSize="12" Margin="5">Name</Label>
+        <Label Grid.Column="0" Grid.Row="2" Padding="2"  FontSize="12" Margin="5" >Capacity</Label>
+        <Label Grid.Column="0" Grid.Row="3" Padding="2"  FontSize="12" Margin="5" >Administrator</Label>
+        <TextBox Grid.Column="1" Grid.Row="0" x:Name="ID" Margin="5" />
+        <TextBox Grid.Column="1" Grid.Row="1" x:Name="Name" Margin="5"/>
+        <TextBox Grid.Column="1" Grid.Row="2" x:Name="Capacity" Margin="5"/>
+        <TextBox Grid.Column="1" Grid.Row="3" x:Name="Administrator" Margin="5" />
+        <Button Grid.Column="0" x:Name="Add" Content="Add" Width="75" Height="auto" IsDefault="True" Margin="5" Grid.Row="4"/>
+        <Button Grid.Column="0" x:Name="Close" Content="Cancel"  Width="75" Height="auto" IsCancel="True" Margin="5" Grid.Row="5"/>
+
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Center" TextWrapping="Wrap" x:Name="Error" Margin="5" Grid.Row="4" />
+       
+    </Grid>
+</Window>
