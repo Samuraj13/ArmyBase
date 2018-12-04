@@ -104,110 +104,102 @@
     <Compile Include="Service\MissionService.cs" />
     <Compile Include="Service\TeamTypeService.cs" />
     <Compile Include="Service\EquipmentTypeService.cs" />
-    <Compile Include="ViewModel\AddBarrackViewModel.cs" />
-    <Compile Include="ViewModel\AddEmployeeViewModel.cs" />
-    <Compile Include="ViewModel\AddEquipmentViewModel.cs" />
-    <Compile Include="ViewModel\AddMissionTypeViewModel.cs" />
-    <Compile Include="ViewModel\AddMissionViewModel.cs" />
-    <Compile Include="ViewModel\AddPermissionViewModel.cs" />
-    <Compile Include="ViewModel\AddRankViewModel.cs" />
-    <Compile Include="ViewModel\AddSpecializationViewModel.cs" />
-    <Compile Include="ViewModel\AddTeamTypeViewModel.cs" />
-    <Compile Include="ViewModel\AddTeamViewModel.cs" />
-    <Compile Include="ViewModel\AddEquipmentTypeViewModel.cs" />
+    <Compile Include="ViewModel\Barrack\AddBarrackViewModel.cs" />
+    <Compile Include="ViewModel\Employee\AddEmployeeViewModel.cs" />
+    <Compile Include="ViewModel\Equipment\AddEquipmentViewModel.cs" />
+    <Compile Include="ViewModel\MissionType\AddMissionTypeViewModel.cs" />
+    <Compile Include="ViewModel\Mission\AddMissionViewModel.cs" />
+    <Compile Include="ViewModel\Permission\AddPermissionViewModel.cs" />
+    <Compile Include="ViewModel\Rank\AddRankViewModel.cs" />
+    <Compile Include="ViewModel\Specialization\AddSpecializationViewModel.cs" />
+    <Compile Include="ViewModel\TeamType\AddTeamTypeViewModel.cs" />
+    <Compile Include="ViewModel\Team\AddTeamViewModel.cs" />
+    <Compile Include="ViewModel\EquipmentType\AddEquipmentTypeViewModel.cs" />
     <Compile Include="ViewModel\StartUpViewModel.cs" />
-    <Compile Include="View\AddBarrackView.xaml.cs">
+    <Compile Include="View\Barrack\AddBarrackView.xaml.cs">
       <DependentUpon>AddBarrackView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AddEmployeeView.xaml.cs">
-      <DependentUpon>AddEmployeeView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\AddEquipmentView.xaml.cs">
+    <Compile Include="View\Equipment\AddEquipmentView.xaml.cs">
       <DependentUpon>AddEquipmentView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AddMissionTypeView.xaml.cs">
+    <Compile Include="View\MissionType\AddMissionTypeView.xaml.cs">
       <DependentUpon>AddMissionTypeView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AddMissionView.xaml.cs">
+    <Compile Include="View\Mission\AddMissionView.xaml.cs">
       <DependentUpon>AddMissionView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AddPermissionView.xaml.cs">
+    <Compile Include="View\Permission\AddPermissionView.xaml.cs">
       <DependentUpon>AddPermissionView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AddRankView.xaml.cs">
+    <Compile Include="View\Rank\AddRankView.xaml.cs">
       <DependentUpon>AddRankView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AddSpecializationView.xaml.cs">
+    <Compile Include="View\Specialization\AddSpecializationView.xaml.cs">
       <DependentUpon>AddSpecializationView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AddTeamTypeView.xaml.cs">
+    <Compile Include="View\TeamType\AddTeamTypeView.xaml.cs">
       <DependentUpon>AddTeamTypeView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AddTeamView.xaml.cs">
+    <Compile Include="View\Team\AddTeamView.xaml.cs">
       <DependentUpon>AddTeamView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AddEquipmentTypeView.xaml.cs">
+    <Compile Include="View\EquipmentType\AddEquipmentTypeView.xaml.cs">
       <DependentUpon>AddEquipmentTypeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Employee\AddEmployeeView.xaml.cs">
+      <DependentUpon>AddEmployeeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\StartUpView.xaml.cs">
       <DependentUpon>StartUpView.xaml</DependentUpon>
     </Compile>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="View\AddBarrackView.xaml">
+    <Page Include="View\Barrack\AddBarrackView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AddEmployeeView.xaml">
+    <Page Include="View\Equipment\AddEquipmentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AddEquipmentView.xaml">
+    <Page Include="View\MissionType\AddMissionTypeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AddMissionTypeView.xaml">
+    <Page Include="View\Mission\AddMissionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AddMissionView.xaml">
+    <Page Include="View\Permission\AddPermissionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AddPermissionView.xaml">
+    <Page Include="View\Rank\AddRankView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AddRankView.xaml">
+    <Page Include="View\Specialization\AddSpecializationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AddSpecializationView.xaml">
+    <Page Include="View\TeamType\AddTeamTypeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AddTeamTypeView.xaml">
+    <Page Include="View\Team\AddTeamView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AddTeamView.xaml">
+    <Page Include="View\EquipmentType\AddEquipmentTypeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AddEquipmentTypeView.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="View\Employee\AddEmployeeView.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\StartUpView.xaml">
       <SubType>Designer</SubType>
