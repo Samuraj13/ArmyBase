@@ -1,4 +1,7 @@
-﻿using ArmyBase.ViewModel;
+﻿using ArmyBase.ViewModels.Employee;
+using ArmyBase.ViewModels.Equipment;
+using ArmyBase.ViewModels.Rank;
+using ArmyBase.ViewModels.Team;
 using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
@@ -20,7 +23,7 @@ namespace ArmyBase
 
         protected override void OnStartup(object sender, StartupEventArgs e)
         {
-            DisplayRootViewFor<StartUpViewModel>();
+            DisplayRootViewFor<AddEmployeeViewModel>();
 
         }
     }

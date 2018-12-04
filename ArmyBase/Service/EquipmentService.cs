@@ -1,5 +1,5 @@
 ﻿using ArmyBase.DTO;
-using ArmyBase.Model;
+using ArmyBase.Models;
 using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
@@ -54,7 +54,7 @@ namespace ArmyBase.Service
             }
         }
 
-        public static string Add(string name, int equipmentTypeId, int quantity, string description)
+        public static string Add(string name, int equipmentTypeId, int quantity, string description, bool isAvailable)
         {
 
             using (ArmyBaseContext db = new ArmyBaseContext())
@@ -65,6 +65,7 @@ namespace ArmyBase.Service
                 newEquipment.EquipmentTypeId = equipmentTypeId;
                 newEquipment.Quantity = quantity;
                 newEquipment.Description = description;
+                newEquipment.IsAvailable = isAvailable;
 
                 var context = new ValidationContext(newEquipment, null, null);
                 var result = new List<ValidationResult>();

@@ -1,6 +1,6 @@
 namespace ArmyBase.DTO
 {
-    using ArmyBase.Model;
+    using ArmyBase.Models;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;

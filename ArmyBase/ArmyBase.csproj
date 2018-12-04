@@ -87,12 +87,12 @@
     <Compile Include="DTO\SpecializationDTO.cs" />
     <Compile Include="DTO\TeamDTO.cs" />
     <Compile Include="DTO\TeamTypeDTO.cs" />
-    <Compile Include="Migrations\201812042052197_DBInit.cs" />
-    <Compile Include="Migrations\201812042052197_DBInit.Designer.cs">
-      <DependentUpon>201812042052197_DBInit.cs</DependentUpon>
+    <Compile Include="Migrations\201812042323579_DBInit.cs" />
+    <Compile Include="Migrations\201812042323579_DBInit.Designer.cs">
+      <DependentUpon>201812042323579_DBInit.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Model\ArmyBaseContext.cs" />
+    <Compile Include="Models\ArmyBaseContext.cs" />
     <Compile Include="Service\BarrackService.cs" />
     <Compile Include="Service\EmployeeService.cs" />
     <Compile Include="Service\EquipmentService.cs" />
@@ -104,52 +104,52 @@
     <Compile Include="Service\MissionService.cs" />
     <Compile Include="Service\TeamTypeService.cs" />
     <Compile Include="Service\EquipmentTypeService.cs" />
-    <Compile Include="ViewModel\Barrack\AddBarrackViewModel.cs" />
-    <Compile Include="ViewModel\Employee\AddEmployeeViewModel.cs" />
-    <Compile Include="ViewModel\Equipment\AddEquipmentViewModel.cs" />
-    <Compile Include="ViewModel\MissionType\AddMissionTypeViewModel.cs" />
-    <Compile Include="ViewModel\Mission\AddMissionViewModel.cs" />
-    <Compile Include="ViewModel\Permission\AddPermissionViewModel.cs" />
-    <Compile Include="ViewModel\Rank\AddRankViewModel.cs" />
-    <Compile Include="ViewModel\Specialization\AddSpecializationViewModel.cs" />
-    <Compile Include="ViewModel\TeamType\AddTeamTypeViewModel.cs" />
-    <Compile Include="ViewModel\Team\AddTeamViewModel.cs" />
-    <Compile Include="ViewModel\EquipmentType\AddEquipmentTypeViewModel.cs" />
-    <Compile Include="ViewModel\StartUpViewModel.cs" />
-    <Compile Include="View\Barrack\AddBarrackView.xaml.cs">
+    <Compile Include="ViewModels\Barrack\AddBarrackViewModel.cs" />
+    <Compile Include="ViewModels\Employee\AddEmployeeViewModel.cs" />
+    <Compile Include="ViewModels\Equipment\AddEquipmentViewModel.cs" />
+    <Compile Include="ViewModels\MissionType\AddMissionTypeViewModel.cs" />
+    <Compile Include="ViewModels\Mission\AddMissionViewModel.cs" />
+    <Compile Include="ViewModels\Permission\AddPermissionViewModel.cs" />
+    <Compile Include="ViewModels\Rank\AddRankViewModel.cs" />
+    <Compile Include="ViewModels\Specialization\AddSpecializationViewModel.cs" />
+    <Compile Include="ViewModels\TeamType\AddTeamTypeViewModel.cs" />
+    <Compile Include="ViewModels\Team\AddTeamViewModel.cs" />
+    <Compile Include="ViewModels\EquipmentType\AddEquipmentTypeViewModel.cs" />
+    <Compile Include="ViewModels\StartUpViewModel.cs" />
+    <Compile Include="Views\Barrack\AddBarrackView.xaml.cs">
       <DependentUpon>AddBarrackView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Equipment\AddEquipmentView.xaml.cs">
+    <Compile Include="Views\Equipment\AddEquipmentView.xaml.cs">
       <DependentUpon>AddEquipmentView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MissionType\AddMissionTypeView.xaml.cs">
+    <Compile Include="Views\MissionType\AddMissionTypeView.xaml.cs">
       <DependentUpon>AddMissionTypeView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Mission\AddMissionView.xaml.cs">
+    <Compile Include="Views\Mission\AddMissionView.xaml.cs">
       <DependentUpon>AddMissionView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Permission\AddPermissionView.xaml.cs">
+    <Compile Include="Views\Permission\AddPermissionView.xaml.cs">
       <DependentUpon>AddPermissionView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Rank\AddRankView.xaml.cs">
+    <Compile Include="Views\Rank\AddRankView.xaml.cs">
       <DependentUpon>AddRankView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Specialization\AddSpecializationView.xaml.cs">
+    <Compile Include="Views\Specialization\AddSpecializationView.xaml.cs">
       <DependentUpon>AddSpecializationView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\TeamType\AddTeamTypeView.xaml.cs">
+    <Compile Include="Views\TeamType\AddTeamTypeView.xaml.cs">
       <DependentUpon>AddTeamTypeView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Team\AddTeamView.xaml.cs">
+    <Compile Include="Views\Team\AddTeamView.xaml.cs">
       <DependentUpon>AddTeamView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\EquipmentType\AddEquipmentTypeView.xaml.cs">
+    <Compile Include="Views\EquipmentType\AddEquipmentTypeView.xaml.cs">
       <DependentUpon>AddEquipmentTypeView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Employee\AddEmployeeView.xaml.cs">
+    <Compile Include="Views\Employee\AddEmployeeView.xaml.cs">
       <DependentUpon>AddEmployeeView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\StartUpView.xaml.cs">
+    <Compile Include="Views\StartUpView.xaml.cs">
       <DependentUpon>StartUpView.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
@@ -157,67 +157,67 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
-    <Page Include="View\Barrack\AddBarrackView.xaml">
+    <Page Include="Views\Barrack\AddBarrackView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Equipment\AddEquipmentView.xaml">
+    <Page Include="Views\Equipment\AddEquipmentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\MissionType\AddMissionTypeView.xaml">
+    <Page Include="Views\MissionType\AddMissionTypeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Mission\AddMissionView.xaml">
+    <Page Include="Views\Mission\AddMissionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Permission\AddPermissionView.xaml">
+    <Page Include="Views\Permission\AddPermissionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Rank\AddRankView.xaml">
+    <Page Include="Views\Rank\AddRankView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Specialization\AddSpecializationView.xaml">
+    <Page Include="Views\Specialization\AddSpecializationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\TeamType\AddTeamTypeView.xaml">
+    <Page Include="Views\TeamType\AddTeamTypeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Team\AddTeamView.xaml">
+    <Page Include="Views\Team\AddTeamView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\EquipmentType\AddEquipmentTypeView.xaml">
+    <Page Include="Views\EquipmentType\AddEquipmentTypeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Employee\AddEmployeeView.xaml">
+    <Page Include="Views\Employee\AddEmployeeView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\StartUpView.xaml">
+    <Page Include="Views\StartUpView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Barrack.cs" />
-    <Compile Include="Model\Team.cs" />
-    <Compile Include="Model\Mission.cs" />
-    <Compile Include="Model\Employee.cs" />
-    <Compile Include="Model\Specialization.cs" />
-    <Compile Include="Model\Equipment.cs" />
-    <Compile Include="Model\Rank.cs" />
-    <Compile Include="Model\EquipmentType.cs" />
-    <Compile Include="Model\TeamType.cs" />
-    <Compile Include="Model\MissionType.cs" />
-    <Compile Include="Model\Permission.cs" />
+    <Compile Include="Models\Barrack.cs" />
+    <Compile Include="Models\Team.cs" />
+    <Compile Include="Models\Mission.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Specialization.cs" />
+    <Compile Include="Models\Equipment.cs" />
+    <Compile Include="Models\Rank.cs" />
+    <Compile Include="Models\EquipmentType.cs" />
+    <Compile Include="Models\TeamType.cs" />
+    <Compile Include="Models\MissionType.cs" />
+    <Compile Include="Models\Permission.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -231,8 +231,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201812042052197_DBInit.resx">
-      <DependentUpon>201812042052197_DBInit.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812042323579_DBInit.resx">
+      <DependentUpon>201812042323579_DBInit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

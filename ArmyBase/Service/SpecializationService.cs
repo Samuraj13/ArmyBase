@@ -1,5 +1,5 @@
 ﻿using ArmyBase.DTO;
-using ArmyBase.Model;
+using ArmyBase.Models;
 using Caliburn.Micro;
 using System;
 using System.Collections.Generic;

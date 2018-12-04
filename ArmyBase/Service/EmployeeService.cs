@@ -1,5 +1,5 @@
 ﻿using ArmyBase.DTO;
-using ArmyBase.Model;
+using ArmyBase.Models;
 using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
@@ -84,7 +84,7 @@ namespace ArmyBase.Service
             }
         }
 
-        public static string Add(int nationalId, string firstName, string lastName, float salary, int specializationId, DateTime dateOfEmployment, int rankId, int teamId, int barrackId)
+        public static string Add(int nationalId, string firstName, string lastName, double salary, int? specializationId, DateTime dateOfEmployment, int? rankId, int? teamId = null, int? barrackId = null)
         {
 
             using (ArmyBaseContext db = new ArmyBaseContext())

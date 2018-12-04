@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ArmyBase.Migrations
 {
-    internal sealed class Configuration : DbMigrationsConfiguration<ArmyBase.Model.ArmyBaseContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ArmyBase.Models.ArmyBaseContext>
     {
         public Configuration()
         {
@@ -15,7 +15,7 @@ namespace ArmyBase.Migrations
             AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(ArmyBase.Model.ArmyBaseContext db)
+        protected override void Seed(ArmyBase.Models.ArmyBaseContext db)
         {
 
         }

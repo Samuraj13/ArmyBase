@@ -1,6 +1,6 @@
 namespace ArmyBase.DTO
 {
-    using ArmyBase.Model;
+    using ArmyBase.Models;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -15,15 +15,15 @@ namespace ArmyBase.DTO
         public string LastName { get; set; }
         public bool IsBarrackManager { get; set; }
         public bool IsTeamLeader { get; set; }
-        public float Salary { get; set; }
-        public int SpecializationId { get; set; }
+        public double Salary { get; set; }
+        public int? SpecializationId { get; set; }
         public Specialization Specialization { get; set; }
         public DateTime DateOfEmployment { get; set; }
-        public int RankId { get; set; }
+        public int? RankId { get; set; }
         public Rank Rank { get; set; }
-        public int TeamId { get; set; }
+        public int? TeamId { get; set; }
         public Team Team { get; set; }
-        public int BarrackId { get; set; }
+        public int? BarrackId { get; set; }
         public Barrack Barrack { get; set; }
     }
 }
