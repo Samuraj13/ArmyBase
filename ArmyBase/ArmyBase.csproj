@@ -76,7 +76,51 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\AddBarrackViewModel.cs" />
+    <Compile Include="ViewModel\AddEmployeeViewModel.cs" />
+    <Compile Include="ViewModel\AddEquipmentViewModel.cs" />
+    <Compile Include="ViewModel\AddMissionTypeViewModel.cs" />
+    <Compile Include="ViewModel\AddMissionViewModel.cs" />
+    <Compile Include="ViewModel\AddPermissionViewModel.cs" />
+    <Compile Include="ViewModel\AddRankViewModel.cs" />
+    <Compile Include="ViewModel\AddSpecializationViewModel.cs" />
+    <Compile Include="ViewModel\AddTeamTypeViewModel.cs" />
+    <Compile Include="ViewModel\AddTeamViewModel.cs" />
+    <Compile Include="ViewModel\AddWeaponTypeViewModel.cs" />
     <Compile Include="ViewModel\StartUpViewModel.cs" />
+    <Compile Include="View\AddBarrackView.xaml.cs">
+      <DependentUpon>AddBarrackView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddEmployeeView.xaml.cs">
+      <DependentUpon>AddEmployeeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddEquipmentView.xaml.cs">
+      <DependentUpon>AddEquipmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddMissionTypeView.xaml.cs">
+      <DependentUpon>AddMissionTypeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddMissionView.xaml.cs">
+      <DependentUpon>AddMissionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddPermissionView.xaml.cs">
+      <DependentUpon>AddPermissionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddRankView.xaml.cs">
+      <DependentUpon>AddRankView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddSpecializationView.xaml.cs">
+      <DependentUpon>AddSpecializationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddTeamTypeView.xaml.cs">
+      <DependentUpon>AddTeamTypeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddTeamView.xaml.cs">
+      <DependentUpon>AddTeamView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddWeaponTypeView.xaml.cs">
+      <DependentUpon>AddWeaponTypeView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\StartUpView.xaml.cs">
       <DependentUpon>StartUpView.xaml</DependentUpon>
     </Compile>
@@ -93,6 +137,50 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\AddBarrackView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddEmployeeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddEquipmentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddMissionTypeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddMissionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddPermissionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddRankView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddSpecializationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddTeamTypeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddTeamView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddWeaponTypeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\StartUpView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
