@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace ArmyBase.View
 {
     /// <summary>
-    /// Logika interakcji dla klasy AddWeaponTypeView.xaml
+    /// Logika interakcji dla klasy AddEquipmentTypeView.xaml
     /// </summary>
-    public partial class AddWeaponTypeView : Window
+    public partial class AddEquipmentTypeView : Window
     {
-        public AddWeaponTypeView()
+        public AddEquipmentTypeView()
         {
             InitializeComponent();
         }

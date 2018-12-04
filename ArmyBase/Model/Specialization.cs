@@ -15,6 +15,8 @@ namespace ArmyBase.Model
         [Required]
         public string Name { get; set; }
         
+        public string Description { get; set; }
+
         [ForeignKey("Specialization")]
         public ICollection<Equipment> Equipment { get; set; }
 

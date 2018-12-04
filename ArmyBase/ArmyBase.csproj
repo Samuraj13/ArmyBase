@@ -76,9 +76,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Migrations\201812041910018_DBInit.cs" />
-    <Compile Include="Migrations\201812041910018_DBInit.Designer.cs">
-      <DependentUpon>201812041910018_DBInit.cs</DependentUpon>
+    <Compile Include="DTO\BarrackDTO.cs" />
+    <Compile Include="DTO\EmployeeDTO.cs" />
+    <Compile Include="DTO\EquipmentDTO.cs" />
+    <Compile Include="DTO\EquipmentTypeDTO.cs" />
+    <Compile Include="DTO\MissionDTO.cs" />
+    <Compile Include="DTO\MissionTypeDTO.cs" />
+    <Compile Include="DTO\PermissionDTO.cs" />
+    <Compile Include="DTO\RankDTO.cs" />
+    <Compile Include="DTO\SpecializationDTO.cs" />
+    <Compile Include="DTO\TeamDTO.cs" />
+    <Compile Include="DTO\TeamTypeDTO.cs" />
+    <Compile Include="Migrations\201812042052197_DBInit.cs" />
+    <Compile Include="Migrations\201812042052197_DBInit.Designer.cs">
+      <DependentUpon>201812042052197_DBInit.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ArmyBaseContext.cs" />
@@ -103,7 +114,7 @@
     <Compile Include="ViewModel\AddSpecializationViewModel.cs" />
     <Compile Include="ViewModel\AddTeamTypeViewModel.cs" />
     <Compile Include="ViewModel\AddTeamViewModel.cs" />
-    <Compile Include="ViewModel\AddWeaponTypeViewModel.cs" />
+    <Compile Include="ViewModel\AddEquipmentTypeViewModel.cs" />
     <Compile Include="ViewModel\StartUpViewModel.cs" />
     <Compile Include="View\AddBarrackView.xaml.cs">
       <DependentUpon>AddBarrackView.xaml</DependentUpon>
@@ -135,8 +146,8 @@
     <Compile Include="View\AddTeamView.xaml.cs">
       <DependentUpon>AddTeamView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AddWeaponTypeView.xaml.cs">
-      <DependentUpon>AddWeaponTypeView.xaml</DependentUpon>
+    <Compile Include="View\AddEquipmentTypeView.xaml.cs">
+      <DependentUpon>AddEquipmentTypeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\StartUpView.xaml.cs">
       <DependentUpon>StartUpView.xaml</DependentUpon>
@@ -194,7 +205,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AddWeaponTypeView.xaml">
+    <Page Include="View\AddEquipmentTypeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -228,8 +239,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201812041910018_DBInit.resx">
-      <DependentUpon>201812041910018_DBInit.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812042052197_DBInit.resx">
+      <DependentUpon>201812042052197_DBInit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -244,8 +255,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DTO\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

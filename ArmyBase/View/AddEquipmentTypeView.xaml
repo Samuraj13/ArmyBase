@@ -1,11 +1,11 @@
-﻿<Window x:Class="ArmyBase.View.AddWeaponTypeView"
+﻿<Window x:Class="ArmyBase.View.AddEquipmentTypeView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ArmyBase.View"
         mc:Ignorable="d"
-       Title="Add new weapon type" MinHeight="100" MinWidth="450" Height="200" Width="405" x:Name="AddWeaponTypePage" WindowStartupLocation="CenterScreen">
+       Title="Add new equipment type" MinHeight="100" MinWidth="450" Height="200" Width="405" x:Name="AddEquipmentTypePage" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"  />

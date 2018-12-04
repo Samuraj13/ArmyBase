@@ -22,7 +22,7 @@ namespace ArmyBase.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        NationalId = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        NationalId = c.Int(nullable: false),
                         FirstName = c.String(nullable: false),
                         LastName = c.String(nullable: false),
                         IsBarrackManager = c.Boolean(nullable: false),
@@ -50,9 +50,10 @@ namespace ArmyBase.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(nullable: false),
-                        MinExperience = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        MinExperience = c.Int(nullable: false),
                         CanLead = c.Boolean(nullable: false),
                         Bonus = c.Int(),
+                        Description = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -75,6 +76,7 @@ namespace ArmyBase.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(nullable: false),
+                        Description = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -87,6 +89,7 @@ namespace ArmyBase.Migrations
                         IsAvailable = c.Boolean(nullable: false),
                         EquipmentTypeId = c.Int(nullable: false),
                         Quantity = c.Int(nullable: false),
+                        Description = c.String(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.EquipmentType", t => t.EquipmentTypeId, cascadeDelete: true)

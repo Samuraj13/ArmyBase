@@ -26,27 +26,25 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Column="0" Grid.Row="0" Padding="2"  FontSize="12" Margin="5">ID</Label>
-        <Label Grid.Column="0" Grid.Row="1" Padding="2"  FontSize="12" Margin="5">PESEL</Label>
-        <Label Grid.Column="0" Grid.Row="2" Padding="2"  FontSize="12" Margin="5" >First Name</Label>
-        <Label Grid.Column="0" Grid.Row="3" Padding="2"  FontSize="12" Margin="5" >Last Name</Label>
-        <Label Grid.Column="0" Grid.Row="4" Padding="2"  FontSize="12" Margin="5" >Salary</Label>
-        <Label Grid.Column="0" Grid.Row="5" Padding="2"  FontSize="12" Margin="5" >Specialization</Label>
-        <Label Grid.Column="0" Grid.Row="6" Padding="2"  FontSize="12" Margin="5" >Hire Date</Label>
-        <Label Grid.Column="0" Grid.Row="7" Padding="2"  FontSize="12" Margin="5" >Rank</Label>
-        <Label Grid.Column="0" Grid.Row="8" Padding="2"  FontSize="12" Margin="5" >Team</Label>
-        <Label Grid.Column="0" Grid.Row="9" Padding="2"  FontSize="12" Margin="5" >Barrack</Label>
+        <Label Grid.Column="0" Grid.Row="0" Padding="2"  FontSize="12" Margin="5">National Id</Label>
+        <Label Grid.Column="0" Grid.Row="1" Padding="2"  FontSize="12" Margin="5" >First Name</Label>
+        <Label Grid.Column="0" Grid.Row="2" Padding="2"  FontSize="12" Margin="5" >Last Name</Label>
+        <Label Grid.Column="0" Grid.Row="3" Padding="2"  FontSize="12" Margin="5" >Salary</Label>
+        <Label Grid.Column="0" Grid.Row="4" Padding="2"  FontSize="12" Margin="5" >Specialization</Label>
+        <Label Grid.Column="0" Grid.Row="5" Padding="2"  FontSize="12" Margin="5" >Hire Date</Label>
+        <Label Grid.Column="0" Grid.Row="6" Padding="2"  FontSize="12" Margin="5" >Rank</Label>
+        <Label Grid.Column="0" Grid.Row="7" Padding="2"  FontSize="12" Margin="5" >Team</Label>
+        <Label Grid.Column="0" Grid.Row="8" Padding="2"  FontSize="12" Margin="5" >Barrack</Label>
 
-        <TextBox Grid.Column="1" Grid.Row="0" x:Name="ID" Margin="5" />
-        <TextBox Grid.Column="1" Grid.Row="1" x:Name="Pesel" Margin="5"/>
-        <TextBox Grid.Column="1" Grid.Row="2" x:Name="FirstName" Margin="5"/>
-        <TextBox Grid.Column="1" Grid.Row="3" x:Name="LastName" Margin="5"/>
-        <TextBox Grid.Column="1" Grid.Row="4" x:Name="Salary" Margin="5"/>
-        <TextBox Grid.Column="1" Grid.Row="5" x:Name="Specialization" Margin="5"/>
-        <DatePicker Grid.Column="1" Grid.Row="6"  x:Name="HireDate" FirstDayOfWeek="Monday" DisplayDateStart="1753-01-01" Margin="5"/>
-        <TextBox Grid.Column="1" Grid.Row="7" x:Name="Rank" Margin="5"/>
-        <TextBox Grid.Column="1" Grid.Row="8" x:Name="Team" Margin="5"/>
-        <TextBox Grid.Column="1" Grid.Row="9" x:Name="Barrack" Margin="5"/>
+        <TextBox Grid.Column="1" Grid.Row="0" x:Name="Pesel" Margin="5"/>
+        <TextBox Grid.Column="1" Grid.Row="1" x:Name="FirstName" Margin="5"/>
+        <TextBox Grid.Column="1" Grid.Row="2" x:Name="LastName" Margin="5"/>
+        <TextBox Grid.Column="1" Grid.Row="3" x:Name="Salary" Margin="5"/>
+        <TextBox Grid.Column="1" Grid.Row="4" x:Name="Specialization" Margin="5"/>
+        <DatePicker Grid.Column="1" Grid.Row="5"  x:Name="HireDate" FirstDayOfWeek="Monday" DisplayDateStart="1753-01-01" Margin="5"/>
+        <TextBox Grid.Column="1" Grid.Row="6" x:Name="Rank" Margin="5"/>
+        <TextBox Grid.Column="1" Grid.Row="7" x:Name="Team" Margin="5"/>
+        <TextBox Grid.Column="1" Grid.Row="8" x:Name="Barrack" Margin="5"/>
         <Button Grid.Column="0" x:Name="Add" Content="Add" Width="75" Height="auto" IsDefault="True" Margin="5" Grid.Row="10"/>
         <Button Grid.Column="0" x:Name="Close" Content="Cancel"  Width="75" Height="auto" IsCancel="True" Margin="5" Grid.Row="11"/>
 

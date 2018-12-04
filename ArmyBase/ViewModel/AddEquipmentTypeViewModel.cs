@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ArmyBase.ViewModel
 {
-    class AddWeaponTypeViewModel
+    class AddEquipmentTypeViewModel
     {
     }
 }
