@@ -13,8 +13,11 @@ namespace ArmyBase.DTO
         public string Name { get; set; }
         public int TeamTypeId { get; set; }
         public TeamType TeamType { get; set; }
+        public int? MissionId { get; set; }
+        public TeamType Mission { get; set; }
         public string Responsibilities { get; set; }
         public ICollection<Employee> Employee { get; set; }
 
+        public bool IsSelected { get; set; }
     }
 }

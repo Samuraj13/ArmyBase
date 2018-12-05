@@ -1,8 +1,11 @@
 namespace ArmyBase.Models
 {
+    using ArmyBase.ViewModels;
+    using Caliburn.Micro;
     using System;
     using System.Data.Entity;
     using System.Linq;
+    using System.Threading.Tasks;
 
     public class ArmyBaseContext : DbContext
     {
@@ -15,6 +18,12 @@ namespace ArmyBase.Models
         public ArmyBaseContext()
             : base("name=ArmyBaseContext")
         {
+            if (!Database.Exists())
+            {
+                    IWindowManager manager = new WindowManager();
+                    DBInitializationViewModel dbInitializingView = new DBInitializationViewModel(this);
+                    manager.ShowDialog(dbInitializingView, null, null);
+            }
         }
 
         // Add a DbSet for each entity type that you want to include in your Models. For more information 

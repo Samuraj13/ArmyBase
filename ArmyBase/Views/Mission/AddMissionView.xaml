@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ArmyBase.Views.Mission"
         mc:Ignorable="d"
-       Title="Add new mission" MinHeight="300" MinWidth="450" Height="300" Width="405" x:Name="AddMissionPage" WindowStartupLocation="CenterScreen">
+       Title="Add new mission" MinHeight="300" MinWidth="600" Height="300" Width="600" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"  />
@@ -13,32 +13,61 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
 
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="200" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Column="0" Grid.Row="0" Padding="2"  FontSize="12" Margin="5">ID</Label>
-        <Label Grid.Column="0" Grid.Row="1" Padding="2"  FontSize="12" Margin="5">Name</Label>
-        <Label Grid.Column="0" Grid.Row="2" Padding="2"  FontSize="12" Margin="5" >Type</Label>
-        <Label Grid.Column="0" Grid.Row="3" Padding="2"  FontSize="12" Margin="5" >Start Date</Label>
-        <Label Grid.Column="0" Grid.Row="4" Padding="2"  FontSize="12" Margin="5" >End Date</Label>
-        <Label Grid.Column="0" Grid.Row="5" Padding="2"  FontSize="12" Margin="5" >Team</Label>
-        <TextBox Grid.Column="1" Grid.Row="0" x:Name="ID" Margin="5" />
-        <TextBox Grid.Column="1" Grid.Row="1" x:Name="Name" Margin="5"/>
-        <TextBox Grid.Column="1" Grid.Row="2" x:Name="Type" Margin="5"/>
-        <DatePicker Grid.Column="1" Grid.Row="3"  x:Name="StartDate" FirstDayOfWeek="Monday" Margin="5"/>
-        <DatePicker Grid.Column="1" Grid.Row="4"  x:Name="EndDate" FirstDayOfWeek="Monday" Margin="5"/>
-        <TextBox Grid.Column="1" Grid.Row="5" x:Name="Team" Margin="5"/>
+        <Label Grid.Column="0" Grid.Row="0" Padding="2"  FontSize="12" Margin="5">Name</Label>
+        <Label Grid.Column="0" Grid.Row="1" Padding="2"  FontSize="12" Margin="5" >Type</Label>
+        <Label Grid.Column="0" Grid.Row="2" Padding="2"  FontSize="12" Margin="5" >Start Date</Label>
+        <Label Grid.Column="0" Grid.Row="3" Padding="2"  FontSize="12" Margin="5" >End Date</Label>
+        <Label Grid.Column="0" Grid.Row="4" Padding="2"  FontSize="12" Margin="5" >Description</Label>
+        <Label Grid.Column="2" Grid.Row="0" Padding="2" HorizontalAlignment="Center" FontSize="12" Margin="5" >Avaiable teams</Label>
+        <TextBox Grid.Column="1" Grid.Row="0" x:Name="Name" Margin="5"/>
+        <ComboBox ItemsSource="{Binding MissionTypes}"
+                  SelectedItem="{Binding SelectedMissionType, Mode=TwoWay}"   
+                  VerticalAlignment="Top" 
+                  Margin="5"
+                  Grid.Column="1"
+                  Grid.Row="1" >
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <DatePicker Grid.Column="1" Grid.Row="2"  x:Name="StartDate" FirstDayOfWeek="Monday" Margin="5"/>
+        <DatePicker Grid.Column="1" Grid.Row="3"  x:Name="EndDate" FirstDayOfWeek="Monday" Margin="5"/>
+        <TextBox Grid.Column="1" Grid.Row="4" Grid.RowSpan="2" x:Name="Description" Margin="5" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
+
+        <ListBox x:Name="Teams" SelectionMode="Multiple" Grid.Column="2"  Grid.Row="1" Grid.RowSpan="5" Margin="5">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding Name}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource {x:Type ListBoxItem}}">
+                    <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+
         <Button Grid.Column="0" x:Name="Add" Content="Add" Width="75" Height="auto" IsDefault="True" Margin="5" Grid.Row="6"/>
         <Button Grid.Column="0" x:Name="Close" Content="Cancel"  Width="75" Height="auto" IsCancel="True" Margin="5" Grid.Row="7"/>
 
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Center" TextWrapping="Wrap" x:Name="Error" Margin="5" Grid.Row="6" />
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Center" TextWrapping="Wrap" x:Name="Error" Margin="5" Grid.Row="7" />
 
     </Grid>
 </Window>

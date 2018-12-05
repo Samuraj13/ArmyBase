@@ -18,6 +18,11 @@ namespace ArmyBase.ViewModels.TeamType
             this.teamType = teamType;
         }
 
+        public AddTeamTypeViewModel()
+        {
+
+        }
+
         public string Type { get; set; }
 
         public void Add()

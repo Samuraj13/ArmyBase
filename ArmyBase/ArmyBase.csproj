@@ -87,9 +87,9 @@
     <Compile Include="DTO\SpecializationDTO.cs" />
     <Compile Include="DTO\TeamDTO.cs" />
     <Compile Include="DTO\TeamTypeDTO.cs" />
-    <Compile Include="Migrations\201812050808223_DBInit.cs" />
-    <Compile Include="Migrations\201812050808223_DBInit.Designer.cs">
-      <DependentUpon>201812050808223_DBInit.cs</DependentUpon>
+    <Compile Include="Migrations\201812052140449_DBInit.cs" />
+    <Compile Include="Migrations\201812052140449_DBInit.Designer.cs">
+      <DependentUpon>201812052140449_DBInit.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ArmyBaseContext.cs" />
@@ -106,6 +106,7 @@
     <Compile Include="Service\EquipmentTypeService.cs" />
     <Compile Include="ViewModels\Barrack\AddBarrackViewModel.cs" />
     <Compile Include="ViewModels\Barrack\BarrackGridViewModel.cs" />
+    <Compile Include="ViewModels\DBInitializationViewModel.cs" />
     <Compile Include="ViewModels\DeleteConfirmationViewModel.cs" />
     <Compile Include="ViewModels\Employee\AddEmployeeViewModel.cs" />
     <Compile Include="ViewModels\Employee\EmployeeGridViewModel.cs" />
@@ -133,6 +134,9 @@
     </Compile>
     <Compile Include="Views\Barrack\BarrackGridView.xaml.cs">
       <DependentUpon>BarrackGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DBInitializationView.xaml.cs">
+      <DependentUpon>DBInitializationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DeleteConfirmationView.xaml.cs">
       <DependentUpon>DeleteConfirmationView.xaml</DependentUpon>
@@ -210,6 +214,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Barrack\BarrackGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DBInitializationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -327,8 +335,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201812050808223_DBInit.resx">
-      <DependentUpon>201812050808223_DBInit.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812052140449_DBInit.resx">
+      <DependentUpon>201812052140449_DBInit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

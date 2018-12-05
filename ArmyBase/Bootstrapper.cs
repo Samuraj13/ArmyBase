@@ -1,8 +1,5 @@
-﻿using ArmyBase.ViewModels.Barrack;
-using ArmyBase.ViewModels.Employee;
-using ArmyBase.ViewModels.Equipment;
-using ArmyBase.ViewModels.Rank;
-using ArmyBase.ViewModels.Team;
+﻿using ArmyBase.Models;
+using ArmyBase.ViewModels;
 using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
@@ -17,14 +14,12 @@ namespace ArmyBase
     {
         public Bootstrapper()
         {
-            //HibernatingRhinos.Profiler.Appender.EntityFramework.EntityFrameworkProfiler.Initialize();
             Initialize();
-
         }
 
         protected override void OnStartup(object sender, StartupEventArgs e)
         {
-            DisplayRootViewFor<BarrackGridViewModel>();
+            DisplayRootViewFor<StartUpViewModel>();
 
         }
     }

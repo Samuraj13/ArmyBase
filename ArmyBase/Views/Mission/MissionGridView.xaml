@@ -38,7 +38,9 @@
                 </DataGrid.Columns>
             </DataGrid>
         </ScrollViewer>
-        <Button Grid.Row="1" Margin="5" Content="Add Mission" x:Name="LoadAddMissionPage" HorizontalAlignment="Left"/>
-        <Button Grid.Row="1" Margin="105,5" Content="Refresh" x:Name="Reload" HorizontalAlignment="Left" AutomationProperties.AccessKey="Enter"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <Button Grid.Row="1" Margin="5" Content="Add Mission" x:Name="LoadAddMissionPage" HorizontalAlignment="Left"/>
+            <Button Grid.Row="1" Margin="5" Content="Refresh" x:Name="Reload" HorizontalAlignment="Left" AutomationProperties.AccessKey="Enter"/>
+        </StackPanel>
     </Grid>
 </UserControl>

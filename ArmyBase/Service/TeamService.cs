@@ -108,6 +108,21 @@ namespace ArmyBase.Service
             }
         }
 
+        public static void AddTeamsToMission(List<TeamDTO> teams, int missionId)
+        {
+            using (ArmyBaseContext db = new ArmyBaseContext())
+            {
+                foreach (var team in teams)
+                {
+
+                    var toModify = db.Teams.Where(x => x.Id == team.Id).FirstOrDefault();
+
+                    toModify.MissionId = missionId;
+                    db.SaveChanges();
+                }
+            }
+        }
+
         public static void Delete(TeamDTO Team)
         {
             using (ArmyBaseContext db = new ArmyBaseContext())

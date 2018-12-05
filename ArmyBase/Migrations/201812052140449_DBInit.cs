@@ -111,23 +111,14 @@ namespace ArmyBase.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(nullable: false),
                         TeamTypeId = c.Int(nullable: false),
+                        MissionId = c.Int(nullable: false),
                         Responsibilities = c.String(),
-                        Mission_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Mission", t => t.MissionId, cascadeDelete: true)
                 .ForeignKey("dbo.TeamType", t => t.TeamTypeId, cascadeDelete: true)
-                .ForeignKey("dbo.Mission", t => t.Mission_Id)
                 .Index(t => t.TeamTypeId)
-                .Index(t => t.Mission_Id);
-            
-            CreateTable(
-                "dbo.TeamType",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
+                .Index(t => t.MissionId);
             
             CreateTable(
                 "dbo.Mission",
@@ -146,6 +137,15 @@ namespace ArmyBase.Migrations
             
             CreateTable(
                 "dbo.MissionType",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.TeamType",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -183,10 +183,10 @@ namespace ArmyBase.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.Team", "Mission_Id", "dbo.Mission");
-            DropForeignKey("dbo.Mission", "MissionTypeId", "dbo.MissionType");
             DropForeignKey("dbo.Employee", "TeamId", "dbo.Team");
             DropForeignKey("dbo.Team", "TeamTypeId", "dbo.TeamType");
+            DropForeignKey("dbo.Team", "MissionId", "dbo.Mission");
+            DropForeignKey("dbo.Mission", "MissionTypeId", "dbo.MissionType");
             DropForeignKey("dbo.Employee", "SpecializationId", "dbo.Specialization");
             DropForeignKey("dbo.Employee", "RankId", "dbo.Rank");
             DropForeignKey("dbo.SpecializationPermissions", "Permission_Id", "dbo.Permission");
@@ -201,7 +201,7 @@ namespace ArmyBase.Migrations
             DropIndex("dbo.EquipmentSpecializations", new[] { "Specialization_Id" });
             DropIndex("dbo.EquipmentSpecializations", new[] { "Equipment_Id" });
             DropIndex("dbo.Mission", new[] { "MissionTypeId" });
-            DropIndex("dbo.Team", new[] { "Mission_Id" });
+            DropIndex("dbo.Team", new[] { "MissionId" });
             DropIndex("dbo.Team", new[] { "TeamTypeId" });
             DropIndex("dbo.Equipment", new[] { "EquipmentTypeId" });
             DropIndex("dbo.Permission", new[] { "MinRankId" });
@@ -211,9 +211,9 @@ namespace ArmyBase.Migrations
             DropIndex("dbo.Employee", new[] { "SpecializationId" });
             DropTable("dbo.SpecializationPermissions");
             DropTable("dbo.EquipmentSpecializations");
+            DropTable("dbo.TeamType");
             DropTable("dbo.MissionType");
             DropTable("dbo.Mission");
-            DropTable("dbo.TeamType");
             DropTable("dbo.Team");
             DropTable("dbo.EquipmentType");
             DropTable("dbo.Equipment");

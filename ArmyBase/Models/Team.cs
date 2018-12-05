@@ -21,6 +21,12 @@ namespace ArmyBase.Models
         
         public TeamType TeamType { get; set; }
 
+        [ForeignKey("Mission")]
+        [Required]
+        public int? MissionId { get; set; }
+
+        public Mission Mission { get; set; }
+
         public string Responsibilities { get; set; }
         
         public ICollection<Employee> Employee { get; set; }

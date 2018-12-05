@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ArmyBase.Views.MissionType
+namespace ArmyBase.Views
 {
     /// <summary>
-    /// Logika interakcji dla klasy MissionTypeGridView.xaml
+    /// Interaction logic for DBInitializationView.xaml
     /// </summary>
-    public partial class MissionTypeGridView : UserControl
+    public partial class DBInitializationView : Window
     {
-        public MissionTypeGridView()
+        public DBInitializationView()
         {
             InitializeComponent();
         }
