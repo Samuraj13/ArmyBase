@@ -11,6 +11,13 @@ namespace ArmyBase.ViewModels.MissionType
 {
     public class AddMissionTypeViewModel : Screen
     {
+        private MissionTypeDTO missionType;
+
+        public AddMissionTypeViewModel(MissionTypeDTO missionType)
+        {
+            this.missionType = missionType;
+        }
+
         public string Type { get; set; }
 
         private MissionTypeDTO missionType { get; set; }

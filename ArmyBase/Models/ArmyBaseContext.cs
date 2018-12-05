@@ -1,5 +1,6 @@
 namespace ArmyBase.Models
 {
+    using ArmyBase.Models.Initializer;
     using ArmyBase.ViewModels;
     using Caliburn.Micro;
     using System;
@@ -24,6 +25,7 @@ namespace ArmyBase.Models
                     DBInitializationViewModel dbInitializingView = new DBInitializationViewModel(this);
                     manager.ShowDialog(dbInitializingView, null, null);
             }
+            Database.SetInitializer(new ArmyBaseDBInitializer());
         }
 
         // Add a DbSet for each entity type that you want to include in your Models. For more information 
