@@ -1,4 +1,5 @@
-﻿using ArmyBase.ViewModels.Employee;
+﻿using ArmyBase.ViewModels.Barrack;
+using ArmyBase.ViewModels.Employee;
 using ArmyBase.ViewModels.Equipment;
 using ArmyBase.ViewModels.Rank;
 using ArmyBase.ViewModels.Team;
@@ -23,7 +24,7 @@ namespace ArmyBase
 
         protected override void OnStartup(object sender, StartupEventArgs e)
         {
-            DisplayRootViewFor<AddTeamViewModel>();
+            DisplayRootViewFor<BarrackGridViewModel>();
 
         }
     }

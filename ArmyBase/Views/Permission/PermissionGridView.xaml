@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="ArmyBase.Views.Permission.PermissionGridView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ArmyBase.Views.Permission"
+             mc:Ignorable="d" 
+             xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro.Platform">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <ScrollViewer  VerticalScrollBarVisibility="Auto" Height="Auto">
+            <DataGrid x:Name="Permissions" AutoGenerateColumns="False" Grid.Row="0" IsReadOnly="true" Height="auto">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
+                    <DataGridTextColumn Header="Min Rank ID" Binding="{Binding MinRankId}"/>
+                    <DataGridTemplateColumn >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Edit" x:Name="LoadModifyPermissionPage" cal:Message.Attach="LoadModifyPermissionPage($this)"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
+        <Button Grid.Row="1" Margin="5" Content="Add Permission" x:Name="LoadAddPermissionPage" HorizontalAlignment="Left"/>
+        <Button Grid.Row="1" Margin="105,5" Content="Refresh" x:Name="Reload" HorizontalAlignment="Left" AutomationProperties.AccessKey="Enter"/>
+    </Grid>
+</UserControl>

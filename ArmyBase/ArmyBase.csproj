@@ -105,22 +105,47 @@
     <Compile Include="Service\TeamTypeService.cs" />
     <Compile Include="Service\EquipmentTypeService.cs" />
     <Compile Include="ViewModels\Barrack\AddBarrackViewModel.cs" />
+    <Compile Include="ViewModels\Barrack\BarrackGridViewModel.cs" />
+    <Compile Include="ViewModels\Barrack\ModifyBarrackViewModel.cs" />
     <Compile Include="ViewModels\Employee\AddEmployeeViewModel.cs" />
+    <Compile Include="ViewModels\Employee\EmployeeGridViewModel.cs" />
+    <Compile Include="ViewModels\Employee\ModifyEmployeeViewModel.cs" />
     <Compile Include="ViewModels\Equipment\AddEquipmentViewModel.cs" />
+    <Compile Include="ViewModels\Equipment\EquipmentGridViewModel.cs" />
+    <Compile Include="ViewModels\Equipment\ModifyEquipmentViewModel.cs" />
     <Compile Include="ViewModels\MissionType\AddMissionTypeViewModel.cs" />
     <Compile Include="ViewModels\Mission\AddMissionViewModel.cs" />
+    <Compile Include="ViewModels\Mission\MissionGridViewModel.cs" />
+    <Compile Include="ViewModels\Mission\ModifyMissionViewModel.cs" />
     <Compile Include="ViewModels\Permission\AddPermissionViewModel.cs" />
+    <Compile Include="ViewModels\Permission\ModifyPermissionViewModel.cs" />
+    <Compile Include="ViewModels\Permission\PermissionGridViewModel.cs" />
     <Compile Include="ViewModels\Rank\AddRankViewModel.cs" />
+    <Compile Include="ViewModels\Rank\ModifyRankViewModel.cs" />
+    <Compile Include="ViewModels\Rank\RankGridViewModel.cs" />
     <Compile Include="ViewModels\Specialization\AddSpecializationViewModel.cs" />
+    <Compile Include="ViewModels\Specialization\ModifySpecializationViewModel.cs" />
+    <Compile Include="ViewModels\Specialization\SpecializationGridViewModel.cs" />
     <Compile Include="ViewModels\TeamType\AddTeamTypeViewModel.cs" />
     <Compile Include="ViewModels\Team\AddTeamViewModel.cs" />
     <Compile Include="ViewModels\EquipmentType\AddEquipmentTypeViewModel.cs" />
     <Compile Include="ViewModels\StartUpViewModel.cs" />
+    <Compile Include="ViewModels\Team\ModifyTeamViewModel.cs" />
+    <Compile Include="ViewModels\Team\TeamGridViewModel.cs" />
     <Compile Include="Views\Barrack\AddBarrackView.xaml.cs">
       <DependentUpon>AddBarrackView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Barrack\BarrackGridView.xaml.cs">
+      <DependentUpon>BarrackGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Employee\EmployeeGridView.xaml.cs">
+      <DependentUpon>EmployeeGridView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Equipment\AddEquipmentView.xaml.cs">
       <DependentUpon>AddEquipmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipment\EquipmentGridView.xaml.cs">
+      <DependentUpon>EquipmentGridView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MissionType\AddMissionTypeView.xaml.cs">
       <DependentUpon>AddMissionTypeView.xaml</DependentUpon>
@@ -128,14 +153,26 @@
     <Compile Include="Views\Mission\AddMissionView.xaml.cs">
       <DependentUpon>AddMissionView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Mission\MissionGridView.xaml.cs">
+      <DependentUpon>MissionGridView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Permission\AddPermissionView.xaml.cs">
       <DependentUpon>AddPermissionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Permission\PermissionGridView.xaml.cs">
+      <DependentUpon>PermissionGridView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Rank\AddRankView.xaml.cs">
       <DependentUpon>AddRankView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Rank\RankGridView.xaml.cs">
+      <DependentUpon>RankGridView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Specialization\AddSpecializationView.xaml.cs">
       <DependentUpon>AddSpecializationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Specialization\SpecializationGridView.xaml.cs">
+      <DependentUpon>SpecializationGridView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TeamType\AddTeamTypeView.xaml.cs">
       <DependentUpon>AddTeamTypeView.xaml</DependentUpon>
@@ -157,11 +194,26 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Views\Team\TeamGridView.xaml.cs">
+      <DependentUpon>TeamGridView.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\Barrack\AddBarrackView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Barrack\BarrackGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Employee\EmployeeGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Equipment\AddEquipmentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipment\EquipmentGridView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -173,7 +225,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Mission\MissionGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Permission\AddPermissionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Permission\PermissionGridView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -181,7 +241,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Rank\RankGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Specialization\AddSpecializationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Specialization\SpecializationGridView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -202,6 +270,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\StartUpView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Team\TeamGridView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
