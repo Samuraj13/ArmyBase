@@ -100,5 +100,17 @@ namespace ArmyBase.Service
                 return error;
             }
         }
+
+        public static void Delete(TeamTypeDTO TeamType)
+        {
+            using (ArmyBaseContext db = new ArmyBaseContext())
+            {
+                var toDelete = db.TeamTypes.Where(x => x.Id == TeamType.Id).FirstOrDefault();
+
+                db.TeamTypes.Remove(toDelete);
+                db.SaveChanges();
+            }
+        }
+
     }
 }

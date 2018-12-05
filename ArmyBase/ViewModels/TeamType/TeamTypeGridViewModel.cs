@@ -7,12 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ArmyBase.ViewModels.Equipment
+namespace ArmyBase.ViewModels.TeamType
 {
-    public class EquipmentGridViewModel : Screen
+    public class TeamTypeGridViewModel : Screen
     {
-        public List<EquipmentDTO> Equipments { get; set; } = new List<EquipmentDTO>();
-        public EquipmentGridViewModel()
+        public List<TeamTypeDTO> TeamTypes { get; set; } = new List<TeamTypeDTO>();
+        public TeamTypeGridViewModel()
         {
             Reload();
         }
@@ -22,30 +22,38 @@ namespace ArmyBase.ViewModels.Equipment
             base.OnViewLoaded(view);
         }
 
-        public void LoadAddEquipmentPage()
+        public void LoadAddTeamTypePage()
         {
             IWindowManager manager = new WindowManager();
-            AddEquipmentViewModel add = new AddEquipmentViewModel();
+            AddTeamTypeViewModel add = new AddTeamTypeViewModel();
             manager.ShowDialog(add, null, null);
             Reload();
         }
 
-        public void Delete(EquipmentDTO equipment)
+        public void LoadModifyTeamTypePage(TeamTypeDTO teamType)
+        {
+            IWindowManager manager = new WindowManager();
+            AddTeamTypeViewModel modify = new AddTeamTypeViewModel(teamType);
+            manager.ShowDialog(modify, null, null);
+            Reload();
+        }
+
+        public void Delete(TeamTypeDTO teamType)
         {
             IWindowManager manager = new WindowManager();
             DeleteConfirmationViewModel modify = new DeleteConfirmationViewModel();
             bool? showDialogResult = manager.ShowDialog(modify, null, null);
             if (showDialogResult != null && showDialogResult == true)
             {
-                EquipmentService.Delete(equipment);
+                TeamTypeService.Delete(teamType);
             }
             Reload();
         }
 
         public void Reload()
         {
-            Equipments = EquipmentService.GetAll();
-            NotifyOfPropertyChange(() => Equipments);
+            TeamTypes = TeamTypeService.GetAll();
+            NotifyOfPropertyChange(() => TeamTypes);
         }
     }
 }

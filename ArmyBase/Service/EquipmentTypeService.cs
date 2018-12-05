@@ -100,5 +100,17 @@ namespace ArmyBase.Service
                 return error;
             }
         }
+
+        public static void Delete(EquipmentTypeDTO EquipmentType)
+        {
+            using (ArmyBaseContext db = new ArmyBaseContext())
+            {
+                var toDelete = db.EquipmentTypes.Where(x => x.Id == EquipmentType.Id).FirstOrDefault();
+
+                db.EquipmentTypes.Remove(toDelete);
+                db.SaveChanges();
+            }
+        }
+
     }
 }

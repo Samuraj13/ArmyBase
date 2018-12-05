@@ -30,25 +30,17 @@ namespace ArmyBase.ViewModels.Rank
             Reload();
         }
 
-        //public void LoadModifyRankPage(BarrackDTO rank)
-        //{
-        //    IWindowManager manager = new WindowManager();
-        //    ModifyRankViewModel modify = new ModifyRankViewModel(rank);
-        //    manager.ShowDialog(modify, null, null);
-        //    Reload();
-        //}//trzeba zrobic ModifyBarrackViewModel
-
-        /*
-         * u nas chyb nie bedzie detali zadnych
-         * 
-         * public void LoadDetailsBarrackPage(BarrackDTO barrack)
+        public void Delete(RankDTO rank)
         {
-
             IWindowManager manager = new WindowManager();
-            BarrackDetailsViewModel details = new BarrackDetailsViewModel(barrack);
-            manager.ShowDialog(details, null, null);
+            DeleteConfirmationViewModel modify = new DeleteConfirmationViewModel();
+            bool? showDialogResult = manager.ShowDialog(modify, null, null);
+            if (showDialogResult != null && showDialogResult == true)
+            {
+                RankService.Delete(rank);
+            }
             Reload();
-        }*/
+        }
 
         public void Reload()
         {

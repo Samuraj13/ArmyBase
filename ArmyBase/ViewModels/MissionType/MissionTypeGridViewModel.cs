@@ -7,12 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ArmyBase.ViewModels.Equipment
+namespace ArmyBase.ViewModels.MissionType
 {
-    public class EquipmentGridViewModel : Screen
+    public class MissionTypeGridViewModel : Screen
     {
-        public List<EquipmentDTO> Equipments { get; set; } = new List<EquipmentDTO>();
-        public EquipmentGridViewModel()
+        public List<MissionTypeDTO> MissionTypes { get; set; } = new List<MissionTypeDTO>();
+        public MissionTypeGridViewModel()
         {
             Reload();
         }
@@ -22,30 +22,38 @@ namespace ArmyBase.ViewModels.Equipment
             base.OnViewLoaded(view);
         }
 
-        public void LoadAddEquipmentPage()
+        public void LoadAddMissionTypePage()
         {
             IWindowManager manager = new WindowManager();
-            AddEquipmentViewModel add = new AddEquipmentViewModel();
+            AddMissionTypeViewModel add = new AddMissionTypeViewModel();
             manager.ShowDialog(add, null, null);
             Reload();
         }
 
-        public void Delete(EquipmentDTO equipment)
+        public void LoadModifyMissionTypePage(MissionTypeDTO missionType)
+        {
+            IWindowManager manager = new WindowManager();
+            AddMissionTypeViewModel modify = new AddMissionTypeViewModel(missionType);
+            manager.ShowDialog(modify, null, null);
+            Reload();
+        }
+
+        public void Delete(MissionTypeDTO missionType)
         {
             IWindowManager manager = new WindowManager();
             DeleteConfirmationViewModel modify = new DeleteConfirmationViewModel();
             bool? showDialogResult = manager.ShowDialog(modify, null, null);
             if (showDialogResult != null && showDialogResult == true)
             {
-                EquipmentService.Delete(equipment);
+                MissionTypeService.Delete(missionType);
             }
             Reload();
         }
 
         public void Reload()
         {
-            Equipments = EquipmentService.GetAll();
-            NotifyOfPropertyChange(() => Equipments);
+            MissionTypes = MissionTypeService.GetAll();
+            NotifyOfPropertyChange(() => MissionTypes);
         }
     }
 }

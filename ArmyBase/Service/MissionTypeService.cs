@@ -73,7 +73,7 @@ namespace ArmyBase.Service
             }
 
         }
-
+        
         public static string Edit(MissionTypeDTO MissionType)
         {
             using (ArmyBaseContext db = new ArmyBaseContext())
@@ -100,5 +100,17 @@ namespace ArmyBase.Service
                 return error;
             }
         }
+
+        public static void Delete(MissionTypeDTO MissionType)
+        {
+            using (ArmyBaseContext db = new ArmyBaseContext())
+            {
+                var toDelete = db.MissionTypes.Where(x => x.Id == MissionType.Id).FirstOrDefault();
+
+                db.MissionTypes.Remove(toDelete);
+                db.SaveChanges();
+            }
+        }
+
     }
 }

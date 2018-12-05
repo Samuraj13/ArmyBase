@@ -107,5 +107,17 @@ namespace ArmyBase.Service
                 return error;
             }
         }
+
+        public static void Delete(TeamDTO Team)
+        {
+            using (ArmyBaseContext db = new ArmyBaseContext())
+            {
+                var toDelete = db.Teams.Where(x => x.Id == Team.Id).FirstOrDefault();
+
+                db.Teams.Remove(toDelete);
+                db.SaveChanges();
+            }
+        }
+
     }
 }

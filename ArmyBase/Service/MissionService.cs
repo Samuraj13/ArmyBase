@@ -116,5 +116,17 @@ namespace ArmyBase.Service
                 return error;
             }
         }
+
+        public static void Delete(MissionDTO Mission)
+        {
+            using (ArmyBaseContext db = new ArmyBaseContext())
+            {
+                var toDelete = db.Missions.Where(x => x.Id == Mission.Id).FirstOrDefault();
+
+                db.Missions.Remove(toDelete);
+                db.SaveChanges();
+            }
+        }
+
     }
 }

@@ -29,25 +29,17 @@ namespace ArmyBase.ViewModels.Team
             Reload();
         }
 
-        //public void LoadModifyTeamPage(BarrackDTO team)
-        //{
-        //    IWindowManager manager = new WindowManager();
-        //    ModifyTeamViewModel modify = new ModifyTeamViewModel(team);
-        //    manager.ShowDialog(modify, null, null);
-        //    Reload();
-        //}//trzeba zrobic ModifyBarrackViewModel
-
-        /*
-         * u nas chyb nie bedzie detali zadnych
-         * 
-         * public void LoadDetailsBarrackPage(BarrackDTO barrack)
+        public void Delete(TeamDTO team)
         {
-
             IWindowManager manager = new WindowManager();
-            BarrackDetailsViewModel details = new BarrackDetailsViewModel(barrack);
-            manager.ShowDialog(details, null, null);
+            DeleteConfirmationViewModel modify = new DeleteConfirmationViewModel();
+            bool? showDialogResult = manager.ShowDialog(modify, null, null);
+            if (showDialogResult != null && showDialogResult == true)
+            {
+                TeamService.Delete(team);
+            }
             Reload();
-        }*/
+        }
 
         public void Reload()
         {

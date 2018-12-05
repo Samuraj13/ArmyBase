@@ -116,5 +116,17 @@ namespace ArmyBase.Service
                 return error;
             }
         }
+
+        public static void Delete(RankDTO Rank)
+        {
+            using (ArmyBaseContext db = new ArmyBaseContext())
+            {
+                var toDelete = db.Ranks.Where(x => x.Id == Rank.Id).FirstOrDefault();
+
+                db.Ranks.Remove(toDelete);
+                db.SaveChanges();
+            }
+        }
+
     }
 }

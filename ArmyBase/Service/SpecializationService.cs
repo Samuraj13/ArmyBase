@@ -104,5 +104,17 @@ namespace ArmyBase.Service
                 return error;
             }
         }
+
+        public static void Delete(SpecializationDTO Specialization)
+        {
+            using (ArmyBaseContext db = new ArmyBaseContext())
+            {
+                var toDelete = db.Specializations.Where(x => x.Id == Specialization.Id).FirstOrDefault();
+
+                db.Specializations.Remove(toDelete);
+                db.SaveChanges();
+            }
+        }
+
     }
 }

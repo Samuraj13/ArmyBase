@@ -30,25 +30,17 @@ namespace ArmyBase.ViewModels.Employee
             Reload();
         }
 
-        //public void LoadModifyEmployeePage(EmployeeDTO employee)
-        //{
-        //    IWindowManager manager = new WindowManager();
-        //    ModifyEmployeeViewModel modify = new ModifyEmployeeViewModel(employee);
-        //    manager.ShowDialog(modify, null, null);
-        //    Reload();
-        //}//trzeba zrobic ModifyBarrackViewModel
-
-        /*
-         * u nas chyb nie bedzie detali zadnych
-         * 
-         * public void LoadDetailsBarrackPage(BarrackDTO barrack)
+        public void Delete(EmployeeDTO employee)
         {
-
             IWindowManager manager = new WindowManager();
-            BarrackDetailsViewModel details = new BarrackDetailsViewModel(barrack);
-            manager.ShowDialog(details, null, null);
+            DeleteConfirmationViewModel modify = new DeleteConfirmationViewModel();
+            bool? showDialogResult = manager.ShowDialog(modify, null, null);
+            if (showDialogResult != null && showDialogResult == true)
+            {
+                EmployeeService.Delete(employee);
+            }
             Reload();
-        }*/
+        }
 
         public void Reload()
         {

@@ -23,7 +23,7 @@ namespace ArmyBase.ViewModels.Permission
             base.OnViewLoaded(view);
         }
 
-        public void LoadAddBarrackPage()
+        public void LoadAddPermissionPage()
         {
             IWindowManager manager = new WindowManager();
             AddPermissionViewModel add = new AddPermissionViewModel();
@@ -31,25 +31,17 @@ namespace ArmyBase.ViewModels.Permission
             Reload();
         }
 
-        //public void LoadModifyBarrackPage(BarrackDTO permission)
-        //{
-        //    IWindowManager manager = new WindowManager();
-        //    ModifyPermissionViewModel modify = new ModifyPermissionViewModel(permission);
-        //    manager.ShowDialog(modify, null, null);
-        //    Reload();
-        //}//trzeba zrobic ModifyBarrackViewModel
-
-        /*
-         * u nas chyb nie bedzie detali zadnych
-         * 
-         * public void LoadDetailsBarrackPage(BarrackDTO barrack)
+        public void Delete(PermissionDTO permission)
         {
-
             IWindowManager manager = new WindowManager();
-            BarrackDetailsViewModel details = new BarrackDetailsViewModel(barrack);
-            manager.ShowDialog(details, null, null);
+            DeleteConfirmationViewModel modify = new DeleteConfirmationViewModel();
+            bool? showDialogResult = manager.ShowDialog(modify, null, null);
+            if (showDialogResult != null && showDialogResult == true)
+            {
+                PermissionService.Delete(permission);
+            }
             Reload();
-        }*/
+        }
 
         public void Reload()
         {

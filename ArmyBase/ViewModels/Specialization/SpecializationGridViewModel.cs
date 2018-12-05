@@ -22,7 +22,7 @@ namespace ArmyBase.ViewModels.Specialization
             base.OnViewLoaded(view);
         }
 
-        public void LoadAddBarrackPage()
+        public void LoadAddSpecializationPage()
         {
             IWindowManager manager = new WindowManager();
             AddSpecializationViewModel add = new AddSpecializationViewModel();
@@ -30,25 +30,17 @@ namespace ArmyBase.ViewModels.Specialization
             Reload();
         }
 
-        //public void LoadModifySpecializationPage(BarrackDTO specialization)
-        //{
-        //    IWindowManager manager = new WindowManager();
-        //    ModifySpecializationViewModel modify = new ModifySpecializationViewModel(specialization);
-        //    manager.ShowDialog(modify, null, null);
-        //    Reload();
-        //}//trzeba zrobic ModifyBarrackViewModel
-
-        /*
-         * u nas chyb nie bedzie detali zadnych
-         * 
-         * public void LoadDetailsBarrackPage(BarrackDTO barrack)
+        public void Delete(SpecializationDTO specialization)
         {
-
             IWindowManager manager = new WindowManager();
-            BarrackDetailsViewModel details = new BarrackDetailsViewModel(barrack);
-            manager.ShowDialog(details, null, null);
+            DeleteConfirmationViewModel modify = new DeleteConfirmationViewModel();
+            bool? showDialogResult = manager.ShowDialog(modify, null, null);
+            if (showDialogResult != null && showDialogResult == true)
+            {
+                SpecializationService.Delete(specialization);
+            }
             Reload();
-        }*/
+        }
 
         public void Reload()
         {

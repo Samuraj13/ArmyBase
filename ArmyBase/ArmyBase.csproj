@@ -109,9 +109,11 @@
     <Compile Include="ViewModels\DeleteConfirmationViewModel.cs" />
     <Compile Include="ViewModels\Employee\AddEmployeeViewModel.cs" />
     <Compile Include="ViewModels\Employee\EmployeeGridViewModel.cs" />
+    <Compile Include="ViewModels\EquipmentType\EquipmentTypeGridViewModel.cs" />
     <Compile Include="ViewModels\Equipment\AddEquipmentViewModel.cs" />
     <Compile Include="ViewModels\Equipment\EquipmentGridViewModel.cs" />
     <Compile Include="ViewModels\MissionType\AddMissionTypeViewModel.cs" />
+    <Compile Include="ViewModels\MissionType\MissionTypeGridViewModel.cs" />
     <Compile Include="ViewModels\Mission\AddMissionViewModel.cs" />
     <Compile Include="ViewModels\Mission\MissionGridViewModel.cs" />
     <Compile Include="ViewModels\Permission\AddPermissionViewModel.cs" />
@@ -121,6 +123,7 @@
     <Compile Include="ViewModels\Specialization\AddSpecializationViewModel.cs" />
     <Compile Include="ViewModels\Specialization\SpecializationGridViewModel.cs" />
     <Compile Include="ViewModels\TeamType\AddTeamTypeViewModel.cs" />
+    <Compile Include="ViewModels\TeamType\TeamTypeGridViewModel.cs" />
     <Compile Include="ViewModels\Team\AddTeamViewModel.cs" />
     <Compile Include="ViewModels\EquipmentType\AddEquipmentTypeViewModel.cs" />
     <Compile Include="ViewModels\StartUpViewModel.cs" />
@@ -136,6 +139,12 @@
     </Compile>
     <Compile Include="Views\Employee\EmployeeGridView.xaml.cs">
       <DependentUpon>EmployeeGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EquipmentType\EquipmentTypeGridView.xaml.cs">
+      <DependentUpon>EquipmentTypeGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MissionType\MissionTypeGridView.xaml.cs">
+      <DependentUpon>MissionTypeGridView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Equipment\AddEquipmentView.xaml.cs">
       <DependentUpon>AddEquipmentView.xaml</DependentUpon>
@@ -173,6 +182,9 @@
     <Compile Include="Views\TeamType\AddTeamTypeView.xaml.cs">
       <DependentUpon>AddTeamTypeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\TeamType\TeamTypeGridView.xaml.cs">
+      <DependentUpon>TeamTypeGridView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Team\AddTeamView.xaml.cs">
       <DependentUpon>AddTeamView.xaml</DependentUpon>
     </Compile>
@@ -206,6 +218,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Employee\EmployeeGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EquipmentType\EquipmentTypeGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MissionType\MissionTypeGridView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -254,6 +274,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\TeamType\AddTeamTypeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TeamType\TeamTypeGridView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

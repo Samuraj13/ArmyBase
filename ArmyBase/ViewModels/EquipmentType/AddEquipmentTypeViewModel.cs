@@ -1,4 +1,5 @@
-﻿using ArmyBase.Service;
+﻿using ArmyBase.DTO;
+using ArmyBase.Service;
 using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,17 @@ namespace ArmyBase.ViewModels.EquipmentType
 {
     public class AddEquipmentTypeViewModel : Screen
     {
+        private EquipmentTypeDTO equipmentType;
+
+        public AddEquipmentTypeViewModel()
+        {
+        }
+
+        public AddEquipmentTypeViewModel(EquipmentTypeDTO equipmentType)
+        {
+            this.equipmentType = equipmentType;
+        }
+
         public string Type { get; set; }
 
         public void Add()

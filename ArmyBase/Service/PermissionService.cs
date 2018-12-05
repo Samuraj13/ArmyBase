@@ -49,7 +49,7 @@ namespace ArmyBase.Service
                 return result;
             }
         }
-
+        
         public static string Add(string name, string description, int minRankId)
         {
 
@@ -108,5 +108,17 @@ namespace ArmyBase.Service
                 return error;
             }
         }
+
+        public static void Delete(PermissionDTO Permission)
+        {
+            using (ArmyBaseContext db = new ArmyBaseContext())
+            {
+                var toDelete = db.Permissions.Where(x => x.Id == Permission.Id).FirstOrDefault();
+
+                db.Permissions.Remove(toDelete);
+                db.SaveChanges();
+            }
+        }
+
     }
 }

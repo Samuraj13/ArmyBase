@@ -35,6 +35,7 @@ namespace ArmyBase.Service
                 return result;
             }
         }
+
         public static BindableCollection<EmployeeDTO> GetAllBindableCollection()
         {
             using (ArmyBaseContext db = new ArmyBaseContext())
@@ -169,6 +170,17 @@ namespace ArmyBase.Service
                 }
             }
         }
-        
+
+        public static void Delete(EmployeeDTO Employee)
+        {
+            using (ArmyBaseContext db = new ArmyBaseContext())
+            {
+                var toDelete = db.Employees.Where(x => x.Id == Employee.Id).FirstOrDefault();
+
+                db.Employees.Remove(toDelete);
+                db.SaveChanges();
+            }
+        }
+
     }
 }
