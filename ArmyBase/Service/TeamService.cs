@@ -52,7 +52,6 @@ namespace ArmyBase.Service
 
         public static string Add(string name, int teamTypeId, string responsibilities)
         {
-
             using (ArmyBaseContext db = new ArmyBaseContext())
             {
                 string error = null;

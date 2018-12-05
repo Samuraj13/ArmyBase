@@ -2,6 +2,7 @@ namespace ArmyBase.DTO
 {
     using ArmyBase.Models;
     using System;
+    using Caliburn.Micro;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
@@ -25,5 +26,7 @@ namespace ArmyBase.DTO
         public Team Team { get; set; }
         public int? BarrackId { get; set; }
         public Barrack Barrack { get; set; }
+        
+        public bool IsSelected { get; set; }
     }
 }

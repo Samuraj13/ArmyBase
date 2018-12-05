@@ -23,7 +23,7 @@ namespace ArmyBase
 
         protected override void OnStartup(object sender, StartupEventArgs e)
         {
-            DisplayRootViewFor<AddEmployeeViewModel>();
+            DisplayRootViewFor<AddTeamViewModel>();
 
         }
     }

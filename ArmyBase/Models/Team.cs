@@ -18,8 +18,7 @@ namespace ArmyBase.Models
         [ForeignKey("TeamType")]
         [Required]
         public int TeamTypeId { get; set; }
-
-        [Required]
+        
         public TeamType TeamType { get; set; }
 
         public string Responsibilities { get; set; }

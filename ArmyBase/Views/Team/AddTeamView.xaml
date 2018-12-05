@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ArmyBase.Views.Team"
         mc:Ignorable="d"
-       Title="Add new team" MinHeight="300" MinWidth="450" Height="300" Width="405" x:Name="AddTeamPage" WindowStartupLocation="CenterScreen">
+       Title="Add new team" MinHeight="300" MinWidth="450" Height="300" Width="600" x:Name="AddTeamPage" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -18,12 +18,15 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" MinWidth="200"/>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
         <Label Grid.Column="0" Grid.Row="0" Padding="2"  FontSize="12" Margin="5">Call Sign</Label>
         <Label Grid.Column="0" Grid.Row="1" Padding="2"  FontSize="12" Margin="5" >Type</Label>
         <Label Grid.Column="0" Grid.Row="2" Padding="2"  FontSize="12" Margin="5" >Responsibilities</Label>
+
+        <Label Grid.Column="2" Grid.Row="0" Padding="2" HorizontalAlignment="Center" FontSize="12" Margin="5" >Avaiable employees</Label>
         <TextBox Grid.Column="1" Grid.Row="0" x:Name="Name" Margin="5"/>
         <ComboBox ItemsSource="{Binding TeamTypes}"
                   SelectedItem="{Binding SelectedTeamType, Mode=TwoWay}"   
@@ -40,6 +43,30 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
         <TextBox Grid.Column="1" Grid.Row="2" x:Name="Responsibilities" Margin="5" Grid.RowSpan="2" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+
+        <!--<DataGrid x:Name="Employees" Grid.Column="2"  Grid.Row="1" Grid.RowSpan="3" AutoGenerateColumns="false" BorderThickness="2" Margin="5" SelectedItem="{Binding SelectedEmployee}" SelectionMode="Extended">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="First name" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="Last name" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="Rank" Binding="{Binding Rank}"/>
+            </DataGrid.Columns>
+        </DataGrid>-->
+        <ListBox x:Name="Employees" SelectionMode="Multiple" Grid.Column="2"  Grid.Row="1" Grid.RowSpan="3" Margin="5">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding FirstName}"/>
+                        <Label Content="{Binding LastName}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource {x:Type ListBoxItem}}">
+                    <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+
         <Button Grid.Column="0" x:Name="Add" Content="Add" Width="75" Height="auto" IsDefault="True" Margin="5" Grid.Row="4"/>
         <Button Grid.Column="0" x:Name="Close" Content="Cancel"  Width="75" Height="auto" IsCancel="True" Margin="5" Grid.Row="5"/>
 

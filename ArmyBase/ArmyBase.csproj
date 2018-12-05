@@ -87,9 +87,9 @@
     <Compile Include="DTO\SpecializationDTO.cs" />
     <Compile Include="DTO\TeamDTO.cs" />
     <Compile Include="DTO\TeamTypeDTO.cs" />
-    <Compile Include="Migrations\201812042323579_DBInit.cs" />
-    <Compile Include="Migrations\201812042323579_DBInit.Designer.cs">
-      <DependentUpon>201812042323579_DBInit.cs</DependentUpon>
+    <Compile Include="Migrations\201812050808223_DBInit.cs" />
+    <Compile Include="Migrations\201812050808223_DBInit.Designer.cs">
+      <DependentUpon>201812050808223_DBInit.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ArmyBaseContext.cs" />
@@ -231,8 +231,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201812042323579_DBInit.resx">
-      <DependentUpon>201812042323579_DBInit.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812050808223_DBInit.resx">
+      <DependentUpon>201812050808223_DBInit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

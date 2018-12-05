@@ -154,5 +154,21 @@ namespace ArmyBase.Service
                 return error;
             }
         }
+
+        public static void AddEmployeesToTeam(List<EmployeeDTO> employees, int teamId)
+        {
+            using (ArmyBaseContext db = new ArmyBaseContext())
+            {
+                foreach (var employee in employees)
+                {
+
+                    var toModify = db.Employees.Where(x => x.Id == employee.Id).FirstOrDefault();
+
+                    toModify.TeamId = teamId;
+                    db.SaveChanges();
+                }
+            }
+        }
+        
     }
 }

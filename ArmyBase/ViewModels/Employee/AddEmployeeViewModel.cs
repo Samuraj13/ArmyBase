@@ -13,7 +13,7 @@ namespace ArmyBase.ViewModels.Employee
     {
         public BindableCollection<RankDTO> Ranks { get; set; }
 
-        public RankDTO SelectedRacnk { get; set; }
+        public RankDTO SelectedRank { get; set; }
 
         public BindableCollection<SpecializationDTO> Specializations { get; set; }
 
@@ -41,7 +41,7 @@ namespace ArmyBase.ViewModels.Employee
 
         public void Add()
         {
-            Error = EmployeeService.Add(NationalId, FirstName, LastName, Salary, SelectedSpecialization?.Id, HireDate, SelectedRacnk?.Id);
+            Error = EmployeeService.Add(NationalId, FirstName, LastName, Salary, SelectedSpecialization?.Id, HireDate, SelectedRank?.Id);
             NotifyOfPropertyChange(() => Error);
             TryClose();
         }
