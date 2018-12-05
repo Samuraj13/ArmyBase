@@ -1,5 +1,6 @@
 namespace ArmyBase.Models
 {
+    using ArmyBase.Models.Initializer;
     using System;
     using System.Data.Entity;
     using System.Linq;
@@ -15,6 +16,7 @@ namespace ArmyBase.Models
         public ArmyBaseContext()
             : base("name=ArmyBaseContext")
         {
+            Database.SetInitializer(new ArmyBaseDBInitializer());
         }
 
         // Add a DbSet for each entity type that you want to include in your Models. For more information 

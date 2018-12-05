@@ -93,6 +93,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ArmyBaseContext.cs" />
+    <Compile Include="Models\Initializer\ArmyBaseDBInitializer.cs" />
     <Compile Include="Service\BarrackService.cs" />
     <Compile Include="Service\EmployeeService.cs" />
     <Compile Include="Service\EquipmentService.cs" />
