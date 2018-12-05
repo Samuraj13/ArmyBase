@@ -14,8 +14,6 @@ namespace ArmyBase.Models.Initializer
         {
             base.Seed(db);
             IList<Barrack> Barracks = new List<Barrack>();
-            DateTime dt;
-            DateTime.TryParse("2/12/2012", out dt);
             Barracks.Add(new Barrack() { Id = 1, Name = "Alfa", Capacity = 100 });
             Barracks.Add(new Barrack() { Id = 2, Name = "Beta", Capacity = 200});
             Barracks.Add(new Barrack() { Id = 3, Name = "Gamma", Capacity = 150});
