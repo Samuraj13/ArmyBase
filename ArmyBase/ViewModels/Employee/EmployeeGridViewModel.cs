@@ -30,13 +30,13 @@ namespace ArmyBase.ViewModels.Employee
             Reload();
         }
 
-        public void LoadModifyEmployeePage(EmployeeDTO employee)
-        {
-            IWindowManager manager = new WindowManager();
-            ModifyEmployeeViewModel modify = new ModifyEmployeeViewModel(employee);
-            manager.ShowDialog(modify, null, null);
-            Reload();
-        }//trzeba zrobic ModifyBarrackViewModel
+        //public void LoadModifyEmployeePage(EmployeeDTO employee)
+        //{
+        //    IWindowManager manager = new WindowManager();
+        //    ModifyEmployeeViewModel modify = new ModifyEmployeeViewModel(employee);
+        //    manager.ShowDialog(modify, null, null);
+        //    Reload();
+        //}//trzeba zrobic ModifyBarrackViewModel
 
         /*
          * u nas chyb nie bedzie detali zadnych

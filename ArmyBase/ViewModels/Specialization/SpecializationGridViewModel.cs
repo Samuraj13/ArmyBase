@@ -30,13 +30,13 @@ namespace ArmyBase.ViewModels.Specialization
             Reload();
         }
 
-        public void LoadModifySpecializationPage(BarrackDTO specialization)
-        {
-            IWindowManager manager = new WindowManager();
-            ModifySpecializationViewModel modify = new ModifySpecializationViewModel(specialization);
-            manager.ShowDialog(modify, null, null);
-            Reload();
-        }//trzeba zrobic ModifyBarrackViewModel
+        //public void LoadModifySpecializationPage(BarrackDTO specialization)
+        //{
+        //    IWindowManager manager = new WindowManager();
+        //    ModifySpecializationViewModel modify = new ModifySpecializationViewModel(specialization);
+        //    manager.ShowDialog(modify, null, null);
+        //    Reload();
+        //}//trzeba zrobic ModifyBarrackViewModel
 
         /*
          * u nas chyb nie bedzie detali zadnych

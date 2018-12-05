@@ -29,13 +29,13 @@ namespace ArmyBase.ViewModels.Team
             Reload();
         }
 
-        public void LoadModifyTeamPage(BarrackDTO team)
-        {
-            IWindowManager manager = new WindowManager();
-            ModifyTeamViewModel modify = new ModifyTeamViewModel(team);
-            manager.ShowDialog(modify, null, null);
-            Reload();
-        }//trzeba zrobic ModifyBarrackViewModel
+        //public void LoadModifyTeamPage(BarrackDTO team)
+        //{
+        //    IWindowManager manager = new WindowManager();
+        //    ModifyTeamViewModel modify = new ModifyTeamViewModel(team);
+        //    manager.ShowDialog(modify, null, null);
+        //    Reload();
+        //}//trzeba zrobic ModifyBarrackViewModel
 
         /*
          * u nas chyb nie bedzie detali zadnych

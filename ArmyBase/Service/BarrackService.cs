@@ -118,6 +118,7 @@ namespace ArmyBase.Service
                 return error;
             }
         }
+
         public static List<EmployeeDTO> GetEmplyeeListByBarrackId(int id)
         {
             using (ArmyBaseContext db = new ArmyBaseContext())
@@ -141,6 +142,17 @@ namespace ArmyBase.Service
 
                 return result;
 
+            }
+        }
+
+        public static void Delete(BarrackDTO Barrack)
+        {
+            using (ArmyBaseContext db = new ArmyBaseContext())
+            {
+                var toDelete = db.Barracks.Where(x => x.Id == Barrack.Id).FirstOrDefault();
+
+                db.Barracks.Remove(toDelete);
+                db.SaveChanges();
             }
         }
 

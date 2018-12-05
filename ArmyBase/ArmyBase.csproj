@@ -106,37 +106,33 @@
     <Compile Include="Service\EquipmentTypeService.cs" />
     <Compile Include="ViewModels\Barrack\AddBarrackViewModel.cs" />
     <Compile Include="ViewModels\Barrack\BarrackGridViewModel.cs" />
-    <Compile Include="ViewModels\Barrack\ModifyBarrackViewModel.cs" />
+    <Compile Include="ViewModels\DeleteConfirmationViewModel.cs" />
     <Compile Include="ViewModels\Employee\AddEmployeeViewModel.cs" />
     <Compile Include="ViewModels\Employee\EmployeeGridViewModel.cs" />
-    <Compile Include="ViewModels\Employee\ModifyEmployeeViewModel.cs" />
     <Compile Include="ViewModels\Equipment\AddEquipmentViewModel.cs" />
     <Compile Include="ViewModels\Equipment\EquipmentGridViewModel.cs" />
-    <Compile Include="ViewModels\Equipment\ModifyEquipmentViewModel.cs" />
     <Compile Include="ViewModels\MissionType\AddMissionTypeViewModel.cs" />
     <Compile Include="ViewModels\Mission\AddMissionViewModel.cs" />
     <Compile Include="ViewModels\Mission\MissionGridViewModel.cs" />
-    <Compile Include="ViewModels\Mission\ModifyMissionViewModel.cs" />
     <Compile Include="ViewModels\Permission\AddPermissionViewModel.cs" />
-    <Compile Include="ViewModels\Permission\ModifyPermissionViewModel.cs" />
     <Compile Include="ViewModels\Permission\PermissionGridViewModel.cs" />
     <Compile Include="ViewModels\Rank\AddRankViewModel.cs" />
-    <Compile Include="ViewModels\Rank\ModifyRankViewModel.cs" />
     <Compile Include="ViewModels\Rank\RankGridViewModel.cs" />
     <Compile Include="ViewModels\Specialization\AddSpecializationViewModel.cs" />
-    <Compile Include="ViewModels\Specialization\ModifySpecializationViewModel.cs" />
     <Compile Include="ViewModels\Specialization\SpecializationGridViewModel.cs" />
     <Compile Include="ViewModels\TeamType\AddTeamTypeViewModel.cs" />
     <Compile Include="ViewModels\Team\AddTeamViewModel.cs" />
     <Compile Include="ViewModels\EquipmentType\AddEquipmentTypeViewModel.cs" />
     <Compile Include="ViewModels\StartUpViewModel.cs" />
-    <Compile Include="ViewModels\Team\ModifyTeamViewModel.cs" />
     <Compile Include="ViewModels\Team\TeamGridViewModel.cs" />
     <Compile Include="Views\Barrack\AddBarrackView.xaml.cs">
       <DependentUpon>AddBarrackView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Barrack\BarrackGridView.xaml.cs">
       <DependentUpon>BarrackGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DeleteConfirmationView.xaml.cs">
+      <DependentUpon>DeleteConfirmationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Employee\EmployeeGridView.xaml.cs">
       <DependentUpon>EmployeeGridView.xaml</DependentUpon>
@@ -202,6 +198,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Barrack\BarrackGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DeleteConfirmationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

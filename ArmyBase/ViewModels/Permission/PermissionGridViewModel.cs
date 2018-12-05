@@ -31,13 +31,13 @@ namespace ArmyBase.ViewModels.Permission
             Reload();
         }
 
-        public void LoadModifyBarrackPage(BarrackDTO permission)
-        {
-            IWindowManager manager = new WindowManager();
-            ModifyPermissionViewModel modify = new ModifyPermissionViewModel(permission);
-            manager.ShowDialog(modify, null, null);
-            Reload();
-        }//trzeba zrobic ModifyBarrackViewModel
+        //public void LoadModifyBarrackPage(BarrackDTO permission)
+        //{
+        //    IWindowManager manager = new WindowManager();
+        //    ModifyPermissionViewModel modify = new ModifyPermissionViewModel(permission);
+        //    manager.ShowDialog(modify, null, null);
+        //    Reload();
+        //}//trzeba zrobic ModifyBarrackViewModel
 
         /*
          * u nas chyb nie bedzie detali zadnych

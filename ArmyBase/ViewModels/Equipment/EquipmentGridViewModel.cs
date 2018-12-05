@@ -30,13 +30,13 @@ namespace ArmyBase.ViewModels.Equipment
             Reload();
         }
 
-        public void LoadModifyEquipmentPage(EquipmentDTO equipment)
-        {
-            IWindowManager manager = new WindowManager();
-            ModifyEquipmentViewModel modify = new ModifyEquipmentViewModel(equipment);
-            manager.ShowDialog(modify, null, null);
-            Reload();
-        }//trzeba zrobic ModifyBarrackViewModel
+        //public void LoadModifyEquipmentPage(EquipmentDTO equipment)
+        //{
+        //    IWindowManager manager = new WindowManager();
+        //    ModifyEquipmentViewModel modify = new ModifyEquipmentViewModel(equipment);
+        //    manager.ShowDialog(modify, null, null);
+        //    Reload();
+        //}//trzeba zrobic ModifyBarrackViewModel
 
         /*
          * u nas chyb nie bedzie detali zadnych

@@ -30,13 +30,13 @@ namespace ArmyBase.ViewModels.Rank
             Reload();
         }
 
-        public void LoadModifyRankPage(BarrackDTO rank)
-        {
-            IWindowManager manager = new WindowManager();
-            ModifyRankViewModel modify = new ModifyRankViewModel(rank);
-            manager.ShowDialog(modify, null, null);
-            Reload();
-        }//trzeba zrobic ModifyBarrackViewModel
+        //public void LoadModifyRankPage(BarrackDTO rank)
+        //{
+        //    IWindowManager manager = new WindowManager();
+        //    ModifyRankViewModel modify = new ModifyRankViewModel(rank);
+        //    manager.ShowDialog(modify, null, null);
+        //    Reload();
+        //}//trzeba zrobic ModifyBarrackViewModel
 
         /*
          * u nas chyb nie bedzie detali zadnych

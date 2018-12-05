@@ -33,22 +33,22 @@ namespace ArmyBase.ViewModels.Barrack
         public void LoadModifyBarrackPage(BarrackDTO barrack)
         {
             IWindowManager manager = new WindowManager();
-            ModifyBarrackViewModel modify = new ModifyBarrackViewModel(barrack);
+            AddBarrackViewModel modify = new AddBarrackViewModel(barrack);
             manager.ShowDialog(modify, null, null);
             Reload();
-        }//trzeba zrobic ModifyBarrackViewModel
+        }
 
-        /*
-         * u nas chyb nie bedzie detali zadnych
-         * 
-         * public void LoadDetailsBarrackPage(BarrackDTO barrack)
+        public void Delete(BarrackDTO barrack)
         {
-
             IWindowManager manager = new WindowManager();
-            BarrackDetailsViewModel details = new BarrackDetailsViewModel(barrack);
-            manager.ShowDialog(details, null, null);
+            DeleteConfirmationViewModel modify = new DeleteConfirmationViewModel();
+            bool? showDialogResult = manager.ShowDialog(modify, null, null);
+            if (showDialogResult != null && showDialogResult == true)
+            {
+                BarrackService.Delete(barrack);
+            }
             Reload();
-        }*/
+        }
 
         public void Reload()
         {

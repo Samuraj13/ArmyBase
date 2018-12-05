@@ -30,13 +30,13 @@ namespace ArmyBase.ViewModels.Mission
             Reload();
         }
 
-        public void LoadModifyMissionPage(BarrackDTO mission)
-        {
-            IWindowManager manager = new WindowManager();
-            ModifyMissionViewModel modify = new ModifyMissionViewModel(mission);
-            manager.ShowDialog(modify, null, null);
-            Reload();
-        }//trzeba zrobic ModifyBarrackViewModel
+        //public void LoadModifyMissionPage(BarrackDTO mission)
+        //{
+        //    IWindowManager manager = new WindowManager();
+        //    ModifyMissionViewModel modify = new ModifyMissionViewModel(mission);
+        //    manager.ShowDialog(modify, null, null);
+        //    Reload();
+        //}//trzeba zrobic ModifyBarrackViewModel
 
         /*
          * u nas chyb nie bedzie detali zadnych
