@@ -39,6 +39,14 @@ namespace ArmyBase.ViewModels.Mission
             Reload();
         }
 
+        public void LoadModifyMissionPage(MissionDTO mission)
+        {
+            IWindowManager manager = new WindowManager();
+            AddMissionViewModel modify = new AddMissionViewModel(mission);
+            manager.ShowDialog(modify, null, null);
+            Reload();
+        }
+
         public void Delete(MissionDTO mission)
         {
             IWindowManager manager = new WindowManager();

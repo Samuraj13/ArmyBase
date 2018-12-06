@@ -11,23 +11,40 @@ namespace ArmyBase.ViewModels.EquipmentType
 {
     public class AddEquipmentTypeViewModel : Screen
     {
+        private bool IsEdit { get; set; }
+
+        private EquipmentTypeDTO toEdit { get; set; }
+
         private EquipmentTypeDTO equipmentType;
 
         public AddEquipmentTypeViewModel()
         {
+            IsEdit = false;
         }
 
         public AddEquipmentTypeViewModel(EquipmentTypeDTO equipmentType)
         {
-            this.equipmentType = equipmentType;
+            IsEdit = true;
+            this.toEdit = equipmentType;
+            Type = equipmentType.Name;
+            NotifyOfPropertyChange(() => Type);
         }
 
         public string Type { get; set; }
 
         public void Add()
         {
-            EquipmentTypeService.Add(Type);
-            TryClose();
+            if (!IsEdit)
+            {
+                EquipmentTypeService.Add(Type);
+                TryClose();
+            }
+            else
+            {
+                toEdit.Name = Type;
+                EquipmentTypeService.Edit(toEdit);
+                TryClose();
+            }
         }
 
         public void Close()
