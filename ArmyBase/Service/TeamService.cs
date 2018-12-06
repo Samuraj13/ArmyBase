@@ -24,6 +24,7 @@ namespace ArmyBase.Service
                                        TeamTypeId = x.TeamTypeId,
                                        Responsibilities = x.Responsibilities,
                                        TeamTypeName = x.TeamType.Name,
+                                       MissionId = x.MissionId,
                                        MissionName = x.Mission != null ? x.Mission.Name : "",
                                    }).ToList();
                 return result;
@@ -52,7 +53,7 @@ namespace ArmyBase.Service
             }
         }
 
-        public static string Add(string name, int teamTypeId, string responsibilities)
+        public static string Add(string name, int? teamTypeId, string responsibilities)
         {
             using (ArmyBaseContext db = new ArmyBaseContext())
             {
@@ -114,6 +115,13 @@ namespace ArmyBase.Service
         {
             using (ArmyBaseContext db = new ArmyBaseContext())
             {
+
+                var clearMission = db.Teams.Where(x => x.MissionId == missionId).ToList();
+                foreach (var teamsInMission in clearMission)
+                {
+                    teamsInMission.MissionId = null;
+                    db.SaveChanges();
+                }
                 foreach (var team in teams)
                 {
 

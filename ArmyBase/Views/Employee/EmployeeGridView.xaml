@@ -22,7 +22,7 @@
                     <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"/>
                     <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}"/>
                     <DataGridTextColumn Header="Salary" Binding="{Binding Salary}"/>
-                    <DataGridTextColumn Header="Date Of Employment" Binding="{Binding DateOfEmployment}"/>
+                    <DataGridTextColumn Header="Date Of Employment" Binding="{Binding DateOfEmployment, StringFormat=d}"/>
                     <DataGridTextColumn Header="Specialization" Binding="{Binding SpecializationName}"/>
                     <DataGridTextColumn Header="Rank" Binding="{Binding RankName}"/>
                     <DataGridTextColumn Header="Team" Binding="{Binding TeamName}"/>

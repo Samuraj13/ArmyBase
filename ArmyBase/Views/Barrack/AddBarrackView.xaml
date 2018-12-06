@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ArmyBase.Views.Barrack"
+             xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro.Platform"
         mc:Ignorable="d"
-        Title="Add new barrack" MinHeight="300" MinWidth="450" Height="300" Width="405" x:Name="AddBarrackPage" WindowStartupLocation="CenterScreen">
+        Title="Add new barrack" MinHeight="300" MinWidth="450" Height="300" Width="600" x:Name="AddBarrackPage" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -18,6 +19,7 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Label Grid.Column="0" Grid.Row="0" Padding="2"  FontSize="12" Margin="5">Name</Label>
         <Label Grid.Column="0" Grid.Row="1" Padding="2"  FontSize="12" Margin="5" >Capacity</Label>
@@ -25,8 +27,8 @@
         <TextBox Grid.Column="1" Grid.Row="1" x:Name="Capacity" Margin="5"/>
 
 
-        <Label Grid.Column="2" Grid.Row="0" Padding="2" HorizontalAlignment="Center" FontSize="12" Margin="5" >Avaiable employees</Label>
-        <ListBox x:Name="Employees" SelectionMode="Multiple" Grid.Column="2"  Grid.Row="1" Grid.RowSpan="2" Margin="5">
+        <Label Grid.Column="2" Grid.Row="0" Padding="2" HorizontalAlignment="Center" FontSize="12" Margin="5">Actual employees</Label>
+        <ListBox x:Name="ActualEmployees" SelectionMode="Multiple" Grid.Column="2"  Grid.Row="1" Grid.RowSpan="2" Margin="5">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -41,11 +43,31 @@
                 </Style>
             </ListBox.ItemContainerStyle>
         </ListBox>
+        
+        <Label Grid.Column="3" Grid.Row="0" Padding="2" HorizontalAlignment="Center" FontSize="12" Margin="5" >Available employees</Label>
+        <ListBox x:Name="AvailableEmployees" SelectionMode="Multiple" Grid.Column="3"  Grid.Row="1" Grid.RowSpan="2" Margin="5">
+            <ListBox.ItemTemplate >
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding FirstName}"/>
+                        <Label Content="{Binding LastName}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource {x:Type ListBoxItem}}">
+                    <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
 
-        <Button Grid.Column="0" x:Name="Add" Content="Add" Width="75" Height="auto" IsDefault="True" Margin="5" Grid.Row="3"/>
+        <Button x:Name="ClickBack" Grid.Row="3" Grid.Column="2" Margin="5" Width="auto" Content="Remove" />
+        <Button x:Name="Click" Grid.Row="3" Grid.Column="3" Margin="5" Width="auto" Content="Add" />
+
+        <Button Grid.Column="0" x:Name="Add" Content="{Binding ButtonLabel}" Width="75" Height="auto" IsDefault="True" Margin="5" Grid.Row="3"/>
         <Button Grid.Column="0" x:Name="Close" Content="Cancel"  Width="75" Height="auto" IsCancel="True" Margin="5" Grid.Row="4"/>
 
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Center" TextWrapping="Wrap" x:Name="Error" Margin="5" Grid.Row="4" />
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Center" TextWrapping="Wrap" x:Name="Error" Margin="5" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
        
     </Grid>
 </Window>

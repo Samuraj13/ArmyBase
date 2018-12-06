@@ -29,7 +29,27 @@ namespace ArmyBase.ViewModels.Employee
 
         public int NationalId { get; set; }
 
-        public DateTime DateOfEmployment { get; set; }
+        private DateTime _dateOfEmployment;
+
+        public DateTime DateOfEmployment
+        {
+            get
+            {
+                return _dateOfEmployment;
+            }
+            set
+            {
+                if (IsEdit && _dateOfEmployment == new DateTime(1,1,1))
+                {
+                    _dateOfEmployment = toEdit.DateOfEmployment;
+                }
+                else
+                {
+                    _dateOfEmployment = value;
+                }
+                NotifyOfPropertyChange(() => DateOfEmployment);
+            }
+        }
 
         
 
@@ -39,37 +59,47 @@ namespace ArmyBase.ViewModels.Employee
 
         public int? ActualSpecialization { get; set; }
 
-        
+        public string ButtonLabel { get; set; }
+
+
 
         public AddEmployeeViewModel(EmployeeDTO employee)
         {
+            IsEdit = true;
+            ButtonLabel = "Edit";
             Ranks = RankService.GetAllBindableCollection();
             Specializations = SpecializationService.GetAllBindableCollection();
             int i = 0;
-            while (ActualRank == null)
+            if (employee.RankId != null)
             {
-                if (Ranks[i].Id == employee.RankId)
+                while (ActualRank == null)
                 {
-                    ActualRank = i;
-                    break;
-                }
-                else
-                {
-                    i++;
+                    if (Ranks[i].Id == employee.RankId)
+                    {
+                        ActualRank = i;
+                        break;
+                    }
+                    else
+                    {
+                        i++;
+                    }
                 }
             }
 
-            int j = 0;
-            while (ActualSpecialization == null)
+            if (employee.SpecializationId != null)
             {
-                if (Specializations[j].Id == employee.SpecializationId)
+                int j = 0;
+                while (ActualSpecialization == null)
                 {
-                    ActualSpecialization = j;
-                    break;
-                }
-                else
-                {
-                    j++;
+                    if (Specializations[j].Id == employee.SpecializationId)
+                    {
+                        ActualSpecialization = j;
+                        break;
+                    }
+                    else
+                    {
+                        j++;
+                    }
                 }
             }
 
@@ -77,7 +107,6 @@ namespace ArmyBase.ViewModels.Employee
             NationalId = employee.NationalId;
             FirstName = employee.FirstName;
             LastName = employee.LastName;
-            //SelectedRank = EmployeeService.GetById(employee.RankId);
             Salary = employee.Salary;
             DateOfEmployment = employee.DateOfEmployment;
             NotifyOfPropertyChange(() => NationalId);
@@ -90,14 +119,22 @@ namespace ArmyBase.ViewModels.Employee
         public AddEmployeeViewModel()
         {
             IsEdit = false;
+            ButtonLabel = "Add";
+            Ranks = RankService.GetAllBindableCollection();
+            Specializations = SpecializationService.GetAllBindableCollection();
+            DateOfEmployment = DateTime.Now;
+            NotifyOfPropertyChange(() => DateOfEmployment);
         }
 
         public void Add()
         {
             if (!IsEdit)
             {
-                EmployeeService.Add(NationalId, FirstName, LastName, Salary, SelectedSpecialization?.Id, DateOfEmployment, SelectedRank?.Id);
-                TryClose();
+                string x = EmployeeService.Add(NationalId, FirstName, LastName, Salary, SelectedSpecialization?.Id, DateOfEmployment, SelectedRank?.Id);
+                if (x == null)
+                    TryClose();
+                else
+                    Error = x;
             }
             else
             {
@@ -106,13 +143,33 @@ namespace ArmyBase.ViewModels.Employee
                 toEdit.LastName = LastName;
                 toEdit.Salary = Salary;
                 toEdit.DateOfEmployment = DateOfEmployment;
-                TryClose();
+                toEdit.SpecializationId = SelectedSpecialization.Id;
+                toEdit.RankId = SelectedRank.Id;
+                string x = EmployeeService.Edit(toEdit);
+                if (x == null)
+                {
+                    TryClose();
+                }
+                else
+                    Error = x;
             }
         }
 
         public void Close()
         {
             TryClose();
+        }
+
+        private string error;
+
+        public string Error
+        {
+            get { return error; }
+            set
+            {
+                error = value;
+                NotifyOfPropertyChange(() => Error);
+            }
         }
     }
 }

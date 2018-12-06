@@ -12,13 +12,14 @@ namespace ArmyBase.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = ("Name is required"))]
         public string Name { get; set; }
 
         public string Description { get; set; }
 
         [ForeignKey("MinRank")]
-        public int MinRankId { get; set; }
+        [Required(ErrorMessage = ("Minimum rank is required"))]
+        public int? MinRankId { get; set; }
 
         public Rank MinRank { get; set; }
         

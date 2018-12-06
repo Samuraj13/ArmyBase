@@ -29,10 +29,13 @@ namespace ArmyBase.ViewModels.Equipment
 
         public int? ActualType { get; set; }
 
+        public string ButtonLabel { get; set; }
+
         public AddEquipmentViewModel(EquipmentDTO equipment)
         {
             EquipmentTypes = EquipmentTypeService.GetAllBindableCollection();
             IsEdit = true;
+            ButtonLabel = "Edit";
 
             int i = 0;
             while (ActualType == null)
@@ -53,7 +56,6 @@ namespace ArmyBase.ViewModels.Equipment
             Quantity = equipment.Quantity;
             IsAvailable = equipment.IsAvailable;
             Description = equipment.Description;
-            SelectedEquipmentType = EquipmentTypeService.GetById(equipment.EquipmentTypeId);
             NotifyOfPropertyChange(() => Name);
             NotifyOfPropertyChange(() => Quantity);
             NotifyOfPropertyChange(() => IsAvailable);
@@ -65,6 +67,7 @@ namespace ArmyBase.ViewModels.Equipment
         public AddEquipmentViewModel()
         {
             IsEdit = false;
+            ButtonLabel = "Add";
             EquipmentTypes = EquipmentTypeService.GetAllBindableCollection();
         }
 
@@ -72,8 +75,14 @@ namespace ArmyBase.ViewModels.Equipment
         {
             if (!IsEdit)
             {
-                EquipmentService.Add(Name, SelectedEquipmentType.Id, Quantity, Description, IsAvailable);
-                TryClose();
+                string x = EquipmentService.Add(Name, SelectedEquipmentType?.Id, Quantity, Description, IsAvailable);
+                if (x == null)
+                {
+                    TryClose();
+
+                }
+                else
+                    Error = x;
             }
             else
             {
@@ -82,14 +91,31 @@ namespace ArmyBase.ViewModels.Equipment
                 toEdit.Description = Description;
                 toEdit.IsAvailable = IsAvailable;
                 toEdit.EquipmentTypeId = SelectedEquipmentType.Id;
-                EquipmentService.Edit(toEdit);
-                TryClose();
-            }
+                string x = EquipmentService.Edit(toEdit);
+                if (x == null)
+                {
+                    TryClose();
+                }
+                else
+                    Error = x;
+        }
         }
 
         public void Close()
         {
             TryClose();
+        }
+
+        private string error;
+
+        public string Error
+        {
+            get { return error; }
+            set
+            {
+                error = value;
+                NotifyOfPropertyChange(() => Error);
+            }
         }
     }
 }

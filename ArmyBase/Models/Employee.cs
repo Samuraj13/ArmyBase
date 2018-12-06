@@ -12,13 +12,13 @@ namespace ArmyBase.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = ("National ID is required"))]
         public int NationalId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = ("First name is required"))]
         public string FirstName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = ("Last name is required"))]
         public string LastName { get; set; }
 
         public bool IsBarrackManager { get; set; }

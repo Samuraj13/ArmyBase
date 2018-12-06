@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace ArmyBase.ViewModels.Barrack
 {
@@ -15,14 +16,21 @@ namespace ArmyBase.ViewModels.Barrack
 
         private BarrackDTO toEdit { get; set; }
 
-        public BindableCollection<EmployeeDTO> Employees { get; set; }
+        public BindableCollection<EmployeeDTO> AvailableEmployees { get; set; }
+
+        public BindableCollection<EmployeeDTO> ActualEmployees { get; set; }
 
         public List<EmployeeDTO> SelectedEmployees { get; set; }
 
+        public string ButtonLabel { get; set; }
+
         public AddBarrackViewModel(BarrackDTO barrack)
         {
-            Employees = new BindableCollection<EmployeeDTO>(EmployeeService.GetAll().Where(x => x.BarrackId == null).ToList());
+            AvailableEmployees = new BindableCollection<EmployeeDTO>(EmployeeService.GetAll().Where(x => x.BarrackId == null).ToList());
+            ActualEmployees = new BindableCollection<EmployeeDTO>(EmployeeService.GetAll().Where(x => x.BarrackId == barrack.Id).ToList());
             IsEdit = true;
+            ButtonLabel = "Edit";
+
             this.toEdit = barrack;
             Name = barrack.Name;
             Capacity = barrack.Capacity;
@@ -32,11 +40,32 @@ namespace ArmyBase.ViewModels.Barrack
 
         public AddBarrackViewModel()
         {
-            Employees = new BindableCollection<EmployeeDTO>(EmployeeService.GetAll().Where(x => x.BarrackId == null).ToList());
+            AvailableEmployees = new BindableCollection<EmployeeDTO>(EmployeeService.GetAll().Where(x => x.BarrackId == null && x.IsSelected == false).ToList());
+            ActualEmployees = new BindableCollection<EmployeeDTO>();
             IsEdit = false;
+            ButtonLabel = "Add";
         }
 
         public string Name { get; set; }
+
+        public void Click()
+        {
+                ActualEmployees.AddRange(AvailableEmployees.Where(x=>x.IsSelected).ToList());
+            AvailableEmployees.RemoveRange(ActualEmployees);
+                NotifyOfPropertyChange(() => AvailableEmployees);
+                NotifyOfPropertyChange(() => ActualEmployees);
+
+        }
+
+        public void ClickBack()
+        {
+
+            AvailableEmployees.AddRange(ActualEmployees.Where(x => x.IsSelected).ToList());
+            ActualEmployees.RemoveRange(AvailableEmployees);
+            NotifyOfPropertyChange(() => AvailableEmployees);
+            NotifyOfPropertyChange(() => ActualEmployees);
+
+        }
 
         public int Capacity { get; set; }
 
@@ -44,24 +73,47 @@ namespace ArmyBase.ViewModels.Barrack
         {
             if (!IsEdit)
             {
-
-                SelectedEmployees = Employees.Where(x => x.IsSelected).ToList();
-                BarrackService.Add(Name, Capacity);
-                EmployeeService.AddEmployeesToBarrack(SelectedEmployees, BarrackService.GetAll().Last().Id);
-                TryClose();
+                SelectedEmployees = ActualEmployees.ToList();
+                string x = BarrackService.Add(Name, Capacity);
+                if (x == null)
+                {
+                    EmployeeService.AddEmployeesToBarrack(SelectedEmployees, BarrackService.GetAll().Last().Id);
+                    TryClose();
+                }
+                else
+                    Error = x;
             }
             else
             {
                 toEdit.Name = Name;
                 toEdit.Capacity = Capacity;
-                BarrackService.Edit(toEdit);
-                TryClose();
+                SelectedEmployees = ActualEmployees.ToList();
+                string x = BarrackService.Edit(toEdit);
+                if (x == null)
+                {
+                    EmployeeService.AddEmployeesToBarrack(SelectedEmployees, toEdit.Id);
+                    TryClose();
+                }
+                else
+                    Error = x;
             }
         }
 
         public void Close()
         {
             TryClose();
+        }
+
+        private string error;
+
+        public string Error
+        {
+            get { return error; }
+            set
+            {
+                error = value;
+                NotifyOfPropertyChange(() => Error);
+            }
         }
 
     }

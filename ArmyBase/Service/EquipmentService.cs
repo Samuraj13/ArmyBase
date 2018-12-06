@@ -56,7 +56,7 @@ namespace ArmyBase.Service
             }
         }
 
-        public static string Add(string name, int equipmentTypeId, int quantity, string description, bool isAvailable)
+        public static string Add(string name, int? equipmentTypeId, int quantity, string description, bool isAvailable)
         {
 
             using (ArmyBaseContext db = new ArmyBaseContext())

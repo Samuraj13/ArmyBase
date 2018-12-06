@@ -30,6 +30,14 @@ namespace ArmyBase.ViewModels.Team
             Reload();
         }
 
+        public void LoadModifyTeamPage(TeamDTO team)
+        {
+            IWindowManager manager = new WindowManager();
+            AddTeamViewModel add = new AddTeamViewModel(team);
+            manager.ShowDialog(add, null, null);
+            Reload();
+        }
+
         public void LoadTeamTypesGrid()
         {
             IWindowManager manager = new WindowManager();

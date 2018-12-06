@@ -15,16 +15,18 @@ namespace ArmyBase.ViewModels.EquipmentType
 
         private EquipmentTypeDTO toEdit { get; set; }
 
-        private EquipmentTypeDTO equipmentType;
+        public string ButtonLabel { get; set; }
 
         public AddEquipmentTypeViewModel()
         {
             IsEdit = false;
+            ButtonLabel = "Add";
         }
 
         public AddEquipmentTypeViewModel(EquipmentTypeDTO equipmentType)
         {
             IsEdit = true;
+            ButtonLabel = "Edit";
             this.toEdit = equipmentType;
             Type = equipmentType.Name;
             NotifyOfPropertyChange(() => Type);
@@ -36,20 +38,42 @@ namespace ArmyBase.ViewModels.EquipmentType
         {
             if (!IsEdit)
             {
-                EquipmentTypeService.Add(Type);
-                TryClose();
+                string x = EquipmentTypeService.Add(Type);
+                if (x == null)
+                {
+                    TryClose();
+                }
+                else
+                    Error = x;
             }
             else
             {
                 toEdit.Name = Type;
-                EquipmentTypeService.Edit(toEdit);
-                TryClose();
+                string x = EquipmentTypeService.Edit(toEdit);
+                if (x == null)
+                {
+                    TryClose();
+                }
+                else
+                    Error = x;
             }
         }
 
         public void Close()
         {
             TryClose();
+        }
+
+        private string error;
+
+        public string Error
+        {
+            get { return error; }
+            set
+            {
+                error = value;
+                NotifyOfPropertyChange(() => Error);
+            }
         }
     }
 }

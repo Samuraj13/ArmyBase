@@ -12,7 +12,7 @@ namespace ArmyBase.DTO
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public int MinRankId { get; set; }
+        public int? MinRankId { get; set; }
         public Rank MinRank { get; set; }
         public ICollection<Specialization> Specialization { get; set; }
 

@@ -12,17 +12,16 @@ namespace ArmyBase.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = ("Name is required"))]
         public string Name { get; set; }
 
         [ForeignKey("TeamType")]
-        [Required]
-        public int TeamTypeId { get; set; }
+        [Required(ErrorMessage = ("Team type is required"))]
+        public int? TeamTypeId { get; set; }
         
         public TeamType TeamType { get; set; }
 
         [ForeignKey("Mission")]
-        [Required]
         public int? MissionId { get; set; }
 
         public Mission Mission { get; set; }

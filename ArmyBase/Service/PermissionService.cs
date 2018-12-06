@@ -51,7 +51,7 @@ namespace ArmyBase.Service
             }
         }
         
-        public static string Add(string name, string description, int minRankId)
+        public static string Add(string name, string description, int? minRankId)
         {
 
             using (ArmyBaseContext db = new ArmyBaseContext())

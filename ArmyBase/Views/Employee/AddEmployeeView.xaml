@@ -35,9 +35,10 @@
         <TextBox Grid.Column="1" Grid.Row="1" x:Name="FirstName" Margin="5"/>
         <TextBox Grid.Column="1" Grid.Row="2" x:Name="LastName" Margin="5"/>
         <TextBox Grid.Column="1" Grid.Row="3" x:Name="Salary" Margin="5"/>
-        <DatePicker Grid.Column="1" Grid.Row="4"  x:Name="HireDate" FirstDayOfWeek="Monday" DisplayDateStart="1753-01-01" Margin="5"/>
+        <DatePicker Grid.Column="1" Grid.Row="4"  x:Name="DateOfEmployment" FirstDayOfWeek="Monday" DisplayDateStart="1753-01-01" Margin="5"/>
         <ComboBox ItemsSource="{Binding Specializations}"
-                  SelectedItem="{Binding SelectedSpecialization, Mode=TwoWay}"   
+                  SelectedItem="{Binding SelectedSpecialization, Mode=TwoWay}"
+                  SelectedIndex="{Binding ActualSpecialization}"
                   VerticalAlignment="Top" 
                   Margin="5"
                   Grid.Column="1"
@@ -52,6 +53,7 @@
         </ComboBox>
         <ComboBox ItemsSource="{Binding Ranks}"
                   SelectedItem="{Binding SelectedRank, Mode=TwoWay}"   
+                  SelectedIndex="{Binding ActualRank}"
                   VerticalAlignment="Top" 
                   Margin="5"
                   Grid.Column="1"
@@ -64,7 +66,7 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <Button Grid.Column="0" x:Name="Add" Content="Add" Width="75" Height="auto" IsDefault="True" Margin="5" Grid.Row="7"/>
+        <Button Grid.Column="0" x:Name="Add" Content="{Binding ButtonLabel}" Width="75" Height="auto" IsDefault="True" Margin="5" Grid.Row="7"/>
         <Button Grid.Column="0" x:Name="Close" Content="Cancel"  Width="75" Height="auto" IsCancel="True" Margin="5" Grid.Row="8"/>
 
         <TextBlock Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Center" TextWrapping="Wrap" x:Name="Error" Margin="5" Grid.Row="7"  Grid.RowSpan="2"/>

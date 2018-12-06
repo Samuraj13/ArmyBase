@@ -55,7 +55,7 @@ namespace ArmyBase.Service
             }
         }
 
-        public static string Add(string name, string description, int missionTypeId, DateTime startTime, DateTime? endTime)
+        public static string Add(string name, string description, int? missionTypeId, DateTime startTime, DateTime? endTime)
         {
 
             using (ArmyBaseContext db = new ArmyBaseContext())

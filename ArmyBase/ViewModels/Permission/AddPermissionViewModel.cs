@@ -25,10 +25,13 @@ namespace ArmyBase.ViewModels.Permission
 
         public bool IsEdit { get; set; }
 
+        public string ButtonLabel { get; set; }
+
         public AddPermissionViewModel(PermissionDTO permission)
         {
             Ranks = RankService.GetAllBindableCollection();
             IsEdit = true;
+            ButtonLabel = "Edit";
 
             int i = 0;
             while (ActualRank == null)
@@ -54,6 +57,7 @@ namespace ArmyBase.ViewModels.Permission
         public AddPermissionViewModel()
         {
             IsEdit = false;
+            ButtonLabel = "Add";
             Ranks = RankService.GetAllBindableCollection();
         }
 
@@ -61,22 +65,44 @@ namespace ArmyBase.ViewModels.Permission
         {
             if (!IsEdit)
             {
-                PermissionService.Add(Name, Description, SelectedRank.Id);
-                TryClose();
+                string x = PermissionService.Add(Name, Description, SelectedRank?.Id);
+                if (x == null)
+                {
+                    TryClose();
+                }
+                else
+                    Error = x;
             }
             else
             {
                 toEdit.Name = Name;
                 toEdit.Description = Description;
                 toEdit.MinRankId = SelectedRank.Id;
-                PermissionService.Edit(toEdit);
-                TryClose();
+                string x = PermissionService.Edit(toEdit);
+                if (x == null)
+                {
+                    TryClose();
+                }
+                else
+                    Error = x;
             }
         }
 
         public void Close()
         {
             TryClose();
+        }
+
+        private string error;
+
+        public string Error
+        {
+            get { return error; }
+            set
+            {
+                error = value;
+                NotifyOfPropertyChange(() => Error);
+            }
         }
     }
 }

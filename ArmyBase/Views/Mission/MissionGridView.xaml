@@ -21,8 +21,8 @@
                     <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
                     <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
                     <DataGridTextColumn Header="Mission Type" Binding="{Binding MissionTypeName}"/>
-                    <DataGridTextColumn Header="Start Time" Binding="{Binding StartTime}"/>
-                    <DataGridTextColumn Header="End Time" Binding="{Binding EndTime}"/>
+                    <DataGridTextColumn Header="Start Time" Binding="{Binding StartTime, StringFormat=d}"/>
+                    <DataGridTextColumn Header="End Time" Binding="{Binding EndTime, StringFormat=d}"/>
                     <DataGridTemplateColumn >
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>

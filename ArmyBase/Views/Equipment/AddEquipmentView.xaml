@@ -47,8 +47,8 @@
         <TextBox Grid.Column="1" Grid.Row="2" x:Name="Quantity" Margin="5" />
         <CheckBox Grid.Column="1" Grid.Row="3" x:Name="IsAvailable" Margin="5" VerticalAlignment="Center" HorizontalAlignment="left"/>
         <TextBox Grid.Column="1" Grid.Row="4" x:Name="Description" Margin="5" Grid.RowSpan="2" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
-        
-        <Button Grid.Column="0" x:Name="Add" Content="Add" Width="75" Height="auto" IsDefault="True" Margin="5" Grid.Row="6"/>
+
+        <Button Grid.Column="0" x:Name="Add" Content="{Binding ButtonLabel}" Width="75" Height="auto" IsDefault="True" Margin="5" Grid.Row="6"/>
         <Button Grid.Column="0" x:Name="Close" Content="Cancel"  Width="75" Height="auto" IsCancel="True" Margin="5" Grid.Row="7"/>
 
         <TextBlock Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Center" TextWrapping="Wrap" x:Name="Error" Margin="5" Grid.Row="6" Grid.RowSpan="2"/>

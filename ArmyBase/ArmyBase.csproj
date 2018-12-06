@@ -95,6 +95,18 @@
     <Compile Include="Migrations\201812061523047_IsDisabledFlag.Designer.cs">
       <DependentUpon>201812061523047_IsDisabledFlag.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812061801459_Validation.cs" />
+    <Compile Include="Migrations\201812061801459_Validation.Designer.cs">
+      <DependentUpon>201812061801459_Validation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812061813327_Validation2.cs" />
+    <Compile Include="Migrations\201812061813327_Validation2.Designer.cs">
+      <DependentUpon>201812061813327_Validation2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812061833222_Validation21.cs" />
+    <Compile Include="Migrations\201812061833222_Validation21.Designer.cs">
+      <DependentUpon>201812061833222_Validation21.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ArmyBaseContext.cs" />
     <Compile Include="Models\Initializer\ArmyBaseDBInitializer.cs" />
@@ -345,6 +357,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812061523047_IsDisabledFlag.resx">
       <DependentUpon>201812061523047_IsDisabledFlag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812061801459_Validation.resx">
+      <DependentUpon>201812061801459_Validation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812061813327_Validation2.resx">
+      <DependentUpon>201812061813327_Validation2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812061833222_Validation21.resx">
+      <DependentUpon>201812061833222_Validation21.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

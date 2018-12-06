@@ -30,6 +30,14 @@ namespace ArmyBase.ViewModels.Rank
             Reload();
         }
 
+        public void LoadModifyRankPage(RankDTO rank)
+        {
+            IWindowManager manager = new WindowManager();
+            AddRankViewModel add = new AddRankViewModel(rank);
+            manager.ShowDialog(add, null, null);
+            Reload();
+        }
+
         public void Delete(RankDTO rank)
         {
             IWindowManager manager = new WindowManager();

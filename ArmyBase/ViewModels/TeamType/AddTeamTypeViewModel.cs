@@ -17,14 +17,18 @@ namespace ArmyBase.ViewModels.TeamType
 
         private TeamTypeDTO teamType;
 
+        public string ButtonLabel { get; set; }
+
         public AddTeamTypeViewModel()
         {
             IsEdit = false;
+            ButtonLabel = "Add";
         }
 
         public AddTeamTypeViewModel(TeamTypeDTO teamType)
         {
             IsEdit = true;
+            ButtonLabel = "Edit";
             this.toEdit = teamType;
             Type = teamType.Name;
             NotifyOfPropertyChange(() => Type);
@@ -36,20 +40,42 @@ namespace ArmyBase.ViewModels.TeamType
         {
             if (!IsEdit)
             {
-                TeamTypeService.Add(Type);
-                TryClose();
+                string x = TeamTypeService.Add(Type);
+                if (x == null)
+                {
+                    TryClose();
+                }
+                else
+                    Error = x;
             }
             else
             {
                 toEdit.Name = Type;
-                TeamTypeService.Edit(toEdit);
-                TryClose();
+                string x =TeamTypeService.Edit(toEdit);
+                if (x == null)
+                {
+                    TryClose();
+                }
+                else
+                    Error = x;
             }
         }
 
         public void Close()
         {
             TryClose();
+        }
+
+        private string error;
+
+        public string Error
+        {
+            get { return error; }
+            set
+            {
+                error = value;
+                NotifyOfPropertyChange(() => Error);
+            }
         }
     }
 }

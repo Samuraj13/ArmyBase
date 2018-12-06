@@ -19,7 +19,9 @@ namespace ArmyBase.ViewModels.Mission
 
         public MissionTypeDTO SelectedMissionType { get; set; }
 
-        public BindableCollection<TeamDTO> Teams { get; set; }
+        public BindableCollection<TeamDTO> AvailableTeams { get; set; }
+
+        public BindableCollection<TeamDTO> ActualTeams { get; set; }
 
         public List<TeamDTO> SelectedTeams { get; set; }
 
@@ -31,14 +33,43 @@ namespace ArmyBase.ViewModels.Mission
 
         public string Description { get; set; }
 
+        public int? ActualType { get; set; }
+
+        public string ButtonLabel { get; set; }
+
         public AddMissionViewModel()
         {
             IsEdit = false;
+            ButtonLabel = "Add";
+            MissionTypes = MissionTypeService.GetAllBindableCollection();
+            AvailableTeams = new BindableCollection<TeamDTO>(TeamService.GetAll().Where(x => x.MissionId == null).ToList());
+            ActualTeams = new BindableCollection<TeamDTO>();
+            StartTime = DateTime.Now;
+            NotifyOfPropertyChange(() => StartTime);
         }
 
         public AddMissionViewModel(MissionDTO mission)
         {
             IsEdit = true;
+            ButtonLabel = "Edit";
+            MissionTypes = MissionTypeService.GetAllBindableCollection();
+            AvailableTeams = new BindableCollection<TeamDTO>(TeamService.GetAll().Where(x => x.MissionId == null).ToList());
+            ActualTeams = new BindableCollection<TeamDTO>(TeamService.GetAll().Where(x => x.MissionId == mission.Id).ToList());
+
+            int i = 0;
+            while (ActualType == null)
+            {
+                if (MissionTypes[i].Id == mission.MissionTypeId)
+                {
+                    ActualType = i;
+                    break;
+                }
+                else
+                {
+                    i++;
+                }
+            }
+
             this.toEdit = mission;
             Name = mission.Name;
             Description = mission.Description;
@@ -54,9 +85,15 @@ namespace ArmyBase.ViewModels.Mission
         {
             if (!IsEdit)
             {
-                SelectedTeams = Teams.Where(x => x.IsSelected).ToList();
-                MissionService.Add(Name, Description, SelectedMissionType.Id, StartTime, EndTime); TryClose();
-                TeamService.AddTeamsToMission(SelectedTeams, MissionService.GetAll().Last().Id);
+                SelectedTeams = ActualTeams.ToList();
+                string x = MissionService.Add(Name, Description, SelectedMissionType?.Id, StartTime, EndTime);
+                if (x == null)
+                {
+                    TeamService.AddTeamsToMission(SelectedTeams, MissionService.GetAll().Last().Id);
+                    TryClose();
+                }
+                else
+                    Error = x;
 
             }
             else
@@ -65,16 +102,52 @@ namespace ArmyBase.ViewModels.Mission
                 toEdit.Description = Description;
                 toEdit.StartTime = StartTime;
                 toEdit.EndTime = EndTime;
-                MissionService.Edit(toEdit);
-                TryClose();
+                SelectedTeams = ActualTeams.ToList();
+                string x = MissionService.Edit(toEdit);
+                if (x == null)
+                {
+                    TeamService.AddTeamsToMission(SelectedTeams, toEdit.Id);
+                    TryClose();
+                }
+                else
+                    Error = x;
             }
-           
-            TryClose();
         }
 
         public void Close()
         {
             TryClose();
+        }
+
+        public void Click()
+        {
+            ActualTeams.AddRange(AvailableTeams.Where(x => x.IsSelected).ToList());
+            AvailableTeams.RemoveRange(ActualTeams);
+            NotifyOfPropertyChange(() => AvailableTeams);
+            NotifyOfPropertyChange(() => ActualTeams);
+
+        }
+
+        public void ClickBack()
+        {
+
+            AvailableTeams.AddRange(ActualTeams.Where(x => x.IsSelected).ToList());
+            ActualTeams.RemoveRange(AvailableTeams);
+            NotifyOfPropertyChange(() => AvailableTeams);
+            NotifyOfPropertyChange(() => ActualTeams);
+
+        }
+
+        private string error;
+
+        public string Error
+        {
+            get { return error; }
+            set
+            {
+                error = value;
+                NotifyOfPropertyChange(() => Error);
+            }
         }
     }
 }

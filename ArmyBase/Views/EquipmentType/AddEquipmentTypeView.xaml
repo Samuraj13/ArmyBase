@@ -21,10 +21,10 @@
 
         <TextBox Grid.Column="1" Grid.Row="0" x:Name="Type" Margin="5"/>
 
-        <Button Grid.Column="0" x:Name="Add" Content="Add" Width="75" Height="auto" IsDefault="True" Margin="5" Grid.Row="1"/>
+        <Button Grid.Column="0" x:Name="Add" Content="{Binding ButtonLabel}" Width="75" Height="auto" IsDefault="True" Margin="5" Grid.Row="1"/>
         <Button Grid.Column="0" x:Name="Close" Content="Cancel"  Width="75" Height="auto" IsCancel="True" Margin="5" Grid.Row="2"/>
 
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Center" TextWrapping="Wrap" x:Name="Error" Margin="5" Grid.Row="2" />
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Center" TextWrapping="Wrap" x:Name="Error" Margin="5" Grid.Row="1" Grid.RowSpan="2"/>
 
     </Grid>
 </Window>

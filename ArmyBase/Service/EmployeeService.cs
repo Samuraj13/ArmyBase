@@ -149,6 +149,12 @@ namespace ArmyBase.Service
         {
             using (ArmyBaseContext db = new ArmyBaseContext())
             {
+                var clearTeam = db.Employees.Where(x => x.TeamId == teamId).ToList();
+                foreach (var employeesInTeam in clearTeam)
+                {
+                    employeesInTeam.TeamId = null;
+                    db.SaveChanges();
+                }
                 foreach (var employee in employees)
                 {
 
@@ -164,6 +170,12 @@ namespace ArmyBase.Service
         {
             using (ArmyBaseContext db = new ArmyBaseContext())
             {
+                    var clearBarrack = db.Employees.Where(x => x.BarrackId == barrackId).ToList();
+                foreach(var employeeInBarrack in clearBarrack)
+                {
+                    employeeInBarrack.BarrackId = null;
+                    db.SaveChanges();
+                }
                 foreach (var employee in employees)
                 {
 

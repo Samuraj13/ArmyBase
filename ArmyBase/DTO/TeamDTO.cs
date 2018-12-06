@@ -11,7 +11,7 @@ namespace ArmyBase.DTO
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int TeamTypeId { get; set; }
+        public int? TeamTypeId { get; set; }
         public TeamType TeamType { get; set; }
         public int? MissionId { get; set; }
         public TeamType Mission { get; set; }

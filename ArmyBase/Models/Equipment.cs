@@ -12,16 +12,18 @@ namespace ArmyBase.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = ("Name is required"))]
         public string Name { get; set; }
 
         public bool IsAvailable { get; set; }
         
         [ForeignKey("EquipmentType")]
-        public int EquipmentTypeId { get; set; }
+        [Required(ErrorMessage = ("Equipment type is required"))]
+        public int? EquipmentTypeId { get; set; }
         
         public EquipmentType EquipmentType { get; set; }
 
+        [Required(ErrorMessage = ("Quantity is required"))]
         public int Quantity { get; set; }
 
         public string Description { get; set; }

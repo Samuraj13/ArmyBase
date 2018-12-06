@@ -12,7 +12,7 @@ namespace ArmyBase.DTO
         public int Id { get; set; }
         public string Name { get; set; }
         public bool IsAvailable { get; set; }
-        public int EquipmentTypeId { get; set; }
+        public int? EquipmentTypeId { get; set; }
         public EquipmentType EquipmentType { get; set; }
         public int Quantity { get; set; }
         public string Description { get; set; }
