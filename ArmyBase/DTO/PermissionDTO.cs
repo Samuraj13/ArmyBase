@@ -17,5 +17,6 @@ namespace ArmyBase.DTO
         public ICollection<Specialization> Specialization { get; set; }
 
         public string MinRankName { get; set; }
+        public bool IsSelected { get; set; }
     }
 }

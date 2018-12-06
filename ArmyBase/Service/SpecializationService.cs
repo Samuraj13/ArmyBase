@@ -26,6 +26,8 @@ namespace ArmyBase.Service
                 return result;
             }
         }
+
+
         public static BindableCollection<SpecializationDTO> GetAllBindableCollection()
         {
             var result = new BindableCollection<SpecializationDTO>(GetAll());
@@ -48,7 +50,7 @@ namespace ArmyBase.Service
             }
         }
 
-        public static string Add(string name, string description)
+        public static string Add(string name, string description, List<EquipmentDTO> equipment, List<PermissionDTO> permissions)
         {
 
             using (ArmyBaseContext db = new ArmyBaseContext())
@@ -57,6 +59,20 @@ namespace ArmyBase.Service
                 Specialization newSpecialization = new Specialization();
                 newSpecialization.Name = name;
                 newSpecialization.Description = description;
+                var assignEquipments = new List<Equipment>();
+                foreach(var e in equipment)
+                {
+                    var result1 = db.Equipments.Where(x => x.Id == e.Id).FirstOrDefault();
+                    assignEquipments.Add(result1);
+                }
+                var assignPermissions = new List<Permission>();
+                foreach (var p in permissions)
+                {
+                    var result1 = db.Permissions.Where(x => x.Id == p.Id).FirstOrDefault();
+                    assignPermissions.Add(result1);
+                }
+                newSpecialization.Equipment = assignEquipments;
+                newSpecialization.Permission = assignPermissions;
 
                 var context = new ValidationContext(newSpecialization, null, null);
                 var result = new List<ValidationResult>();
@@ -77,16 +93,31 @@ namespace ArmyBase.Service
 
         }
 
-        public static string Edit(SpecializationDTO Specialization)
+        public static string Edit(SpecializationDTO Specialization, List<EquipmentDTO> equipment, List<PermissionDTO> permissions)
         {
             using (ArmyBaseContext db = new ArmyBaseContext())
             {
                 string error = null;
 
-                var toModify = db.Specializations.Where(x => x.Id == Specialization.Id).FirstOrDefault();
+                var toModify = db.Specializations.Include("Permission").Include("Equipment").Where(x => x.Id == Specialization.Id).FirstOrDefault();
 
                 toModify.Name = Specialization.Name;
                 toModify.Description = Specialization.Description;
+
+                var assignEquipments = new List<Equipment>();
+                foreach (var e in equipment)
+                {
+                    var result1 = db.Equipments.Where(x => x.Id == e.Id).FirstOrDefault();
+                    assignEquipments.Add(result1);
+                }
+                var assignPermissions = new List<Permission>();
+                foreach (var p in permissions)
+                {
+                    var result1 = db.Permissions.Where(x => x.Id == p.Id).FirstOrDefault();
+                    assignPermissions.Add(result1);
+                }
+                toModify.Permission = assignPermissions;
+                toModify.Equipment = assignEquipments;
 
                 var context = new ValidationContext(toModify, null, null);
                 var result = new List<ValidationResult>();
@@ -101,6 +132,8 @@ namespace ArmyBase.Service
                 {
                     db.SaveChanges();
                 }
+
+
                 return error;
             }
         }

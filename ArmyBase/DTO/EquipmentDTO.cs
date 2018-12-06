@@ -20,5 +20,6 @@ namespace ArmyBase.DTO
 
         public string EquipmentTypeName { get; set; }
         public string IsAvailableLabel { get; set; }
+        public bool IsSelected { get; set; }
     }
 }

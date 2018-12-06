@@ -27,7 +27,9 @@ namespace ArmyBase.Service
                                        Description = x.Description,
                                        EquipmentTypeName = x.EquipmentType != null ? x.EquipmentType.Name : "",
                                        IsAvailableLabel = x.IsAvailable ? "Yes" : "No",
+                                       Specialization = x.Specialization,
                                    }).ToList();
+
                 return result;
             }
         }

@@ -24,6 +24,7 @@ namespace ArmyBase.Service
                                        Description = x.Description,
                                        MinRankId = x.MinRankId,
                                        MinRankName = x.MinRank.Name,
+                                       Specialization = x.Specialization,
                                    }).ToList();
                 return result;
             }

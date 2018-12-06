@@ -30,6 +30,14 @@ namespace ArmyBase.ViewModels.Specialization
             Reload();
         }
 
+        public void LoadModifySpecializationPage(SpecializationDTO specialization)
+        {
+            IWindowManager manager = new WindowManager();
+            AddSpecializationViewModel add = new AddSpecializationViewModel(specialization);
+            manager.ShowDialog(add, null, null);
+            Reload();
+        }
+
         public void Delete(SpecializationDTO specialization)
         {
             IWindowManager manager = new WindowManager();
