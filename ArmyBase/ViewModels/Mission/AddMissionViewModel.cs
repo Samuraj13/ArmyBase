@@ -11,6 +11,10 @@ namespace ArmyBase.ViewModels.Mission
 {
     public class AddMissionViewModel : Screen
     {
+        private bool IsEdit { get; set; }
+
+        private MissionDTO toEdit { get; set; }
+
         public BindableCollection<MissionTypeDTO> MissionTypes { get; set; }
 
         public MissionTypeDTO SelectedMissionType { get; set; }
@@ -21,7 +25,7 @@ namespace ArmyBase.ViewModels.Mission
 
         public DateTime StartTime { get; set; }
 
-        public DateTime? EndDate { get; set; }
+        public DateTime? EndTime { get; set; }
 
         public string Name { get; set; }
 
@@ -29,15 +33,42 @@ namespace ArmyBase.ViewModels.Mission
 
         public AddMissionViewModel()
         {
-            MissionTypes = MissionTypeService.GetAllBindableCollection();
-            Teams = new BindableCollection<TeamDTO>(TeamService.GetAll().Where(x => x.MissionId == null).ToList());
+            IsEdit = false;
+        }
+
+        public AddMissionViewModel(MissionDTO mission)
+        {
+            IsEdit = true;
+            this.toEdit = mission;
+            Name = mission.Name;
+            Description = mission.Description;
+            StartTime = mission.StartTime;
+            EndTime = mission.EndTime;
+            NotifyOfPropertyChange(() => Name);
+            NotifyOfPropertyChange(() => Description);
+            NotifyOfPropertyChange(() => StartTime);
+            NotifyOfPropertyChange(() => EndTime);
         }
 
         public void Add()
         {
-            SelectedTeams = Teams.Where(x => x.IsSelected).ToList();
-            MissionService.Add(Name, Description, SelectedMissionType.Id, StartTime, EndDate);
-            TeamService.AddTeamsToMission(SelectedTeams, MissionService.GetAll().Last().Id);
+            if (!IsEdit)
+            {
+                SelectedTeams = Teams.Where(x => x.IsSelected).ToList();
+                MissionService.Add(Name, Description, SelectedMissionType.Id, StartTime, EndTime); TryClose();
+                TeamService.AddTeamsToMission(SelectedTeams, MissionService.GetAll().Last().Id);
+
+            }
+            else
+            {
+                toEdit.Name = Name;
+                toEdit.Description = Description;
+                toEdit.StartTime = StartTime;
+                toEdit.EndTime = EndTime;
+                MissionService.Edit(toEdit);
+                TryClose();
+            }
+           
             TryClose();
         }
 

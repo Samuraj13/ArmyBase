@@ -11,11 +11,15 @@ namespace ArmyBase.ViewModels.Employee
 {
     public class AddEmployeeViewModel : Screen
     {
+        private bool IsEdit { get; set; }
+
+        private EmployeeDTO toEdit { get; set; }
+
         public BindableCollection<RankDTO> Ranks { get; set; }
 
-        public RankDTO SelectedRank { get; set; }
-
         public BindableCollection<SpecializationDTO> Specializations { get; set; }
+
+        public RankDTO SelectedRank { get; set; }
 
         public SpecializationDTO SelectedSpecialization { get; set; }
 
@@ -25,25 +29,85 @@ namespace ArmyBase.ViewModels.Employee
 
         public int NationalId { get; set; }
 
+        public DateTime DateOfEmployment { get; set; }
+
+        
+
         public double Salary { get; set; }
 
-        public DateTime HireDate { get; set; }
+        public int? ActualRank { get; set; }
 
-        public string Error { get; set; }
+        public int? ActualSpecialization { get; set; }
 
-        public AddEmployeeViewModel()
+        
+
+        public AddEmployeeViewModel(EmployeeDTO employee)
         {
             Ranks = RankService.GetAllBindableCollection();
             Specializations = SpecializationService.GetAllBindableCollection();
-            HireDate = DateTime.Now;
-            NotifyOfPropertyChange(() => HireDate);
+            int i = 0;
+            while (ActualRank == null)
+            {
+                if (Ranks[i].Id == employee.RankId)
+                {
+                    ActualRank = i;
+                    break;
+                }
+                else
+                {
+                    i++;
+                }
+            }
+
+            int j = 0;
+            while (ActualSpecialization == null)
+            {
+                if (Specializations[j].Id == employee.SpecializationId)
+                {
+                    ActualSpecialization = j;
+                    break;
+                }
+                else
+                {
+                    j++;
+                }
+            }
+
+            this.toEdit = employee;
+            NationalId = employee.NationalId;
+            FirstName = employee.FirstName;
+            LastName = employee.LastName;
+            //SelectedRank = EmployeeService.GetById(employee.RankId);
+            Salary = employee.Salary;
+            DateOfEmployment = employee.DateOfEmployment;
+            NotifyOfPropertyChange(() => NationalId);
+            NotifyOfPropertyChange(() => FirstName);
+            NotifyOfPropertyChange(() => LastName);
+            NotifyOfPropertyChange(() => Salary);
+            NotifyOfPropertyChange(() => DateOfEmployment);
+        }
+
+        public AddEmployeeViewModel()
+        {
+            IsEdit = false;
         }
 
         public void Add()
         {
-            Error = EmployeeService.Add(NationalId, FirstName, LastName, Salary, SelectedSpecialization?.Id, HireDate, SelectedRank?.Id);
-            NotifyOfPropertyChange(() => Error);
-            TryClose();
+            if (!IsEdit)
+            {
+                EmployeeService.Add(NationalId, FirstName, LastName, Salary, SelectedSpecialization?.Id, DateOfEmployment, SelectedRank?.Id);
+                TryClose();
+            }
+            else
+            {
+                toEdit.NationalId = NationalId;
+                toEdit.FirstName = FirstName;
+                toEdit.LastName = LastName;
+                toEdit.Salary = Salary;
+                toEdit.DateOfEmployment = DateOfEmployment;
+                TryClose();
+            }
         }
 
         public void Close()

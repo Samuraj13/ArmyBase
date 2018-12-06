@@ -1,5 +1,6 @@
 ﻿using ArmyBase.DTO;
 using ArmyBase.Service;
+using ArmyBase.ViewModels.Equipment;
 using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,14 @@ namespace ArmyBase.ViewModels.Employee
             IWindowManager manager = new WindowManager();
             AddEmployeeViewModel add = new AddEmployeeViewModel();
             manager.ShowDialog(add, null, null);
+            Reload();
+        }
+
+        public void LoadModifyEmployeePage(EmployeeDTO employee)
+        {
+            IWindowManager manager = new WindowManager();
+            AddEmployeeViewModel modify = new AddEmployeeViewModel(employee);
+            manager.ShowDialog(modify, null, null);
             Reload();
         }
 

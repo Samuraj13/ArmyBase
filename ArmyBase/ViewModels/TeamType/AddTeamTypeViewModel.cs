@@ -11,24 +11,40 @@ namespace ArmyBase.ViewModels.TeamType
 {
     public class AddTeamTypeViewModel : Screen
     {
-        private TeamTypeDTO teamType;
+        private bool IsEdit { get; set; }
 
-        public AddTeamTypeViewModel(TeamTypeDTO teamType)
-        {
-            this.teamType = teamType;
-        }
+        private TeamTypeDTO toEdit { get; set; }
+
+        private TeamTypeDTO teamType;
 
         public AddTeamTypeViewModel()
         {
+            IsEdit = false;
+        }
 
+        public AddTeamTypeViewModel(TeamTypeDTO teamType)
+        {
+            IsEdit = true;
+            this.toEdit = teamType;
+            Type = teamType.Name;
+            NotifyOfPropertyChange(() => Type);
         }
 
         public string Type { get; set; }
 
         public void Add()
         {
-            TeamTypeService.Add(Type);
-            TryClose();
+            if (!IsEdit)
+            {
+                TeamTypeService.Add(Type);
+                TryClose();
+            }
+            else
+            {
+                toEdit.Name = Type;
+                TeamTypeService.Edit(toEdit);
+                TryClose();
+            }
         }
 
         public void Close()
