@@ -1,5 +1,6 @@
 ﻿using ArmyBase.DTO;
 using ArmyBase.Service;
+using ArmyBase.ViewModels.EquipmentType;
 using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,14 @@ namespace ArmyBase.ViewModels.Equipment
         protected override void OnViewLoaded(object view)
         {
             base.OnViewLoaded(view);
+        }
+
+        public void LoadEquipmentTypesGrid()
+        {
+            IWindowManager manager = new WindowManager();
+            EquipmentTypeGridViewModel add = new EquipmentTypeGridViewModel();
+            manager.ShowDialog(add, null, null);
+            Reload();
         }
 
         public void LoadAddEquipmentPage()

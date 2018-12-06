@@ -42,5 +42,6 @@
             <Button Grid.Row="1" Margin="5" Content="Add Equipment" x:Name="LoadAddEquipmentPage" HorizontalAlignment="Left"/>
             <Button Grid.Row="1" Margin="5" Content="Refresh" x:Name="Reload" HorizontalAlignment="Left" AutomationProperties.AccessKey="Enter"/>
         </StackPanel>
+        <Button Grid.Row="1" Margin="5" Content="Equipment Types" x:Name="LoadEquipmentTypesGrid" HorizontalAlignment="Right"/>
     </Grid>
 </UserControl>

@@ -18,7 +18,7 @@ namespace ArmyBase.Views.MissionType
     /// <summary>
     /// Logika interakcji dla klasy MissionTypeGridView.xaml
     /// </summary>
-    public partial class MissionTypeGridView : UserControl
+    public partial class MissionTypeGridView : Window
     {
         public MissionTypeGridView()
         {

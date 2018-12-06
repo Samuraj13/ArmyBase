@@ -1,5 +1,6 @@
 ﻿using ArmyBase.DTO;
 using ArmyBase.Service;
+using ArmyBase.ViewModels.MissionType;
 using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,14 @@ namespace ArmyBase.ViewModels.Mission
         protected override void OnViewLoaded(object view)
         {
             base.OnViewLoaded(view);
+        }
+
+        public void LoadMissionTypesGrid()
+        {
+            IWindowManager manager = new WindowManager();
+            MissionTypeGridViewModel add = new MissionTypeGridViewModel();
+            manager.ShowDialog(add, null, null);
+            Reload();
         }
 
         public void LoadAddMissionPage()

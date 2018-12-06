@@ -58,19 +58,9 @@ namespace ArmyBase.ViewModels
             ActiveItem = new EquipmentGridViewModel();
         }
 
-        public void LoadEquipmentTypePage()
-        {
-            ActiveItem = new EquipmentTypeGridViewModel();
-        }
-
         public void LoadMissionPage()
         {
             ActiveItem = new MissionGridViewModel();
-        }
-
-        public void LoadMissionTypePage()
-        {
-            ActiveItem = new MissionTypeGridViewModel();
         }
 
         public void LoadPermissionPage()
@@ -91,11 +81,6 @@ namespace ArmyBase.ViewModels
         public void LoadTeamPage()
         {
             ActiveItem = new TeamGridViewModel();
-        }
-
-        public void LoadTeamTypePage()
-        {
-            ActiveItem = new TeamTypeGridViewModel();
         }
 
     }

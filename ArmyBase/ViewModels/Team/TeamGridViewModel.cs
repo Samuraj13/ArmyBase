@@ -1,5 +1,6 @@
 ﻿using ArmyBase.DTO;
 using ArmyBase.Service;
+using ArmyBase.ViewModels.TeamType;
 using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,14 @@ namespace ArmyBase.ViewModels.Team
         {
             IWindowManager manager = new WindowManager();
             AddTeamViewModel add = new AddTeamViewModel();
+            manager.ShowDialog(add, null, null);
+            Reload();
+        }
+
+        public void LoadTeamTypesGrid()
+        {
+            IWindowManager manager = new WindowManager();
+            TeamTypeGridViewModel add = new TeamTypeGridViewModel();
             manager.ShowDialog(add, null, null);
             Reload();
         }

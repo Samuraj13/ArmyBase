@@ -18,7 +18,7 @@ namespace ArmyBase.Views.EquipmentType
     /// <summary>
     /// Logika interakcji dla klasy EquipmentTypeGridView.xaml
     /// </summary>
-    public partial class EquipmentTypeGridView : UserControl
+    public partial class EquipmentTypeGridView : Window
     {
         public EquipmentTypeGridView()
         {

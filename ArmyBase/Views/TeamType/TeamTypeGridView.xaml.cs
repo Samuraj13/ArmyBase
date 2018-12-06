@@ -18,7 +18,7 @@ namespace ArmyBase.Views.TeamType
     /// <summary>
     /// Logika interakcji dla klasy TeamTypeGridView.xaml
     /// </summary>
-    public partial class TeamTypeGridView : UserControl
+    public partial class TeamTypeGridView : Window
     {
         public TeamTypeGridView()
         {
