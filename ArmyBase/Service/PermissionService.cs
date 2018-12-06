@@ -16,13 +16,14 @@ namespace ArmyBase.Service
         {
             using (ArmyBaseContext db = new ArmyBaseContext())
             {
-                var result = db.Permissions.Select(
+                var result = db.Permissions.Where(x => x.IsDisabled == false).Select(
                                    x => new PermissionDTO
                                    {
                                        Id = x.Id,
                                        Name = x.Name,
                                        Description = x.Description,
-                                       MinRankId = x.MinRankId
+                                       MinRankId = x.MinRankId,
+                                       MinRankName = x.MinRank.Name,
                                    }).ToList();
                 return result;
             }
@@ -114,8 +115,8 @@ namespace ArmyBase.Service
             using (ArmyBaseContext db = new ArmyBaseContext())
             {
                 var toDelete = db.Permissions.Where(x => x.Id == Permission.Id).FirstOrDefault();
+                toDelete.IsDisabled = true;
 
-                db.Permissions.Remove(toDelete);
                 db.SaveChanges();
             }
         }

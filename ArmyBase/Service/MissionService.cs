@@ -16,7 +16,7 @@ namespace ArmyBase.Service
         {
             using (ArmyBaseContext db = new ArmyBaseContext())
             {
-                var result = db.Missions.Select(
+                var result = db.Missions.Where(x => x.IsDisabled == false).Select(
                                    x => new MissionDTO
                                    {
                                        Id = x.Id,
@@ -25,6 +25,7 @@ namespace ArmyBase.Service
                                        MissionTypeId = x.MissionTypeId,
                                        StartTime = x.StartTime,
                                        EndTime = x.EndTime,
+                                       MissionTypeName = x.MissionType != null ? x.MissionType.Name : "",
                                    }).ToList();
                 return result;
             }
@@ -122,8 +123,8 @@ namespace ArmyBase.Service
             using (ArmyBaseContext db = new ArmyBaseContext())
             {
                 var toDelete = db.Missions.Where(x => x.Id == Mission.Id).FirstOrDefault();
+                toDelete.IsDisabled = true;
 
-                db.Missions.Remove(toDelete);
                 db.SaveChanges();
             }
         }

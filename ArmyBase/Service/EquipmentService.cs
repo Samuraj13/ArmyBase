@@ -16,7 +16,7 @@ namespace ArmyBase.Service
         {
             using (ArmyBaseContext db = new ArmyBaseContext())
             {
-                var result = db.Equipments.Select(
+                var result = db.Equipments.Where(x => x.IsDisabled == false).Select(
                                    x => new EquipmentDTO
                                    {
                                        Id = x.Id,
@@ -25,6 +25,8 @@ namespace ArmyBase.Service
                                        EquipmentTypeId = x.EquipmentTypeId,
                                        Quantity = x.Quantity,
                                        Description = x.Description,
+                                       EquipmentTypeName = x.EquipmentType != null ? x.EquipmentType.Name : "",
+                                       IsAvailableLabel = x.IsAvailable ? "Yes" : "No",
                                    }).ToList();
                 return result;
             }
@@ -122,8 +124,8 @@ namespace ArmyBase.Service
             using (ArmyBaseContext db = new ArmyBaseContext())
             {
                 var toDelete = db.Equipments.Where(x => x.Id == Equipment.Id).FirstOrDefault();
+                toDelete.IsDisabled = true;
 
-                db.Equipments.Remove(toDelete);
                 db.SaveChanges();
             }
         }

@@ -16,7 +16,7 @@ namespace ArmyBase.Service
         {
             using (ArmyBaseContext db = new ArmyBaseContext())
             {
-                var result = db.Barracks.Select(
+                var result = db.Barracks.Where(x=>x.IsDisabled==false).Select(
                                    x => new BarrackDTO
                                    {
                                        Id = x.Id,
@@ -30,13 +30,7 @@ namespace ArmyBase.Service
         {
             using (ArmyBaseContext db = new ArmyBaseContext())
             {
-                var result = new BindableCollection<BarrackDTO>(db.Barracks.Select(
-                                   x => new BarrackDTO
-                                   {
-                                       Id = x.Id,
-                                       Capacity = x.Capacity,
-                                       Name = x.Name
-                                   }).ToList());
+                var result = new BindableCollection<BarrackDTO>(GetAll());
                 return result;
             }
         }
@@ -150,8 +144,8 @@ namespace ArmyBase.Service
             using (ArmyBaseContext db = new ArmyBaseContext())
             {
                 var toDelete = db.Barracks.Where(x => x.Id == Barrack.Id).FirstOrDefault();
-
-                db.Barracks.Remove(toDelete);
+                toDelete.IsDisabled = true;
+                
                 db.SaveChanges();
             }
         }

@@ -16,7 +16,7 @@ namespace ArmyBase.Service
         {
             using (ArmyBaseContext db = new ArmyBaseContext())
             {
-                var result = db.Employees.Select(
+                var result = db.Employees.Where(x => x.IsDisabled == false).Select(
                                    x => new EmployeeDTO
                                    {
                                        Id = x.Id,
@@ -31,6 +31,10 @@ namespace ArmyBase.Service
                                        RankId = x.RankId,
                                        TeamId = x.TeamId,
                                        BarrackId = x.BarrackId,
+                                       SpecializationName = x.Specialization != null ? x.Specialization.Name : "",
+                                       RankName = x.Rank != null ? x.Rank.Name : "",
+                                       TeamName = x.Team != null ? x.Team.Name : "",
+                                       BarrackName = x.Barrack != null ? x.Barrack.Name : "",
                                    }).ToList();
                 return result;
             }
@@ -40,22 +44,7 @@ namespace ArmyBase.Service
         {
             using (ArmyBaseContext db = new ArmyBaseContext())
             {
-                var result = new BindableCollection<EmployeeDTO>(db.Employees.Select(
-                                   x => new EmployeeDTO
-                                   {
-                                       Id = x.Id,
-                                       NationalId = x.NationalId,
-                                       FirstName = x.FirstName,
-                                       LastName = x.LastName,
-                                       IsBarrackManager = x.IsBarrackManager,
-                                       IsTeamLeader = x.IsTeamLeader,
-                                       Salary = x.Salary,
-                                       SpecializationId = x.SpecializationId,
-                                       DateOfEmployment = x.DateOfEmployment,
-                                       RankId = x.RankId,
-                                       TeamId = x.TeamId,
-                                       BarrackId = x.BarrackId,
-                                   }).ToList());
+                var result = new BindableCollection<EmployeeDTO>(GetAll());
                 return result;
             }
         }
@@ -171,13 +160,28 @@ namespace ArmyBase.Service
             }
         }
 
+        public static void AddEmployeesToBarrack(List<EmployeeDTO> employees, int barrackId)
+        {
+            using (ArmyBaseContext db = new ArmyBaseContext())
+            {
+                foreach (var employee in employees)
+                {
+
+                    var toModify = db.Employees.Where(x => x.Id == employee.Id).FirstOrDefault();
+
+                    toModify.BarrackId = barrackId;
+                    db.SaveChanges();
+                }
+            }
+        }
+
         public static void Delete(EmployeeDTO Employee)
         {
             using (ArmyBaseContext db = new ArmyBaseContext())
             {
                 var toDelete = db.Employees.Where(x => x.Id == Employee.Id).FirstOrDefault();
+                toDelete.IsDisabled = true;
 
-                db.Employees.Remove(toDelete);
                 db.SaveChanges();
             }
         }

@@ -7,7 +7,8 @@ namespace ArmyBase.DTO
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
-    
+    using ArmyBase.Service;
+
     public class EmployeeDTO
     {
         public int Id { get; set; }
@@ -28,5 +29,9 @@ namespace ArmyBase.DTO
         public Barrack Barrack { get; set; }
         
         public bool IsSelected { get; set; }
+        public string SpecializationName { get; set; }
+        public string RankName { get; set; }
+        public string TeamName { get; set; }
+        public string BarrackName { get; set; }
     }
 }

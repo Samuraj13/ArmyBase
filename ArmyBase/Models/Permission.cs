@@ -24,5 +24,7 @@ namespace ArmyBase.Models
         
         public ICollection<Specialization> Specialization { get; set; }
 
+        public bool IsDisabled { get; set; } = false;
+
     }
 }

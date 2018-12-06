@@ -29,5 +29,7 @@ namespace ArmyBase.Models
         public DateTime? EndTime { get; set; }
         
         public ICollection<Team> Team { get; set; }
+
+        public bool IsDisabled { get; set; } = false;
     }
 }

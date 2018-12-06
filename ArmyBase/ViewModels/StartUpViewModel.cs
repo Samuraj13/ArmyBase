@@ -27,7 +27,6 @@ namespace ArmyBase.ViewModels
 
         public StartUpViewModel()
         {
-            //ActiveItem = new BarrackGridViewModel();
         }
 
         protected override void OnViewLoaded(object view)
@@ -37,8 +36,9 @@ namespace ArmyBase.ViewModels
                 IWindowManager manager = new WindowManager();
                 DBInitializationViewModel dbInitializingView = new DBInitializationViewModel(context);
                 manager.ShowDialog(dbInitializingView, null, null);
-
             }
+
+            ActiveItem = new BarrackGridViewModel();
 
         }
 

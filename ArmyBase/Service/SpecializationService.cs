@@ -16,7 +16,7 @@ namespace ArmyBase.Service
         {
             using (ArmyBaseContext db = new ArmyBaseContext())
             {
-                var result = db.Specializations.Select(
+                var result = db.Specializations.Where(x => x.IsDisabled == false).Select(
                                    x => new SpecializationDTO
                                    {
                                        Id = x.Id,
@@ -110,8 +110,8 @@ namespace ArmyBase.Service
             using (ArmyBaseContext db = new ArmyBaseContext())
             {
                 var toDelete = db.Specializations.Where(x => x.Id == Specialization.Id).FirstOrDefault();
+                toDelete.IsDisabled = true;
 
-                db.Specializations.Remove(toDelete);
                 db.SaveChanges();
             }
         }

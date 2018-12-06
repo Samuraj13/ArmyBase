@@ -16,7 +16,7 @@ namespace ArmyBase.Service
         {
             using (ArmyBaseContext db = new ArmyBaseContext())
             {
-                var result = db.EquipmentTypes.Select(
+                var result = db.EquipmentTypes.Where(x => x.IsDisabled == false).Select(
                                    x => new EquipmentTypeDTO
                                    {
                                        Id = x.Id,
@@ -106,8 +106,8 @@ namespace ArmyBase.Service
             using (ArmyBaseContext db = new ArmyBaseContext())
             {
                 var toDelete = db.EquipmentTypes.Where(x => x.Id == EquipmentType.Id).FirstOrDefault();
+                toDelete.IsDisabled = true;
 
-                db.EquipmentTypes.Remove(toDelete);
                 db.SaveChanges();
             }
         }

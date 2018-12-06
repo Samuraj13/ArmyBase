@@ -8,18 +8,20 @@
              xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro.Platform">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <ScrollViewer  VerticalScrollBarVisibility="Auto" Height="Auto">
-            <DataGrid x:Name="Teams" AutoGenerateColumns="False" Grid.Row="0" IsReadOnly="true" Height="auto">
+        <TextBlock Grid.Row="0" HorizontalAlignment="Center" Text="Teams" FontSize="28" FontWeight="ExtraBold"/>
+        <ScrollViewer  VerticalScrollBarVisibility="Auto" Height="Auto" Grid.Row="1">
+            <DataGrid x:Name="Teams" AutoGenerateColumns="False" IsReadOnly="true" Height="auto">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
-                    <DataGridTextColumn Header="Team Type ID" Binding="{Binding TeamTypeId}"/>
+                    <DataGridTextColumn Header="Team Type" Binding="{Binding TeamTypeName}"/>
                     <DataGridTextColumn Header="Responsibilities" Binding="{Binding Responsibilities}"/>
-                    <DataGridTextColumn Header="Mission ID" Binding="{Binding MissionId}"/>
+                    <DataGridTextColumn Header="Mission" Binding="{Binding MissionName}"/>
                     <DataGridTemplateColumn >
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
@@ -37,10 +39,10 @@
                 </DataGrid.Columns>
             </DataGrid>
         </ScrollViewer>
-        <StackPanel Orientation="Horizontal" Grid.Row="1">
+        <StackPanel Orientation="Horizontal" Grid.Row="2">
             <Button Grid.Row="1" Margin="5" Content="Add Team" x:Name="LoadAddTeamPage" HorizontalAlignment="Left"/>
             <Button Grid.Row="1" Margin="5" Content="Refresh" x:Name="Reload" HorizontalAlignment="Left" AutomationProperties.AccessKey="Enter"/>
         </StackPanel>
-            <Button Grid.Row="1" Margin="5" Content="Team Types" x:Name="LoadTeamTypesGrid" HorizontalAlignment="Right"/>
+            <Button Grid.Row="2" Margin="5" Content="Team Types" x:Name="LoadTeamTypesGrid" HorizontalAlignment="Right"/>
     </Grid>
 </UserControl>

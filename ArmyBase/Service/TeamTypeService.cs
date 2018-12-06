@@ -16,7 +16,7 @@ namespace ArmyBase.Service
         {
             using (ArmyBaseContext db = new ArmyBaseContext())
             {
-                var result = db.TeamTypes.Select(
+                var result = db.TeamTypes.Where(x => x.IsDisabled == false).Select(
                                    x => new TeamTypeDTO
                                    {
                                        Id = x.Id,
@@ -106,8 +106,8 @@ namespace ArmyBase.Service
             using (ArmyBaseContext db = new ArmyBaseContext())
             {
                 var toDelete = db.TeamTypes.Where(x => x.Id == TeamType.Id).FirstOrDefault();
+                toDelete.IsDisabled = true;
 
-                db.TeamTypes.Remove(toDelete);
                 db.SaveChanges();
             }
         }

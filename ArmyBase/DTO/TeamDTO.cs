@@ -19,5 +19,8 @@ namespace ArmyBase.DTO
         public ICollection<Employee> Employee { get; set; }
 
         public bool IsSelected { get; set; }
+
+        public string TeamTypeName { get; set; }
+        public string MissionName { get; set; }
     }
 }

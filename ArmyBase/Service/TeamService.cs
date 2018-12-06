@@ -16,13 +16,15 @@ namespace ArmyBase.Service
         {
             using (ArmyBaseContext db = new ArmyBaseContext())
             {
-                var result = db.Teams.Select(
+                var result = db.Teams.Where(x => x.IsDisabled == false).Select(
                                    x => new TeamDTO
                                    {
                                        Id = x.Id,
                                        Name = x.Name,
                                        TeamTypeId = x.TeamTypeId,
                                        Responsibilities = x.Responsibilities,
+                                       TeamTypeName = x.TeamType.Name,
+                                       MissionName = x.Mission != null ? x.Mission.Name : "",
                                    }).ToList();
                 return result;
             }
@@ -128,8 +130,8 @@ namespace ArmyBase.Service
             using (ArmyBaseContext db = new ArmyBaseContext())
             {
                 var toDelete = db.Teams.Where(x => x.Id == Team.Id).FirstOrDefault();
+                toDelete.IsDisabled = true;
 
-                db.Teams.Remove(toDelete);
                 db.SaveChanges();
             }
         }

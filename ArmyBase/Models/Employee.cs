@@ -49,5 +49,7 @@ namespace ArmyBase.Models
         public int? BarrackId { get; set; }
 
         public Barrack Barrack { get; set; }
+
+        public bool IsDisabled { get; set; } = false;
     }
 }

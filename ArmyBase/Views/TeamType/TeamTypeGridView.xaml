@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ArmyBase.Views.EquipmentType"
              xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro.Platform"
-             mc:Ignorable="d" MinWidth="200" MinHeight="200" Height="auto" Width="auto" WindowStartupLocation="CenterScreen" Title="Team Types">
+             mc:Ignorable="d" Width="300" Height="300" WindowStartupLocation="CenterScreen" Title="Team Types">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>

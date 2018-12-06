@@ -18,5 +18,7 @@ namespace ArmyBase.DTO
         public string Description { get; set; }
         public ICollection<Specialization> Specialization { get; set; }
 
+        public string EquipmentTypeName { get; set; }
+        public string IsAvailableLabel { get; set; }
     }
 }

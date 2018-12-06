@@ -16,7 +16,7 @@ namespace ArmyBase.Service
         {
             using (ArmyBaseContext db = new ArmyBaseContext())
             {
-                var result = db.MissionTypes.Select(
+                var result = db.MissionTypes.Where(x => x.IsDisabled == false).Select(
                                    x => new MissionTypeDTO
                                    {
                                        Id = x.Id,
@@ -106,8 +106,8 @@ namespace ArmyBase.Service
             using (ArmyBaseContext db = new ArmyBaseContext())
             {
                 var toDelete = db.MissionTypes.Where(x => x.Id == MissionType.Id).FirstOrDefault();
+                toDelete.IsDisabled = true;
 
-                db.MissionTypes.Remove(toDelete);
                 db.SaveChanges();
             }
         }

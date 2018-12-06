@@ -8,17 +8,19 @@
              xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro.Platform">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <ScrollViewer  VerticalScrollBarVisibility="Auto" Height="Auto">
-            <DataGrid x:Name="Missions" AutoGenerateColumns="False" Grid.Row="0" IsReadOnly="true" Height="auto">
+        <TextBlock Grid.Row="0" HorizontalAlignment="Center" Text="Missions" FontSize="28" FontWeight="ExtraBold"/>
+        <ScrollViewer  VerticalScrollBarVisibility="Auto" Height="Auto" Grid.Row="1">
+            <DataGrid x:Name="Missions" AutoGenerateColumns="False" IsReadOnly="true" Height="auto">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
                     <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
-                    <DataGridTextColumn Header="Mission Type ID" Binding="{Binding MissionTypeId}"/>
+                    <DataGridTextColumn Header="Mission Type" Binding="{Binding MissionTypeName}"/>
                     <DataGridTextColumn Header="Start Time" Binding="{Binding StartTime}"/>
                     <DataGridTextColumn Header="End Time" Binding="{Binding EndTime}"/>
                     <DataGridTemplateColumn >
@@ -38,10 +40,10 @@
                 </DataGrid.Columns>
             </DataGrid>
         </ScrollViewer>
-        <StackPanel Orientation="Horizontal" Grid.Row="1">
+        <StackPanel Orientation="Horizontal" Grid.Row="2">
             <Button Grid.Row="1" Margin="5" Content="Add Mission" x:Name="LoadAddMissionPage" HorizontalAlignment="Left"/>
             <Button Grid.Row="1" Margin="5" Content="Refresh" x:Name="Reload" HorizontalAlignment="Left" AutomationProperties.AccessKey="Enter"/>
         </StackPanel>
-        <Button Grid.Row="1" Margin="5" Content="Mission Types" x:Name="LoadMissionTypesGrid" HorizontalAlignment="Right"/>
+        <Button Grid.Row="2" Margin="5" Content="Mission Types" x:Name="LoadMissionTypesGrid" HorizontalAlignment="Right"/>
     </Grid>
 </UserControl>

@@ -31,6 +31,14 @@ namespace ArmyBase.ViewModels.Permission
             Reload();
         }
 
+        public void LoadModifyPermissionPage(PermissionDTO permission)
+        {
+            IWindowManager manager = new WindowManager();
+            AddPermissionViewModel modify = new AddPermissionViewModel(permission);
+            manager.ShowDialog(modify, null, null);
+            Reload();
+        }
+
         public void Delete(PermissionDTO permission)
         {
             IWindowManager manager = new WindowManager();

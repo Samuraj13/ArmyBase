@@ -16,7 +16,7 @@ namespace ArmyBase.Service
         {
             using (ArmyBaseContext db = new ArmyBaseContext())
             {
-                var result = db.Ranks.Select(
+                var result = db.Ranks.Where(x => x.IsDisabled == false).Select(
                                    x => new RankDTO
                                    {
                                        Id = x.Id,
@@ -25,6 +25,7 @@ namespace ArmyBase.Service
                                        MinExperience = x.MinExperience,
                                        CanLead = x.CanLead,
                                        Bonus = x.Bonus,
+                                       CanLeadLabel = x.CanLead ? "Yes" : "No",
                                    }).ToList();
                 return result;
             }
@@ -122,8 +123,8 @@ namespace ArmyBase.Service
             using (ArmyBaseContext db = new ArmyBaseContext())
             {
                 var toDelete = db.Ranks.Where(x => x.Id == Rank.Id).FirstOrDefault();
+                toDelete.IsDisabled = true;
 
-                db.Ranks.Remove(toDelete);
                 db.SaveChanges();
             }
         }

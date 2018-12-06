@@ -25,5 +25,7 @@ namespace ArmyBase.Models
 
         [ForeignKey("Specialization")]
         public ICollection<Employee> Employee { get; set; }
+
+        public bool IsDisabled { get; set; } = false;
     }
 }

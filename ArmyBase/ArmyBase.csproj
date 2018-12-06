@@ -91,6 +91,10 @@
     <Compile Include="Migrations\201812052329412_InitDB.Designer.cs">
       <DependentUpon>201812052329412_InitDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812061523047_IsDisabledFlag.cs" />
+    <Compile Include="Migrations\201812061523047_IsDisabledFlag.Designer.cs">
+      <DependentUpon>201812061523047_IsDisabledFlag.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ArmyBaseContext.cs" />
     <Compile Include="Models\Initializer\ArmyBaseDBInitializer.cs" />
@@ -338,6 +342,9 @@
     </Compile>
     <EmbeddedResource Include="Migrations\201812052329412_InitDB.resx">
       <DependentUpon>201812052329412_InitDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812061523047_IsDisabledFlag.resx">
+      <DependentUpon>201812061523047_IsDisabledFlag.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

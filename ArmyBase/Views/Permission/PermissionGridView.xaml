@@ -8,17 +8,19 @@
              xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro.Platform">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <ScrollViewer  VerticalScrollBarVisibility="Auto" Height="Auto">
-            <DataGrid x:Name="Permissions" AutoGenerateColumns="False" Grid.Row="0" IsReadOnly="true" Height="auto">
+        <TextBlock Grid.Row="0" HorizontalAlignment="Center" Text="Permissions" FontSize="28" FontWeight="ExtraBold"/>
+        <ScrollViewer  VerticalScrollBarVisibility="Auto" Height="Auto" Grid.Row="1">
+            <DataGrid x:Name="Permissions" AutoGenerateColumns="False" IsReadOnly="true" Height="auto">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
                     <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
-                    <DataGridTextColumn Header="Min Rank ID" Binding="{Binding MinRankId}"/>
+                    <DataGridTextColumn Header="Min Rank" Binding="{Binding MinRankName}"/>
                     <DataGridTemplateColumn >
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
@@ -36,7 +38,7 @@
                 </DataGrid.Columns>
             </DataGrid>
         </ScrollViewer>
-        <StackPanel Orientation="Horizontal" Grid.Row="1">
+        <StackPanel Orientation="Horizontal" Grid.Row="2">
             <Button Grid.Row="1" Margin="5" Content="Add Permission" x:Name="LoadAddPermissionPage" HorizontalAlignment="Left"/>
             <Button Grid.Row="1" Margin="5" Content="Refresh" x:Name="Reload" HorizontalAlignment="Left" AutomationProperties.AccessKey="Enter"/>
         </StackPanel>

@@ -19,5 +19,7 @@ namespace ArmyBase.Models
         public int Capacity { get; set; }
         
         public ICollection<Employee> Employee { get; set; }
+
+        public bool IsDisabled { get; set; } = false;
     }
 }

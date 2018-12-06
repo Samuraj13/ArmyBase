@@ -15,8 +15,13 @@ namespace ArmyBase.ViewModels.Barrack
 
         private BarrackDTO toEdit { get; set; }
 
+        public BindableCollection<EmployeeDTO> Employees { get; set; }
+
+        public List<EmployeeDTO> SelectedEmployees { get; set; }
+
         public AddBarrackViewModel(BarrackDTO barrack)
         {
+            Employees = new BindableCollection<EmployeeDTO>(EmployeeService.GetAll().Where(x => x.BarrackId == null).ToList());
             IsEdit = true;
             this.toEdit = barrack;
             Name = barrack.Name;
@@ -27,6 +32,7 @@ namespace ArmyBase.ViewModels.Barrack
 
         public AddBarrackViewModel()
         {
+            Employees = new BindableCollection<EmployeeDTO>(EmployeeService.GetAll().Where(x => x.BarrackId == null).ToList());
             IsEdit = false;
         }
 
@@ -38,7 +44,10 @@ namespace ArmyBase.ViewModels.Barrack
         {
             if (!IsEdit)
             {
+
+                SelectedEmployees = Employees.Where(x => x.IsSelected).ToList();
                 BarrackService.Add(Name, Capacity);
+                EmployeeService.AddEmployeesToBarrack(SelectedEmployees, BarrackService.GetAll().Last().Id);
                 TryClose();
             }
             else

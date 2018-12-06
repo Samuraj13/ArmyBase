@@ -16,5 +16,7 @@ namespace ArmyBase.Models
         public string Name { get; set; }
         
         public ICollection<Team> Team { get; set; }
+
+        public bool IsDisabled { get; set; } = false;
     }
 }

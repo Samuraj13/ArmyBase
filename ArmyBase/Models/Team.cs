@@ -31,5 +31,7 @@ namespace ArmyBase.Models
         
         public ICollection<Employee> Employee { get; set; }
 
+        public bool IsDisabled { get; set; } = false;
+
     }
 }

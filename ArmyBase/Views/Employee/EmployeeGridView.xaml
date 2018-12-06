@@ -8,25 +8,25 @@
              mc:Ignorable="d" >
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-
-        <ScrollViewer  VerticalScrollBarVisibility="Auto" Height="Auto">
-            <DataGrid x:Name="Employees" AutoGenerateColumns="False" Grid.Row="0" IsReadOnly="true" Height="auto">
+        
+        <TextBlock Grid.Row="0" HorizontalAlignment="Center" Text="Employees" FontSize="28" FontWeight="ExtraBold"/>
+        <ScrollViewer  VerticalScrollBarVisibility="Auto" Height="Auto"  Grid.Row="1" >
+            <DataGrid x:Name="Employees" AutoGenerateColumns="False" IsReadOnly="true" Height="auto">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="NationalId" Binding="{Binding NationalId}"/>
                     <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"/>
                     <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}"/>
-                    <DataGridTextColumn Header="Is Barrack Manager" Binding="{Binding IsBarrackManager}"/>
-                    <DataGridTextColumn Header="Is Team Leader" Binding="{Binding IsTeamLeader}"/>
                     <DataGridTextColumn Header="Salary" Binding="{Binding Salary}"/>
-                    <DataGridTextColumn Header="Specialization ID" Binding="{Binding SpecializationId}"/>
                     <DataGridTextColumn Header="Date Of Employment" Binding="{Binding DateOfEmployment}"/>
-                    <DataGridTextColumn Header="Rank ID" Binding="{Binding RankId}"/>
-                    <DataGridTextColumn Header="Team ID" Binding="{Binding TeamId}"/>
-                    <DataGridTextColumn Header="Barrack ID" Binding="{Binding BarrackId}"/>
+                    <DataGridTextColumn Header="Specialization" Binding="{Binding SpecializationName}"/>
+                    <DataGridTextColumn Header="Rank" Binding="{Binding RankName}"/>
+                    <DataGridTextColumn Header="Team" Binding="{Binding TeamName}"/>
+                    <DataGridTextColumn Header="Barrack" Binding="{Binding BarrackName}"/>
                     <DataGridTemplateColumn >
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
@@ -44,7 +44,7 @@
                 </DataGrid.Columns>
             </DataGrid>
         </ScrollViewer>
-        <StackPanel Orientation="Horizontal" Grid.Row="1">
+        <StackPanel Orientation="Horizontal" Grid.Row="2">
             <Button Grid.Row="1" Margin="5" Content="Add Employee" x:Name="LoadAddEmployeePage" HorizontalAlignment="Left"/>
             <Button Grid.Row="1" Margin="5" Content="Refresh" x:Name="Reload" HorizontalAlignment="Left" AutomationProperties.AccessKey="Enter"/>
         </StackPanel>

@@ -19,5 +19,7 @@ namespace ArmyBase.DTO
         public ICollection<Employee> Employee { get; set; }
         
         public ICollection<Permission> Permission { get; set; }
+
+        public string CanLeadLabel { get; set; }
     }
 }

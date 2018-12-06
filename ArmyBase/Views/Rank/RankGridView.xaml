@@ -8,17 +8,19 @@
              xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro.Platform" >
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <ScrollViewer  VerticalScrollBarVisibility="Auto" Height="Auto">
-            <DataGrid x:Name="Ranks" AutoGenerateColumns="False" Grid.Row="0" IsReadOnly="true" Height="auto">
+        <TextBlock Grid.Row="0" HorizontalAlignment="Center" Text="Ranks" FontSize="28" FontWeight="ExtraBold"/>
+        <ScrollViewer  VerticalScrollBarVisibility="Auto" Height="Auto" Grid.Row="1">
+            <DataGrid x:Name="Ranks" AutoGenerateColumns="False" IsReadOnly="true" Height="auto">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
                     <DataGridTextColumn Header="Min Experience" Binding="{Binding MinExperience}"/>
-                    <DataGridTextColumn Header="Can Lead" Binding="{Binding CanLead}"/>
+                    <DataGridTextColumn Header="Can Lead" Binding="{Binding CanLeadLabel}"/>
                     <DataGridTextColumn Header="Bonus" Binding="{Binding Bonus}"/>
                     <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
                     <DataGridTemplateColumn >
@@ -38,7 +40,7 @@
                 </DataGrid.Columns>
             </DataGrid>
         </ScrollViewer>
-        <StackPanel Orientation="Horizontal" Grid.Row="1">
+        <StackPanel Orientation="Horizontal" Grid.Row="2">
             <Button Grid.Row="1" Margin="5" Content="Add Rank" x:Name="LoadAddRankPage" HorizontalAlignment="Left"/>
             <Button Grid.Row="1" Margin="5" Content="Refresh" x:Name="Reload" HorizontalAlignment="Left" AutomationProperties.AccessKey="Enter"/>
         </StackPanel>
