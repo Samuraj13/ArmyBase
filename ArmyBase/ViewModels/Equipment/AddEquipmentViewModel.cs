@@ -27,21 +27,39 @@ namespace ArmyBase.ViewModels.Equipment
 
         public string Description { get; set; }
 
+        public int? ActualType { get; set; }
+
         public AddEquipmentViewModel(EquipmentDTO equipment)
         {
             EquipmentTypes = EquipmentTypeService.GetAllBindableCollection();
             IsEdit = true;
+
+            int i = 0;
+            while (ActualType == null)
+            {
+                if(EquipmentTypes[i].Id == equipment.EquipmentTypeId)
+                {
+                    ActualType = i;
+                    break;
+                }
+                else
+                {
+                    i++;
+                }
+            }
+
             this.toEdit = equipment;
             Name = equipment.Name;
             Quantity = equipment.Quantity;
             IsAvailable = equipment.IsAvailable;
             Description = equipment.Description;
-            EquipmentTypes = EquipmentTypeService.GetAllBindableCollection();
+            SelectedEquipmentType = EquipmentTypeService.GetById(equipment.EquipmentTypeId);
             NotifyOfPropertyChange(() => Name);
             NotifyOfPropertyChange(() => Quantity);
             NotifyOfPropertyChange(() => IsAvailable);
             NotifyOfPropertyChange(() => Description);
             NotifyOfPropertyChange(() => EquipmentTypes);
+            NotifyOfPropertyChange(() => SelectedEquipmentType);
         }
 
         public AddEquipmentViewModel()
@@ -63,6 +81,7 @@ namespace ArmyBase.ViewModels.Equipment
                 toEdit.Quantity = Quantity;
                 toEdit.Description = Description;
                 toEdit.IsAvailable = IsAvailable;
+                toEdit.EquipmentTypeId = SelectedEquipmentType.Id;
                 EquipmentService.Edit(toEdit);
                 TryClose();
             }

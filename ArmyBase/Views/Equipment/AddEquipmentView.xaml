@@ -30,7 +30,8 @@
         <Label Grid.Column="0" Grid.Row="4" Padding="2"  FontSize="12" Margin="5" >Description</Label>
         <TextBox Grid.Column="1" Grid.Row="0" x:Name="Name" Margin="5"/>
         <ComboBox ItemsSource="{Binding EquipmentTypes}"
-                  SelectedItem="{Binding SelectedEquipmentType, Mode=TwoWay}"   
+                  SelectedItem="{Binding SelectedEquipmentType, Mode=TwoWay}"
+                  SelectedIndex="{Binding ActualType}"
                   VerticalAlignment="Top" 
                   Margin="5"
                   Grid.Column="1"

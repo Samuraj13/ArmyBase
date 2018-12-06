@@ -98,6 +98,7 @@ namespace ArmyBase.Service
                 toModify.EquipmentTypeId = Equipment.EquipmentTypeId;
                 toModify.Quantity = Equipment.Quantity;
                 toModify.Description = Equipment.Description;
+                toModify.IsAvailable = Equipment.IsAvailable;
 
                 var context = new ValidationContext(toModify, null, null);
                 var result = new List<ValidationResult>();
