@@ -15,11 +15,15 @@
             <Button x:Name="LoadBarrackPage" Grid.Row="1" Grid.Column="6" Margin="5">Barracks</Button>
             <Button x:Name="LoadEmployeePage" Grid.Row="1" Grid.Column="2" Margin="5">Employees</Button>
             <Button x:Name="LoadEquipmentPage" Grid.Row="1" Grid.Column="3" Margin="5">Equipment</Button>
+            <Button x:Name="LoadEquipmentTypePage" Grid.Row="1" Grid.Column="3" Margin="5">Equipment Types</Button>
             <Button x:Name="LoadMissionPage" Grid.Row="1" Grid.Column="4" Margin="5">Missions</Button>
+            <Button x:Name="LoadMissionTypePage" Grid.Row="1" Grid.Column="4" Margin="5">Missions Types</Button>
             <Button x:Name="LoadPermissionPage" Grid.Row="1" Grid.Column="5" Margin="5">Permissions</Button>
             <Button x:Name="LoadRankPage" Grid.Row="1" Grid.Column="3" Margin="5">Ranks</Button>
             <Button x:Name="LoadSpecializationPage" Grid.Row="1" Grid.Column="4" Margin="5">Specializations</Button>
             <Button x:Name="LoadTeamPage" Grid.Row="1" Grid.Column="5" Margin="5">Teams</Button>
+            <Button x:Name="LoadTeamTypePage" Grid.Row="1" Grid.Column="5" Margin="5">Teams Types</Button>
+
         </StackPanel>
 
         <!-- Row 2 -->

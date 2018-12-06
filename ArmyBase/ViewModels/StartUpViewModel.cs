@@ -3,11 +3,14 @@ using ArmyBase.Models.Initializer;
 using ArmyBase.ViewModels.Barrack;
 using ArmyBase.ViewModels.Employee;
 using ArmyBase.ViewModels.Equipment;
+using ArmyBase.ViewModels.EquipmentType;
 using ArmyBase.ViewModels.Mission;
+using ArmyBase.ViewModels.MissionType;
 using ArmyBase.ViewModels.Permission;
 using ArmyBase.ViewModels.Rank;
 using ArmyBase.ViewModels.Specialization;
 using ArmyBase.ViewModels.Team;
+using ArmyBase.ViewModels.TeamType;
 using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
@@ -55,9 +58,19 @@ namespace ArmyBase.ViewModels
             ActiveItem = new EquipmentGridViewModel();
         }
 
+        public void LoadEquipmentTypePage()
+        {
+            ActiveItem = new EquipmentTypeGridViewModel();
+        }
+
         public void LoadMissionPage()
         {
             ActiveItem = new MissionGridViewModel();
+        }
+
+        public void LoadMissionTypePage()
+        {
+            ActiveItem = new MissionTypeGridViewModel();
         }
 
         public void LoadPermissionPage()
@@ -79,5 +92,11 @@ namespace ArmyBase.ViewModels
         {
             ActiveItem = new TeamGridViewModel();
         }
+
+        public void LoadTeamTypePage()
+        {
+            ActiveItem = new TeamTypeGridViewModel();
+        }
+
     }
 }
