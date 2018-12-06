@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ArmyBase.Views"
         mc:Ignorable="d"
-        Title="DBInitializationView" Height="150" Width="800">
+        Title="DBInitializationView" Height="150" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBlock Text="Please wait, your database is initializing..." HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Grid.Row="0" Grid.RowSpan="2" Visibility="{Binding IsInitClicked, Mode=TwoWay}"/>
-        <TextBlock Text="Database for ArmyBase application does not exsist, do you want to start initialization process?" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Grid.Row="0" TextWrapping="Wrap" TextAlignment="Center" Visibility="{Binding DbNotCreated, Mode=TwoWay}"/>
-        <StackPanel Grid.Row="1" Margin="5" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="{Binding DbNotCreated, Mode=TwoWay}">
+        <TextBlock Text="Please wait, your database is initializing..." HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Grid.Row="0" Grid.RowSpan="2" Visibility="{Binding IsInitClicked, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}"/>
+        <TextBlock Text="Database for ArmyBase application does not exsist, do you want to start initialization process?" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Grid.Row="0" TextWrapping="Wrap" TextAlignment="Center" Visibility="{Binding DbNotCreated, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}"/>
+        <StackPanel Grid.Row="1" Margin="5" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="{Binding DbNotCreated, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}">
             <Button x:Name="InitDB" Content="Initialize" Margin="5" Height="20" Width="60"/>
-            <Button Content="Exit"  Margin="5" Height="20" Width="60"/>
+            <Button x:Name="Exit" Content="Exit"  Margin="5" Height="20" Width="60"/>
         </StackPanel>
         
     </Grid>

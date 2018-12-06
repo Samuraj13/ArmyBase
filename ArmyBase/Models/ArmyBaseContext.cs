@@ -19,13 +19,6 @@ namespace ArmyBase.Models
         public ArmyBaseContext()
             : base("name=ArmyBaseContext")
         {
-            if (!Database.Exists())
-            {
-                    IWindowManager manager = new WindowManager();
-                    DBInitializationViewModel dbInitializingView = new DBInitializationViewModel(this);
-                    manager.ShowDialog(dbInitializingView, null, null);
-            }
-            Database.SetInitializer(new ArmyBaseDBInitializer());
         }
 
         // Add a DbSet for each entity type that you want to include in your Models. For more information 

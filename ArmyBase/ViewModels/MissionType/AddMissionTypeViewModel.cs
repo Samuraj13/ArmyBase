@@ -13,14 +13,7 @@ namespace ArmyBase.ViewModels.MissionType
     {
         private MissionTypeDTO missionType;
 
-        public AddMissionTypeViewModel(MissionTypeDTO missionType)
-        {
-            this.missionType = missionType;
-        }
-
         public string Type { get; set; }
-
-        private MissionTypeDTO missionType { get; set; }
 
         public AddMissionTypeViewModel(MissionTypeDTO missionType)
         {

@@ -1,4 +1,6 @@
-﻿using ArmyBase.ViewModels.Barrack;
+﻿using ArmyBase.Models;
+using ArmyBase.Models.Initializer;
+using ArmyBase.ViewModels.Barrack;
 using ArmyBase.ViewModels.Employee;
 using ArmyBase.ViewModels.Equipment;
 using ArmyBase.ViewModels.Mission;
@@ -9,6 +11,7 @@ using ArmyBase.ViewModels.Team;
 using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,13 +20,27 @@ namespace ArmyBase.ViewModels
 {
     public class StartUpViewModel : Conductor<object>
     {
+        private readonly ArmyBaseContext context = new ArmyBaseContext();
+
         public StartUpViewModel()
         {
-            ActiveItem = new BarrackGridViewModel();
+            //ActiveItem = new BarrackGridViewModel();
         }
 
-        //Loading pages methods
-        public void LoadBarrackPage()
+        protected override void OnViewLoaded(object view)
+        {
+            if (!context.Database.Exists())
+            {
+                IWindowManager manager = new WindowManager();
+                DBInitializationViewModel dbInitializingView = new DBInitializationViewModel(context);
+                manager.ShowDialog(dbInitializingView, null, null);
+
+            }
+
+        }
+
+            //Loading pages methods
+            public void LoadBarrackPage()
         {
             ActiveItem = new BarrackGridViewModel();
         }

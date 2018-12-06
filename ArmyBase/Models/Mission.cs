@@ -20,8 +20,7 @@ namespace ArmyBase.Models
         [ForeignKey("MissionType")]
         [Required]
         public int MissionTypeId { get; set; }
-
-        [Required]
+        
         public MissionType MissionType { get; set; }
 
         [Required]

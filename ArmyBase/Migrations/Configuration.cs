@@ -11,8 +11,8 @@ namespace ArmyBase.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;
+            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationDataLossAllowed = false;
         }
 
         protected override void Seed(ArmyBase.Models.ArmyBaseContext db)
