@@ -30,6 +30,14 @@ namespace ArmyBase.ViewModels.Equipment
             Reload();
         }
 
+        public void LoadModifyEquipmentPage(EquipmentDTO equipment)
+        {
+            IWindowManager manager = new WindowManager();
+            AddEquipmentViewModel modify = new AddEquipmentViewModel(equipment);
+            manager.ShowDialog(modify, null, null);
+            Reload();
+        }
+
         public void Delete(EquipmentDTO equipment)
         {
             IWindowManager manager = new WindowManager();
