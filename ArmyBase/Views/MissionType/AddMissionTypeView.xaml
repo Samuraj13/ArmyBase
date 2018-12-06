@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ArmyBase.Views.MissionType"
         mc:Ignorable="d"
-       Title="Add new mission type" MinHeight="100" MinWidth="450" Height="200" Width="405" x:Name="AddMissionTypePage" WindowStartupLocation="CenterScreen">
+       Title="Add new mission type" MinHeight="100" MinWidth="450" Height="200" Width="405" x:Name="AddMissionTypePage" WindowStartupLocation="CenterScreen" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />

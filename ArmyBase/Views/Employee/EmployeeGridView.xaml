@@ -15,7 +15,7 @@
         
         <TextBlock Grid.Row="0" HorizontalAlignment="Center" Text="Employees" FontSize="28" FontWeight="ExtraBold"/>
         <ScrollViewer  VerticalScrollBarVisibility="Auto" Height="Auto"  Grid.Row="1" >
-            <DataGrid x:Name="Employees" AutoGenerateColumns="False" IsReadOnly="true" Height="auto">
+            <DataGrid x:Name="Employees" AutoGenerateColumns="False" IsReadOnly="true" Height="auto" BorderBrush="#cec35c" BorderThickness="5">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="NationalId" Binding="{Binding NationalId}"/>

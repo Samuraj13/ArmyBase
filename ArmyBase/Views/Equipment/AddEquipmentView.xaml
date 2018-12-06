@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ArmyBase.Views.Equipment"
         mc:Ignorable="d"
-       Title="Add new equipment" MinHeight="300" MinWidth="450" Height="300" Width="405" x:Name="AddEquipmentPage" WindowStartupLocation="CenterScreen">
+       Title="Add new equipment" MinHeight="300" MinWidth="450" Height="450" Width="405" x:Name="AddEquipmentPage" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"  />

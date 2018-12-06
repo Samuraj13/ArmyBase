@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ArmyBase.Views.Barrack"
              xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro.Platform"
         mc:Ignorable="d"
-        Title="Add new barrack" MinHeight="300" MinWidth="450" Height="300" Width="600" x:Name="AddBarrackPage" WindowStartupLocation="CenterScreen">
+        Title="Add new barrack" MinHeight="300" MinWidth="450" Height="450" Width="800" x:Name="AddBarrackPage" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />

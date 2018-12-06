@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ArmyBase.Views.Permission"
         mc:Ignorable="d"
-       Title="Add new permission" MinHeight="100" MinWidth="450" Height="300" Width="405" x:Name="AddPermissionPage" WindowStartupLocation="CenterScreen">
+       Title="Add new permission" MinHeight="300" MinWidth="450" Height="450" Width="405" x:Name="AddPermissionPage" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"  />

@@ -91,7 +91,7 @@ namespace ArmyBase.Models.Initializer
 
             IList<Specialization> Specializations = new List<Specialization>();
             Specializations.Add(new Specialization() { Id = 1, Name = "Sniper", Description = "He is a good killer." });
-            Specializations.Add(new Specialization() { Id = 2, Name = "Scout", Description = "He tracking enemys." });
+            Specializations.Add(new Specialization() { Id = 2, Name = "Scout", Description = "He is tracking enemies." });
             Specializations.Add(new Specialization() { Id = 3, Name = "Sapper", Description = "He is a bomb specialist." });
 
             foreach (var item in Specializations)
@@ -99,8 +99,8 @@ namespace ArmyBase.Models.Initializer
 
 
             IList<Team> Teams = new List<Team>();
-            Teams.Add(new Team() { Id = 1, Name = "Medics", TeamTypeId = 1, Responsibilities = "The are responsibility for soliders health.", MissionId = 1 });
-            Teams.Add(new Team() { Id = 2, Name = "Instructors", TeamTypeId = 2, Responsibilities = "The are responsibility training.", MissionId = 2 });
+            Teams.Add(new Team() { Id = 1, Name = "Medics", TeamTypeId = 1, Responsibilities = "They are responsibility for soliders health.", MissionId = 1 });
+            Teams.Add(new Team() { Id = 2, Name = "Instructors", TeamTypeId = 2, Responsibilities = "They are responsibility for training.", MissionId = 2 });
 
             foreach (var item in Teams)
                 db.Teams.Add(item);
