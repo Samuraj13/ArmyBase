@@ -21,6 +21,8 @@ namespace ArmyBase.ViewModels
 
         public Visibility IsInitClicked { get; set; }
 
+        public bool WithSeed { get; set; }
+
         public DBInitializationViewModel(ArmyBaseContext context)
         {
             this.context = context;
@@ -40,7 +42,8 @@ namespace ArmyBase.ViewModels
         public void CreatDB()
         {
             context.Database.Create();
-            ArmyBaseDBInitializer.Seed(context);
+            if(WithSeed)
+                ArmyBaseDBInitializer.Seed(context);
         }
 
         public void ReloadGrid()
