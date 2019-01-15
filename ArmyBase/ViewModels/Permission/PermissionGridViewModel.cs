@@ -23,14 +23,6 @@ namespace ArmyBase.ViewModels.Permission
             base.OnViewLoaded(view);
         }
 
-        public void LoadAddPermissionPage()
-        {
-            IWindowManager manager = new WindowManager();
-            AddPermissionViewModel add = new AddPermissionViewModel();
-            manager.ShowDialog(add, null, null);
-            Reload();
-        }
-
         public void LoadModifyPermissionPage(PermissionDTO permission)
         {
             IWindowManager manager = new WindowManager();

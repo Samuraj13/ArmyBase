@@ -146,6 +146,7 @@
     <Compile Include="ViewModels\Rank\RankGridViewModel.cs" />
     <Compile Include="ViewModels\Specialization\AddSpecializationViewModel.cs" />
     <Compile Include="ViewModels\Specialization\SpecializationGridViewModel.cs" />
+    <Compile Include="ViewModels\CreateButton.cs" />
     <Compile Include="ViewModels\TeamType\AddTeamTypeViewModel.cs" />
     <Compile Include="ViewModels\TeamType\TeamTypeGridViewModel.cs" />
     <Compile Include="ViewModels\Team\AddTeamViewModel.cs" />

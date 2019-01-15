@@ -23,14 +23,6 @@ namespace ArmyBase.ViewModels.Employee
             base.OnViewLoaded(view);
         }
 
-        public void LoadAddEmployeePage()
-        {
-            IWindowManager manager = new WindowManager();
-            AddEmployeeViewModel add = new AddEmployeeViewModel();
-            manager.ShowDialog(add, null, null);
-            Reload();
-        }
-
         public void LoadModifyEmployeePage(EmployeeDTO employee)
         {
             IWindowManager manager = new WindowManager();

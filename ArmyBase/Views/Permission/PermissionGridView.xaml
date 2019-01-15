@@ -39,7 +39,6 @@
             </DataGrid>
         </ScrollViewer>
         <StackPanel Orientation="Horizontal" Grid.Row="2">
-            <Button Grid.Row="1" Margin="5" Content="Add Permission" x:Name="LoadAddPermissionPage" HorizontalAlignment="Left"/>
             <Button Grid.Row="1" Margin="5" Content="Refresh" x:Name="Reload" HorizontalAlignment="Left" AutomationProperties.AccessKey="Enter"/>
         </StackPanel>
     </Grid>

@@ -22,14 +22,6 @@ namespace ArmyBase.ViewModels.Specialization
             base.OnViewLoaded(view);
         }
 
-        public void LoadAddSpecializationPage()
-        {
-            IWindowManager manager = new WindowManager();
-            AddSpecializationViewModel add = new AddSpecializationViewModel();
-            manager.ShowDialog(add, null, null);
-            Reload();
-        }
-
         public void LoadModifySpecializationPage(SpecializationDTO specialization)
         {
             IWindowManager manager = new WindowManager();

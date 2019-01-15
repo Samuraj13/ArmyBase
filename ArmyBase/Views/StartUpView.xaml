@@ -11,19 +11,25 @@
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0">
-            <Button x:Name="LoadBarrackPage" Grid.Row="1" Grid.Column="6" Margin="5">Barracks</Button>
-            <Button x:Name="LoadEmployeePage" Grid.Row="1" Grid.Column="2" Margin="5">Employees</Button>
-            <Button x:Name="LoadEquipmentPage" Grid.Row="1" Grid.Column="3" Margin="5">Equipment</Button>
-            <Button x:Name="LoadMissionPage" Grid.Row="1" Grid.Column="4" Margin="5">Missions</Button>
-            <Button x:Name="LoadPermissionPage" Grid.Row="1" Grid.Column="5" Margin="5">Permissions</Button>
-            <Button x:Name="LoadRankPage" Grid.Row="1" Grid.Column="3" Margin="5">Ranks</Button>
-            <Button x:Name="LoadSpecializationPage" Grid.Row="1" Grid.Column="4" Margin="5">Specializations</Button>
-            <Button x:Name="LoadTeamPage" Grid.Row="1" Grid.Column="5" Margin="5">Teams</Button>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" Grid.Row="0">
+            <Button x:Name="LoadBarrackPage" Margin="5">Barracks</Button>
+            <Button x:Name="LoadEmployeePage" Margin="5">Employees</Button>
+            <Button x:Name="LoadEquipmentPage" Margin="5">Equipment</Button>
+            <Button x:Name="LoadMissionPage" Margin="5">Missions</Button>
+            <Button x:Name="LoadPermissionPage" Margin="5">Permissions</Button>
+            <Button x:Name="LoadRankPage" Margin="5">Ranks</Button>
+            <Button x:Name="LoadSpecializationPage" Margin="5">Specializations</Button>
+            <Button x:Name="LoadTeamPage" Margin="5">Teams</Button>
 
         </StackPanel>
 
+        <Button Grid.Column="0" x:Name="Open" Grid.Row="1" Margin="5" VerticalAlignment="Bottom">Create</Button>
+        
         <!-- Row 2 -->
-        <ContentControl Grid.Column="1" x:Name="ActiveItem" Margin="5"/>
+        <ContentControl Grid.Column="1"  Grid.RowSpan="2" x:Name="ActiveItem" Margin="5"/>
     </Grid>
 </Window>

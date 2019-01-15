@@ -22,14 +22,6 @@ namespace ArmyBase.ViewModels.Rank
             base.OnViewLoaded(view);
         }
 
-        public void LoadAddRankPage()
-        {
-            IWindowManager manager = new WindowManager();
-            AddRankViewModel add = new AddRankViewModel();
-            manager.ShowDialog(add, null, null);
-            Reload();
-        }
-
         public void LoadModifyRankPage(RankDTO rank)
         {
             IWindowManager manager = new WindowManager();

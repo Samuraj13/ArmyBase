@@ -22,14 +22,6 @@ namespace ArmyBase.ViewModels.Barrack
             base.OnViewLoaded(view);
         }
 
-        public void LoadAddBarrackPage()
-        {
-            IWindowManager manager = new WindowManager();
-            AddBarrackViewModel add = new AddBarrackViewModel();
-            manager.ShowDialog(add, null, null);
-            Reload();
-        }
-
         public void LoadModifyBarrackPage(BarrackDTO barrack)
         {
             IWindowManager manager = new WindowManager();

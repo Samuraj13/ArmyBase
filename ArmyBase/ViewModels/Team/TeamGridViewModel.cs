@@ -22,14 +22,6 @@ namespace ArmyBase.ViewModels.Team
             base.OnViewLoaded(view);
         }
 
-        public void LoadAddTeamPage()
-        {
-            IWindowManager manager = new WindowManager();
-            AddTeamViewModel add = new AddTeamViewModel();
-            manager.ShowDialog(add, null, null);
-            Reload();
-        }
-
         public void LoadModifyTeamPage(TeamDTO team)
         {
             IWindowManager manager = new WindowManager();
