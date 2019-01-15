@@ -1,7 +1,7 @@
-﻿using ArmyBase.DTO;
+﻿using ArmyBase.DesignPattern.Observer;
+using ArmyBase.DTO;
 using ArmyBase.Models;
 using Caliburn.Micro;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -143,6 +143,16 @@ namespace ArmyBase.Service
                 db.SaveChanges();
             }
         }
+        
+        public static void RemoveFromMission(TeamDTO Team)
+        {
+            using (ArmyBaseContext db = new ArmyBaseContext())
+            {
+                var toDelete = db.Teams.Where(x => x.Id == Team.Id).FirstOrDefault();
+                toDelete.MissionId = null;
 
+                db.SaveChanges();
+            }
+        }
     }
 }

@@ -1,13 +1,14 @@
 namespace ArmyBase.DTO
 {
+    using ArmyBase.DesignPattern.Observer;
     using ArmyBase.Models;
-    using System;
+    using ArmyBase.Service;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
     
-    public class TeamDTO
+    public class TeamDTO : IMyObserver
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -22,5 +23,11 @@ namespace ArmyBase.DTO
 
         public string TeamTypeName { get; set; }
         public string MissionName { get; set; }
+
+
+        public void ObserverUpdate()
+        {
+            TeamService.RemoveFromMission(this);
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using ArmyBase.DTO;
+﻿using ArmyBase.DesignPattern.Observer;
+using ArmyBase.DTO;
 using ArmyBase.Models;
 using Caliburn.Micro;
 using System;
@@ -25,8 +26,12 @@ namespace ArmyBase.Service
                                        MissionTypeId = x.MissionTypeId,
                                        StartTime = x.StartTime,
                                        EndTime = x.EndTime,
-                                       MissionTypeName = x.MissionType != null ? x.MissionType.Name : "",
+                                       MissionTypeName = x.MissionType != null ? x.MissionType.Name : ""
                                    }).ToList();
+                foreach(var item in result)
+                {
+                    item.Observers = GetAllObservers(item.Id);
+                }
                 return result;
             }
         }
@@ -55,18 +60,18 @@ namespace ArmyBase.Service
             }
         }
 
-        public static string Add(string name, string description, int? missionTypeId, DateTime startTime, DateTime? endTime)
+        public static string Add(MissionDTO newMissionDTO)
         {
 
             using (ArmyBaseContext db = new ArmyBaseContext())
             {
                 string error = null;
                 Mission newMission = new Mission();
-                newMission.Name = name;
-                newMission.Description = description;
-                newMission.MissionTypeId = missionTypeId;
-                newMission.StartTime = startTime;
-                newMission.EndTime = endTime;
+                newMission.Name = newMissionDTO.Name;
+                newMission.Description = newMissionDTO.Description;
+                newMission.MissionTypeId = newMissionDTO.MissionTypeId;
+                newMission.StartTime = newMissionDTO.StartTime;
+                newMission.EndTime = newMissionDTO.EndTime;
 
                 var context = new ValidationContext(newMission, null, null);
                 var result = new List<ValidationResult>();
@@ -129,5 +134,37 @@ namespace ArmyBase.Service
             }
         }
 
+        public static List<IMyObserver> GetAllObservers(int missionId)
+        {
+            using (ArmyBaseContext db = new ArmyBaseContext())
+            {
+                var observers = TeamService.GetAll().Where(x => x.MissionId == missionId).ToList<IMyObserver>();
+
+                return observers;
+            }
+
+        }
+
+        public static void SetObserversToMission(List<IMyObserver> teams, int missionId)
+        {
+            using (ArmyBaseContext db = new ArmyBaseContext())
+            {
+
+                var clearMission = db.Teams.Where(x => x.MissionId == missionId).ToList();
+                foreach (var teamsInMission in clearMission)
+                {
+                    teamsInMission.MissionId = null;
+                    db.SaveChanges();
+                }
+                foreach (TeamDTO team in teams)
+                {
+
+                    var toModify = db.Teams.Where(x => x.Id == team.Id).FirstOrDefault();
+
+                    toModify.MissionId = missionId;
+                    db.SaveChanges();
+                }
+            }
+        }
     }
 }

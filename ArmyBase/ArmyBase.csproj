@@ -82,6 +82,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DesignPattern\Command\Commands.cs" />
+    <Compile Include="DesignPattern\Observer\Observer.cs" />
+    <Compile Include="DesignPattern\Singleton\CreateButton.cs" />
     <Compile Include="DTO\BarrackDTO.cs" />
     <Compile Include="DTO\EmployeeDTO.cs" />
     <Compile Include="DTO\EquipmentDTO.cs" />
@@ -146,7 +149,6 @@
     <Compile Include="ViewModels\Rank\RankGridViewModel.cs" />
     <Compile Include="ViewModels\Specialization\AddSpecializationViewModel.cs" />
     <Compile Include="ViewModels\Specialization\SpecializationGridViewModel.cs" />
-    <Compile Include="ViewModels\CreateButton.cs" />
     <Compile Include="ViewModels\TeamType\AddTeamTypeViewModel.cs" />
     <Compile Include="ViewModels\TeamType\TeamTypeGridViewModel.cs" />
     <Compile Include="ViewModels\Team\AddTeamViewModel.cs" />
@@ -387,6 +389,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="DesignPattern\Builder\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

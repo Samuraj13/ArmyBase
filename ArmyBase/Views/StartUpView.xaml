@@ -15,7 +15,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Column="0" Grid.Row="0">
+        <StackPanel Grid.Column="0" Grid.Row="0" Margin="5">
             <Button x:Name="LoadBarrackPage" Margin="5">Barracks</Button>
             <Button x:Name="LoadEmployeePage" Margin="5">Employees</Button>
             <Button x:Name="LoadEquipmentPage" Margin="5">Equipment</Button>
@@ -27,7 +27,7 @@
 
         </StackPanel>
 
-        <Button Grid.Column="0" x:Name="Open" Grid.Row="1" Margin="5" VerticalAlignment="Bottom">Create</Button>
+        <Button Grid.Column="0" x:Name="Open" Grid.Row="1" Margin="10" VerticalAlignment="Bottom">Create</Button>
         
         <!-- Row 2 -->
         <ContentControl Grid.Column="1"  Grid.RowSpan="2" x:Name="ActiveItem" Margin="5"/>

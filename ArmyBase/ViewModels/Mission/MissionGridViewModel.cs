@@ -46,6 +46,7 @@ namespace ArmyBase.ViewModels.Mission
             bool? showDialogResult = manager.ShowDialog(modify, null, null);
             if (showDialogResult != null && showDialogResult == true)
             {
+                mission.InformObservers();
                 MissionService.Delete(mission);
             }
             Reload();

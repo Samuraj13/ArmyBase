@@ -1,4 +1,5 @@
-﻿using ArmyBase.DTO;
+﻿using ArmyBase.DesignPattern.Observer;
+using ArmyBase.DTO;
 using ArmyBase.Service;
 using Caliburn.Micro;
 using System;
@@ -14,6 +15,8 @@ namespace ArmyBase.ViewModels.Mission
         private bool IsEdit { get; set; }
 
         private MissionDTO toEdit { get; set; }
+
+        private MissionDTO newMission { get; set; }
 
         public BindableCollection<MissionTypeDTO> MissionTypes { get; set; }
 
@@ -45,6 +48,7 @@ namespace ArmyBase.ViewModels.Mission
             AvailableTeams = new BindableCollection<TeamDTO>(TeamService.GetAll().Where(x => x.MissionId == null).ToList());
             ActualTeams = new BindableCollection<TeamDTO>();
             StartTime = DateTime.Now;
+            newMission = new MissionDTO();
             NotifyOfPropertyChange(() => StartTime);
         }
 
@@ -85,11 +89,16 @@ namespace ArmyBase.ViewModels.Mission
         {
             if (!IsEdit)
             {
+                newMission.Name = Name;
+                newMission.Description = Description;
+                newMission.StartTime = StartTime;
+                newMission.EndTime = EndTime;
+                newMission.MissionTypeId = SelectedMissionType?.Id;
                 SelectedTeams = ActualTeams.ToList();
-                string x = MissionService.Add(Name, Description, SelectedMissionType?.Id, StartTime, EndTime);
+                string x = MissionService.Add(newMission);
                 if (x == null)
                 {
-                    TeamService.AddTeamsToMission(SelectedTeams, MissionService.GetAll().Last().Id);
+                    MissionService.SetObserversToMission(newMission.Observers, MissionService.GetAll().Last().Id);
                     TryClose();
                 }
                 else
@@ -102,11 +111,12 @@ namespace ArmyBase.ViewModels.Mission
                 toEdit.Description = Description;
                 toEdit.StartTime = StartTime;
                 toEdit.EndTime = EndTime;
+                toEdit.MissionTypeId = SelectedMissionType?.Id;
                 SelectedTeams = ActualTeams.ToList();
                 string x = MissionService.Edit(toEdit);
                 if (x == null)
                 {
-                    TeamService.AddTeamsToMission(SelectedTeams, toEdit.Id);
+                    MissionService.SetObserversToMission(toEdit.Observers, toEdit.Id);
                     TryClose();
                 }
                 else
@@ -121,6 +131,14 @@ namespace ArmyBase.ViewModels.Mission
 
         public void Click()
         {
+            if (!IsEdit)
+            {
+                newMission.AddObserver(AvailableTeams.Where(x => x.IsSelected).ToList<IMyObserver>());
+            }
+            else
+            {
+                toEdit.AddObserver(AvailableTeams.Where(x => x.IsSelected).ToList<IMyObserver>());
+            }
             ActualTeams.AddRange(AvailableTeams.Where(x => x.IsSelected).ToList());
             AvailableTeams.RemoveRange(ActualTeams);
             NotifyOfPropertyChange(() => AvailableTeams);
@@ -130,7 +148,20 @@ namespace ArmyBase.ViewModels.Mission
 
         public void ClickBack()
         {
-
+            if (!IsEdit)
+            {
+                foreach(var item in ActualTeams.Where(x => x.IsSelected).ToList<IMyObserver>())
+                {
+                    newMission.RemoveObserver(item);
+                }
+            }
+            else
+            {
+                foreach (var item in ActualTeams.Where(x => x.IsSelected).ToList<IMyObserver>())
+                {
+                    toEdit.RemoveObserver(item);
+                }
+            }
             AvailableTeams.AddRange(ActualTeams.Where(x => x.IsSelected).ToList());
             ActualTeams.RemoveRange(AvailableTeams);
             NotifyOfPropertyChange(() => AvailableTeams);

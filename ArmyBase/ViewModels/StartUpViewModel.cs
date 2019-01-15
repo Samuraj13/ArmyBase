@@ -1,4 +1,6 @@
-﻿using ArmyBase.Models;
+﻿using ArmyBase.DesignPattern.Command;
+using ArmyBase.DesignPattern.Singleton;
+using ArmyBase.Models;
 using ArmyBase.Models.Initializer;
 using ArmyBase.ViewModels.Barrack;
 using ArmyBase.ViewModels.Employee;
@@ -22,7 +24,7 @@ using System.Windows.Controls;
 
 namespace ArmyBase.ViewModels
 {
-    public interface ICommand
+    public interface IMyCommand
     {
         void Execute();
     }
@@ -40,9 +42,9 @@ namespace ArmyBase.ViewModels
         private EquipmentCommand equipmentCommand { get; set; }
         private EmployeeCommand employeeCommand { get; set; }
 
-        private ICommand mode;
+        private IMyCommand mode;
 
-        public void SetCreateMode(ICommand command)
+        public void SetCreateMode(IMyCommand command)
         {
             mode = command;
         }
